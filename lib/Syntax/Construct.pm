@@ -22,14 +22,12 @@ my %construct = (
                  '/a'              => v5.14,
                  'auto-deref'      => v5.14,
                  '^GLOBAL_PHASE'   => v5.14,
-                 'IO::File'        => v5.14,
-                 'given-return'    => v5.14,
 
                  'package-version' => v5.12,
                  '...'             => v5.12,
                  'each-array'      => v5.12,
-                 'each-keys'       => v5.12,
-                 'each-values'     => v5.12,
+                 'keys-array'      => v5.12,
+                 'values-array'    => v5.12,
                  'delete-local'    => v5.12,
                  'length-undef'    => v5.12,
 
@@ -43,6 +41,7 @@ my %construct = (
                  'readline()'      => v5.10,
                  'stack-file-test' => v5.10,
                  'recursive-sort'  => v5.10,
+                 '/p'              => v5.10,
                 );
 
 
