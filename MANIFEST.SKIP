@@ -1,2 +1,5 @@
 MANIFEST.SKIP
 .gitignore
+.git
+Syntax-Construct-*.*/
+Syntax-Construct-*.*.tar.gz
