@@ -14,8 +14,6 @@ my %construct = (
                  'our-sub'         => v5.18,
                  'state-sub'       => v5.18,
 
-                 '__SUB__'         => v5.16,
-
                  '?^'              => v5.14,
                  '/r'              => v5.14,
                  '/d'              => v5.14,
@@ -159,7 +157,7 @@ giving it an empty list is a no-op.
 
 =head2 v5.16
 
-=head3 __SUB__
+No constructs.
 
 =head2 v5.18
 
