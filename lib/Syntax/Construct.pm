@@ -116,6 +116,8 @@ giving it an empty list is a no-op.
 
 =head3 stack-file-test
 
+=head3 /p
+
 =head2 v5.12
 
 =head3 package-version
@@ -124,9 +126,9 @@ giving it an empty list is a no-op.
 
 =head3 each-array
 
-=head3 each-keys
+=head3 keys-array
 
-=head3 each-values
+=head3 values-array
 
 =head3 delete-local
 
@@ -149,10 +151,6 @@ giving it an empty list is a no-op.
 =head3 auto-deref
 
 =head3 ^GLOBAL_PHASE
-
-=head3 IO::File
-
-=head3 given-return
 
 =head2 v5.16
 
