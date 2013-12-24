@@ -4,8 +4,6 @@ use 5.006;
 use strict;
 use warnings;
 
-use Exporter;
-
 our $VERSION = '0.01';
 
 
@@ -62,7 +60,8 @@ sub import {
     }
     die 'Empty construct list at ', _position(), "\n" if $version eq v0;
     eval { require $version; 1 }
-        or die "Unsupported construct $_ at ", _position(), "\n";
+        or die "Unsupported construct $_ at ", _position(),
+               sprintf " (Perl %vd)\n", $version;
 }
 
 

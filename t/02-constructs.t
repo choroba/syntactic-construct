@@ -85,7 +85,6 @@ my $count = 0;
 for my $version (keys %tests) {
     my @triples = @{ $tests{$version} };
     if (eval { require ( 0 + $version) }) {
-        diag sprintf '%.3f', $version;
         for my $triple (@triples) {
             $count++;
             is(eval("use Syntax::Construct qw($triple->[0]);$triple->[1]"),
