@@ -1,5 +1,8 @@
 =head1 Syntax-Construct
 
+=for HTML
+<a href="https://travis-ci.org/choroba/syntactic-construct"><img src="https://api.travis-ci.org/choroba/syntactic-construct.png?branch=master"></a>
+
 This module provides a simple way of specifying syntactic constructs
 that are not implemented via the L<feature> pragma, but are still not
 compatible with older versions of Perl.
@@ -27,17 +30,21 @@ perldoc command.
 
 You can also look for information at:
 
-    RT, CPAN's request tracker (report bugs here)
-        http://rt.cpan.org/NoAuth/Bugs.html?Dist=Syntax-Construct
+=head3 RT, CPAN's request tracker (report bugs here)
 
-    AnnoCPAN, Annotated CPAN documentation
-        http://annocpan.org/dist/Syntax-Construct
+L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Syntax-Construct>
 
-    CPAN Ratings
-        http://cpanratings.perl.org/d/Syntax-Construct
+=head3 AnnoCPAN, Annotated CPAN documentation
 
-    Search CPAN
-        http://search.cpan.org/dist/Syntax-Construct/
+L<http://annocpan.org/dist/Syntax-Construct>
+
+=head3 CPAN Ratings
+
+L<http://cpanratings.perl.org/d/Syntax-Construct>
+
+=head3 Search CPAN
+
+L<http://search.cpan.org/dist/Syntax-Construct/>
 
 
 =head2 LICENSE AND COPYRIGHT
@@ -48,7 +55,7 @@ This program is free software; you can redistribute it and/or modify it
 under the terms of the the Artistic License (2.0). You may obtain a
 copy of the full license at:
 
-  http://www.perlfoundation.org/artistic_license_2_0
+L<http://www.perlfoundation.org/artistic_license_2_0>
 
 Any use, modification, and distribution of the Standard or Modified
 Versions is governed by this Artistic License. By using, modifying or
