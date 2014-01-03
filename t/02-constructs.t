@@ -93,6 +93,8 @@ for my $version (keys %tests) {
     }
 }
 
+ok(++$count, 'old perl with no constructs') unless $count;
+
 done_testing($count);
 __DATA__
 readline default
