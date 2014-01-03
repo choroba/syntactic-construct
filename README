@@ -6,7 +6,7 @@ compatible with older versions of Perl.
 
 Instead of searching through perldelta for the version that introduced defined-or operator, you can just use
 
-  use Syntactic::Construct qw( // );
+  use Syntax::Construct qw( // );
 
 
 INSTALLATION
