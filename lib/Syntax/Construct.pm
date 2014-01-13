@@ -28,6 +28,7 @@ my %construct = (
                  'values-array'    => v5.12,
                  'delete-local'    => v5.12,
                  'length-undef'    => v5.12,
+                 '\N'              => v5.12,
 
                  '//'              => v5.10,
                  '?PARNO'          => v5.10,
@@ -35,6 +36,7 @@ my %construct = (
                  'quant+'          => v5.10,
                  'regex-verbs'     => v5.10,
                  '\K'              => v5.10,
+                 '\R'              => v5.10,
                  '\gN'             => v5.10,
                  'readline()'      => v5.10,
                  'stack-file-test' => v5.10,
@@ -109,6 +111,8 @@ giving it an empty list is a no-op.
 
 =head3 \K
 
+=head3 \R
+
 =head3 \gN
 
 =head3 readline()
@@ -132,6 +136,8 @@ giving it an empty list is a no-op.
 =head3 delete-local
 
 =head3 length-undef
+
+=head3 \N
 
 =head2 v5.14
 

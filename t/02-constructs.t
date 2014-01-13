@@ -50,6 +50,8 @@ my %tests = (
           . ' die if exists $x{a}};$x{a}', 10],
         [ 'length-undef',
           'length undef', undef],
+        [ '\N',
+          '"\n" !~ /\N/', 1],
     ],
 
     5.010 => [
@@ -65,6 +67,8 @@ my %tests = (
           '', ],
         [ '\K',
           '(my $x = "abc") =~ s/a\Kb/B/; $x', 'aBc'],
+        [ '\R',
+          'grep $_ =~ /^\R$/, "\x0d", "\x0a", "\x0d\x0a"', 3],
         [ '\gN',
           '"aba" =~ /(a)b\g{1}/;', 1],
         [ 'readline()',
