@@ -53,16 +53,18 @@ sub _position {
 sub import {
     shift;
     my $version = v0;
+    my $constr;
     for (@_) {
         if (exists $construct{$_}) {
-            $version = $construct{$_} if $construct{$_} gt $version;
+            ($version, $constr) = ($construct{$_}, $_)
+                if $construct{$_} gt $version;
         } else {
             die "Unknown construct `$_' at ", _position(), "\n";
         }
     }
     die 'Empty construct list at ', _position(), "\n" if $version eq v0;
     eval { require $version; 1 }
-        or die "Unsupported construct $_ at ", _position(),
+        or die "Unsupported construct $constr at ", _position(),
                sprintf " (Perl %vd)\n", $version;
 }
 
