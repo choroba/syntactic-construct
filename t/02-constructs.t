@@ -5,7 +5,7 @@ use strict;
 use Test::More;
 
 my %tests = (
-    5.018 => [
+    '5.018' => [
         [ 'computed-labels',
           'my $x = "A"; B:while (1) { A:while (1) { last $x++ }}; 1', 1],
         [ 'our-sub',
@@ -14,7 +14,7 @@ my %tests = (
           '{state sub xx { 1 } } xx', undef],
     ],
 
-    5.014 => [
+    '5.014' => [
         [ '?^',
           '"Ab" =~ /(?i)a(?^)b/', 1],
         [ '/r',
@@ -33,7 +33,7 @@ my %tests = (
           '${^GLOBAL_PHASE}', 'RUN'],
     ],
 
-    5.012 => [
+    '5.012' => [
         [ 'package-version',
           'package Local::V 4.3; 1', 1],
         [ '...',
@@ -54,7 +54,7 @@ my %tests = (
           '"\n" !~ /\N/', 1],
     ],
 
-    5.010 => [
+    '5.010' => [
         [ '//',
           'undef // 1', 1],
         [ '?PARNO',
