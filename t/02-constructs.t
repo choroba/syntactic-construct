@@ -85,20 +85,24 @@ my %tests = (
     ],
 );
 
-my $count = 0;
 for my $version (keys %tests) {
+    my $vd = sprintf '%vd', eval "v$version";
     my @triples = @{ $tests{$version} };
-    if (eval { require ( 0 + $version) }) {
-        for my $triple (@triples) {
-            $count++;
-            is(eval("use Syntax::Construct qw($triple->[0]);$triple->[1]"),
-               $triple->[2], $triple->[0]);
+    my $can = eval { require ( 0 + $version) };
+    for my $triple (@triples) {
+        my $value = eval "use Syntax::Construct qw($triple->[0]);$triple->[1]";
+        if ($can) {
+            is($value, $triple->[2], $triple->[0]);
+        } else {
+            like($@,
+                 qr/^Unsupported construct \Q$triple->[0]\E at \(eval [0-9]+\) line 1 \(Perl $vd\)\n/,
+                 $triple->[0]);
         }
     }
 }
 
-ok(++$count, 'old perl with no constructs') unless $count;
-
+my $count = 0;
+$count += @{ $tests{$_} } for keys %tests;
 done_testing($count);
 __DATA__
 readline default
