@@ -181,7 +181,7 @@ Please report any bugs or feature requests to C<bug-syntax-construct at rt.cpan.
 the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Syntax-Construct>.  I will be notified, and then you'll
 automatically be notified of progress on your bug as I make changes.
 
-
+You can also use GitHub, see below.
 
 
 =head1 SUPPORT
@@ -194,6 +194,12 @@ You can find documentation for this module with the perldoc command.
 You can also look for information at:
 
 =over 4
+
+=item * GitHub Repository
+
+L<https://github.com/choroba/syntactic-construct>
+
+Feel free to report issues and submit pull requests.
 
 =item * RT: CPAN's request tracker (report bugs here)
 
@@ -219,7 +225,7 @@ L<http://search.cpan.org/dist/Syntax-Construct/>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2013 E. Choroba.
+Copyright 2013 - 2014 E. Choroba.
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of the the Artistic License (2.0). You may obtain a

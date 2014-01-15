@@ -1,5 +1,6 @@
 MANIFEST.SKIP
 .gitignore
 .git
+.travis.yml
 Syntax-Construct-*.*/
 Syntax-Construct-*.*.tar.gz
