@@ -86,8 +86,8 @@ the rest, there is B<Syntax::Construct>.
   use Syntax::Construct qw( // ... /r );
 
   my $x = shift // 'default';
-  my $y = /.*_feature/r;
-  if ($y =~ /special_feature/) {
+  my $y = $x =~ s/de(fault)/$1/r;
+  if ($y =~ /^fault/) {
       ...
   }
 
