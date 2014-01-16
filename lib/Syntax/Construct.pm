@@ -33,6 +33,7 @@ my %construct = (
                  '//'              => v5.10,
                  '?PARNO'          => v5.10,
                  '?<>'             => v5.10,
+                 '?|'              => v5.10,
                  'quant+'          => v5.10,
                  'regex-verbs'     => v5.10,
                  '\K'              => v5.10,
@@ -106,6 +107,8 @@ giving it an empty list is a no-op.
 =head3 ?PARNO
 
 =head3 ?<>
+
+=head3 ?|
 
 =head3 quant+
 
