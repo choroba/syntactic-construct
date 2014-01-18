@@ -1,5 +1,8 @@
 Revision history for Syntax-Construct
 
+0.03    2014/01/18T23:10:00 UTC
+        Removed %vd from sprintf, no v-strings. Completness test added.
+
 0.02    2014/01/17T00:20:00 UTC
         Fixed synopsis, more constructs.
 
