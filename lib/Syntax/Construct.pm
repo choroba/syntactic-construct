@@ -4,45 +4,45 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 my %construct = (
-                 'computed-labels' => v5.18,
-                 'our-sub'         => v5.18,
-                 'state-sub'       => v5.18,
+                 'computed-labels' => 5.018,
+                 'our-sub'         => 5.018,
+                 'state-sub'       => 5.018,
 
-                 '?^'              => v5.14,
-                 '/r'              => v5.14,
-                 '/d'              => v5.14,
-                 '/l'              => v5.14,
-                 '/u'              => v5.14,
-                 '/a'              => v5.14,
-                 'auto-deref'      => v5.14,
-                 '^GLOBAL_PHASE'   => v5.14,
+                 '?^'              => 5.014,
+                 '/r'              => 5.014,
+                 '/d'              => 5.014,
+                 '/l'              => 5.014,
+                 '/u'              => 5.014,
+                 '/a'              => 5.014,
+                 'auto-deref'      => 5.014,
+                 '^GLOBAL_PHASE'   => 5.014,
 
-                 'package-version' => v5.12,
-                 '...'             => v5.12,
-                 'each-array'      => v5.12,
-                 'keys-array'      => v5.12,
-                 'values-array'    => v5.12,
-                 'delete-local'    => v5.12,
-                 'length-undef'    => v5.12,
-                 '\N'              => v5.12,
+                 'package-version' => 5.012,
+                 '...'             => 5.012,
+                 'each-array'      => 5.012,
+                 'keys-array'      => 5.012,
+                 'values-array'    => 5.012,
+                 'delete-local'    => 5.012,
+                 'length-undef'    => 5.012,
+                 '\N'              => 5.012,
 
-                 '//'              => v5.10,
-                 '?PARNO'          => v5.10,
-                 '?<>'             => v5.10,
-                 '?|'              => v5.10,
-                 'quant+'          => v5.10,
-                 'regex-verbs'     => v5.10,
-                 '\K'              => v5.10,
-                 '\R'              => v5.10,
-                 '\gN'             => v5.10,
-                 'readline()'      => v5.10,
-                 'stack-file-test' => v5.10,
-                 'recursive-sort'  => v5.10,
-                 '/p'              => v5.10,
+                 '//'              => 5.010,
+                 '?PARNO'          => 5.010,
+                 '?<>'             => 5.010,
+                 '?|'              => 5.010,
+                 'quant+'          => 5.010,
+                 'regex-verbs'     => 5.010,
+                 '\K'              => 5.010,
+                 '\R'              => 5.010,
+                 '\gN'             => 5.010,
+                 'readline()'      => 5.010,
+                 'stack-file-test' => 5.010,
+                 'recursive-sort'  => 5.010,
+                 '/p'              => 5.010,
                 );
 
 
@@ -53,20 +53,20 @@ sub _position {
 
 sub import {
     shift;
-    my $version = v0;
+    my $version = 0;
     my $constr;
     for (@_) {
         if (exists $construct{$_}) {
             ($version, $constr) = ($construct{$_}, $_)
-                if $construct{$_} gt $version;
+                if $construct{$_} > $version;
         } else {
             die "Unknown construct `$_' at ", _position(), "\n";
         }
     }
-    die 'Empty construct list at ', _position(), "\n" if $version eq v0;
+    die 'Empty construct list at ', _position(), "\n" if $version == 0;
     eval { require $version; 1 }
         or die "Unsupported construct $constr at ", _position(),
-               sprintf " (Perl %vd)\n", $version;
+               sprintf " (Perl %.3f)\n", $version;
 }
 
 
@@ -98,7 +98,7 @@ giving it an empty list is a no-op.
 
 =head1 RECOGNISED CONSTRUCTS
 
-=head2 v5.10
+=head2 5.010
 
 =head3 recursive-sort
 
@@ -126,7 +126,7 @@ giving it an empty list is a no-op.
 
 =head3 /p
 
-=head2 v5.12
+=head2 5.012
 
 =head3 package-version
 
@@ -144,7 +144,7 @@ giving it an empty list is a no-op.
 
 =head3 \N
 
-=head2 v5.14
+=head2 5.014
 
 =head3 ?^
 
@@ -162,11 +162,11 @@ giving it an empty list is a no-op.
 
 =head3 ^GLOBAL_PHASE
 
-=head2 v5.16
+=head2 5.016
 
 No constructs.
 
-=head2 v5.18
+=head2 5.018
 
 =head3 computed-labels
 

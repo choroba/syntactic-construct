@@ -24,11 +24,10 @@ my %tests = (
         [ '/u',
           '"\xa0\xe0" =~ /\w/u', 1],
         [ 'auto-deref',
-          'my $x = [10, 20, 30]; join ":", keys $x', "0:1:2"],
-        [ 'auto-deref',
-          'my $x = {a=>10, b=>20}; join ":", sort keys $x', "a:b"],
-        [ 'auto-deref',
-          'my $x = [10, 20]; push $x, 30; "@$x"', "10 20 30"],
+          'my ($x, $y, $z) = ([10, 20, 30], {a=>10, b=>20}, [10, 20]);'
+          . 'push $z, 30;'
+          . '(join ":", keys $x) . (join ":", sort keys $y) . "@$z"',
+          '0:1:2a:b10 20 30' ],
         [ '^GLOBAL_PHASE',
           '${^GLOBAL_PHASE}', 'RUN'],
     ],
@@ -88,7 +87,7 @@ my %tests = (
 );
 
 for my $version (keys %tests) {
-    my $vd = sprintf '%vd', eval "v$version";
+    my $vf = sprintf '%.3f', $version;
     my @triples = @{ $tests{$version} };
     my $can = eval { require ( 0 + $version) };
     for my $triple (@triples) {
@@ -97,7 +96,7 @@ for my $version (keys %tests) {
             is($value, $triple->[2], $triple->[0]);
         } else {
             like($@,
-                 qr/^Unsupported construct \Q$triple->[0]\E at \(eval [0-9]+\) line 1 \(Perl $vd\)\n/,
+                 qr/^Unsupported construct \Q$triple->[0]\E at \(eval [0-9]+\) line 1 \(Perl $vf\)\n/,
                  $triple->[0]);
         }
     }
@@ -106,5 +105,14 @@ for my $version (keys %tests) {
 my $count = 0;
 $count += @{ $tests{$_} } for keys %tests;
 done_testing($count);
+
+
 __DATA__
 readline default
+
+=for completness
+    '5.014' => [
+        [ '/l',
+        [ '/d',
+
+=cut
