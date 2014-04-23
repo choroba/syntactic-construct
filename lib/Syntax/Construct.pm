@@ -4,7 +4,7 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 
 my %construct = (
@@ -76,7 +76,7 @@ Syntax::Construct - Identify which non-feature constructs are used in the code.
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =head1 SYNOPSIS
 
@@ -170,9 +170,15 @@ No constructs.
 
 =head3 computed-labels
 
+L<perl5180delta/Computed Labels>
+
 =head3 our-sub
 
+L<perl5180delta/Lexical Subroutines>
+
 =head3 state-sub
+
+L<perl5180delta/Lexical Subroutines>
 
 =head1 AUTHOR
 

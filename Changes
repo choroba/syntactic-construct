@@ -1,5 +1,8 @@
 Revision history for Syntax-Construct
 
+0.04    2014/04/23T21:30:20 UTC
+        Links to perldelta for 5.18.	
+
 0.03    2014/01/18T23:10:00 UTC
         Removed %vd from sprintf, no v-strings. Completness test added.
 
