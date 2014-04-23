@@ -134,7 +134,7 @@ L<perl5120delta/New package NAME VERSION syntax>
 
 =head3 ...
 
-L<perl5120delta/The ... operator> or L<perlop/Yada Yada Operator>
+L<perl5120delta/The ... operator> or L<perlsyn/The Ellipsis Statement>
 
 =head3 each-array
 
