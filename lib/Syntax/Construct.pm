@@ -174,11 +174,11 @@ L<perl5180delta/Computed Labels>
 
 =head3 our-sub
 
-L<perl5180delta/Lexical Subroutines>
+L<perl5180delta/Lexical subroutines>
 
 =head3 state-sub
 
-L<perl5180delta/Lexical Subroutines>
+L<perl5180delta/Lexical subroutines>
 
 =head1 AUTHOR
 
