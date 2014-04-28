@@ -116,12 +116,15 @@ L<perlre/"(?PARNO) (?-PARNO) (?+PARNO) (?R) (?0)">.
 =head3 ?<>
 
 "Named Capture Buffers" under L<perl5100delta/Regular expressions> or
-L<perlre/"(?<NAMEE<62>pattern)">.
+L<perlre/"(?E<60>NAMEE<62>pattern)">.
 
 
 =head3 ?|
 
 Not mentioned in any Delta. See L<perlre/"(?E<124>pattern)">.
+
+=for comment
+Invalid link generated in CPAN.
 
 =head3 quant+
 
