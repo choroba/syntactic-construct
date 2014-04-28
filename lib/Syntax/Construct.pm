@@ -4,7 +4,7 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 my %construct = (
@@ -76,7 +76,7 @@ Syntax::Construct - Identify which non-feature constructs are used in the code.
 
 =head1 VERSION
 
-Version 0.05
+Version 0.06
 
 =head1 SYNOPSIS
 
@@ -102,29 +102,66 @@ giving it an empty list is a no-op.
 
 =head3 recursive-sort
 
+L<perl5100delta/Recursive sort subs>.
+
 =head3 //
+
+L<perl5100delta/Defined or operator> or L<perlop/Logical Defined-Or>.
 
 =head3 ?PARNO
 
+"Recursive Patterns" under L<perl5100delta/Regular expressions> or
+L<perlre/"(?PARNO) (?-PARNO) (?+PARNO) (?R) (?0)">.
+
 =head3 ?<>
+
+"Named Capture Buffers" under L<perl5100delta/Regular expressions> or
+L<perlre/"(?<NAMEE<62>pattern)">.
+
 
 =head3 ?|
 
+Not mentioned in any Delta. See L<perlre/"(?E<124>pattern)">.
+
 =head3 quant+
+
+"Possessive Quantifiers" under L<perl5100delta/Regular expressions> or
+L<perlre/Quantifiers>.
 
 =head3 regex-verbs
 
+"Backtracking control verbs" under L<perl5100delta/Regular
+expressions> or L<perlre/Special Backtracking Control Verbs>.
+
+
 =head3 \K
+
+"\K escape" under L<perl5100delta/Regular expressions> or
+L<perlre/Look Around Assertions>.
 
 =head3 \R
 
+"Vertical and horizontal whitespace, and linebreak" under
+L<perl5100delta/Regular expressions> or L<perlrebackslash/Misc>.
+
 =head3 \gN
+
+"Relative backreferences" under L<perl5100delta/Regular expressions> or
+L<perlre/Capture groups>.
 
 =head3 readline()
 
+L<perl5100delta/Default argument for readline()>.
+
 =head3 stack-file-test
 
+L<perl5100delta/Stacked filetest operators>.
+
 =head3 /p
+
+C</p> (preserve) modifier and C<${^PREMATCH}>, C<${^MATCH}> and
+C<${^POSTMATCH}> variables. Not mentioned in any Delta. See
+L<perlvar/Variables related to regular expressions>.
 
 =head2 5.012
 
