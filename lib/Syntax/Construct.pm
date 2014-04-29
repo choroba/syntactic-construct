@@ -106,7 +106,7 @@ L<perl5100delta/Recursive sort subs>.
 
 =head3 //
 
-L<perl5100delta/Defined or operator> or L<perlop/Logical Defined-Or>.
+L<perl5100delta/Defined-or_operator> or L<perlop/Logical Defined-Or>.
 
 =head3 ?PARNO
 
@@ -199,25 +199,43 @@ changes>.
 
 =head3 \N
 
-L<perl5120delta/\N experimental regex escape>
+L<perl5120delta/\N experimental regex escape>.
 
 =head2 5.014
 
 =head3 ?^
 
+L<perl5140delta/Regular Expressions>.
+
 =head3 /r
+
+L<perl5140delta/Regular Expressions> and L<perlre/Modifiers>.
 
 =head3 /d
 
+L<perl5140delta/Regular Expressions> and L<perlre/Modifiers>.
+
 =head3 /l
+
+L<perl5140delta/Regular Expressions> and L<perlre/Modifiers>.
 
 =head3 /u
 
+L<perl5140delta/Regular Expressions> and L<perlre/Modifiers>.
+
 =head3 /a
+
+L<perl5140delta/Regular Expressions> and L<perlre/Modifiers>.
 
 =head3 auto-deref
 
+L<perl5140delta/Array and hash container functions accept
+references>. See also L<push>, L<pop>, L<shift>, L<unshift>,
+L<splice>, L<keys>, L<values>, and L<each>.
+
 =head3 ^GLOBAL_PHASE
+
+L<perl5140delta/New-global-variable-%24%7b%5eGLOBAL_PHASE%7d>.
 
 =head2 5.016
 
