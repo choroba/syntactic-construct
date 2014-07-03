@@ -30,6 +30,8 @@ my %tests = (
           '0:1:2a:b10 20 30' ],
         [ '^GLOBAL_PHASE',
           '${^GLOBAL_PHASE}', 'RUN'],
+        [ '\o',
+          '"\o{10}"', chr 8 ],
     ],
 
     '5.012' => [

@@ -20,6 +20,7 @@ my %construct = (
                  '/a'              => 5.014,
                  'auto-deref'      => 5.014,
                  '^GLOBAL_PHASE'   => 5.014,
+                 '\o'              => 5.014,
 
                  'package-version' => 5.012,
                  '...'             => 5.012,
@@ -237,6 +238,10 @@ L<perlfunc/keys>, L<perlfunc/values>, and L<perlfunc/each>.
 =head3 ^GLOBAL_PHASE
 
 L<perl5140delta/New-global-variable-%24%7b%5eGLOBAL_PHASE%7d>.
+
+=head3 \o
+
+L<perl5140delta/Regular-expressions>.
 
 =head2 5.016
 
