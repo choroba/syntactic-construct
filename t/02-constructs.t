@@ -9,7 +9,7 @@ my %tests = (
         [ ':prototype',
           'sub func : prototype($$) {} prototype \&func', '$$' ],
         [ 'drand48',
-          'use Config; $Config{randfunc}', 'Perl-drand48' ],
+          'use Config; $Config{randfunc}', 'Perl_drand48' ],
         [ '%slice',
           'my %h = my @l = qw(a A b B); join ":", %h{qw(a b)}, %l[0, 3]',
           'a:A:b:B:0:a:3:B'],
