@@ -7,12 +7,12 @@ use Test::More;
 my %tests = (
     '5.020' => [
         [ ':prototype',
-          'sub func : prototype ($$) {} prototype \&func', '$$' ],
+          'sub func : prototype($$) {} prototype \&func', '$$' ],
         [ 'drand48',
-          'use Config; $Config{randfunc}', 'drand48' ],
+          'use Config; $Config{randfunc}', 'Perl-drand48' ],
         [ '%slice',
-          'my %h = my @l = qw(a A b B); join ":", %h{qw(a b)}, @l{0, 3}',
-          'a:A:b:B:a:B'],
+          'my %h = my @l = qw(a A b B); join ":", %h{qw(a b)}, %l[0, 3]',
+          'a:A:b:B:0:a:3:B'],
         [ 'unicode6.3',
           'my $i; /\p{Age: 6.3}/ and $i++ for map chr, 0 .. 0xffff; $i', 5 ],
         # TODO: 'utf8-locale'.
