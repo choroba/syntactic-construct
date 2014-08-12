@@ -8,6 +8,12 @@ our $VERSION = '0.08';
 
 
 my %construct = (
+                 ':prototype'      => 5.020,
+                 'drand48'         => 5.020,
+                 '%slice'          => 5.020,
+                 'unicode6.3'      => 5.020,
+                 'utf8-locale'     => 5.020,
+
                  'computed-labels' => 5.018,
                  'our-sub'         => 5.018,
                  'state-sub'       => 5.018,
@@ -260,6 +266,29 @@ L<perl5180delta/Lexical subroutines>
 =head3 state-sub
 
 L<perl5180delta/Lexical subroutines>
+
+=head2 5.020
+
+=head3 :prototype
+
+L<perldelta/subs-now-take-a-prototype-attribute>
+
+=head3 drand48
+
+L<perldelta/rand-now-uses-a-consistent-random-number-generator>
+
+=head3 %slice
+
+L<perldelta/New-slice-syntax>
+
+=head3 unicode6.3
+
+L<perldelta/Unicode-6.3-now-supported>
+
+=head3 utf8-locale
+
+L<perldelta/use-locale-now-works-on-UTF-8-locales>
+
 
 =head1 AUTHOR
 
