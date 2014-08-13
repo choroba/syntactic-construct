@@ -98,6 +98,12 @@ the rest, there is B<Syntax::Construct>.
       ...
   }
 
+=head1 DESCRIPTION
+
+This module provides a simple way of specifying syntactic constructs
+that are not implemented via the L<feature> pragma, but are still not
+compatible with older versions of Perl.
+
 =head1 EXPORT
 
 Nothing. Using B<Syntax::Construct> with no parameters is an error,
