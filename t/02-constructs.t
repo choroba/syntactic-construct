@@ -15,6 +15,8 @@ my %tests = (
           'a:A:b:B:0:a:3:B'],
         [ 'unicode6.3',
           'my $i; /\p{Age: 6.3}/ and $i++ for map chr, 0 .. 0xffff; $i', 5 ],
+        [ '\p{Unicode}',
+          'scalar grep $_ =~ /\p{Unicode}/, "a", "\N{U+0FFFFF}"', 1 ],
         # TODO: 'utf8-locale'.
     ],
 

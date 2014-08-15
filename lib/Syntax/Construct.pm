@@ -12,6 +12,7 @@ my %construct = (
                  'drand48'         => 5.020,
                  '%slice'          => 5.020,
                  'unicode6.3'      => 5.020,
+                 '\p{Unicode}'     => 5.020,
                  'utf8-locale'     => 5.020,
 
                  'computed-labels' => 5.018,
@@ -119,7 +120,7 @@ L<perl5100delta/Recursive sort subs>.
 
 =head3 //
 
-L<perl5100delta/Defined-or_operator> or L<perlop/Logical Defined-Or>.
+L<perl5100delta/Defined-or operator> or L<perlop/Logical Defined-Or>.
 
 =head3 ?PARNO
 
@@ -134,10 +135,7 @@ L<perlre/"(?E<60>NAMEE<62>pattern)">.
 
 =head3 ?|
 
-Not mentioned in any Delta. See L<perlre/"(?E<124>pattern)">.
-
-=for comment
-Invalid link generated in CPAN.
+Not mentioned in any Delta. See B<(?|pattern)> in L<perlre/Extended patterns>.
 
 =head3 quant+
 
@@ -153,7 +151,7 @@ expressions> or L<perlre/Special Backtracking Control Verbs>.
 =head3 \K
 
 "\K escape" under L<perl5100delta/Regular expressions> or
-L<perlre/Look Around Assertions>.
+L<perlre/Look-Around Assertions>.
 
 =head3 \R
 
@@ -243,13 +241,13 @@ L<perl5140delta/Regular Expressions> and L<perlre/Modifiers>.
 =head3 auto-deref
 
 L<perl5140delta/Array and hash container functions accept
-references>. See also L<perlfunc/push>, L<perlfunc/pop>,
-L<perlfunc/shift>, L<perlfunc/unshift>, L<perlfunc/splice>,
-L<perlfunc/keys>, L<perlfunc/values>, and L<perlfunc/each>.
+references>. See also C<push>, C<pop>, C<shift>, C<unshift>,
+C<splice>, C<keys>, C<values>, and C<each> in L<perlfunc>.
 
 =head3 ^GLOBAL_PHASE
 
-L<perl5140delta/New-global-variable-%24%7b%5eGLOBAL_PHASE%7d>.
+See B<New global variable ${^GLOBAL_PHASE}> under
+L<perl5140delta/Other Enhancements>.
 
 =head3 \o
 
@@ -277,23 +275,28 @@ L<perl5180delta/Lexical subroutines>
 
 =head3 :prototype
 
-L<perldelta/subs-now-take-a-prototype-attribute>
+L<perldelta/subs now take a prototype attribute>
 
 =head3 drand48
 
-L<perldelta/rand-now-uses-a-consistent-random-number-generator>
+L<perldelta/rand now uses a consistent random number generator>
 
 =head3 %slice
 
-L<perldelta/New-slice-syntax>
+L<perldelta/New slice syntax>
 
 =head3 unicode6.3
 
-L<perldelta/Unicode-6.3-now-supported>
+L<perldelta/Unicode 6.3 now supported>
+
+=head3 \p{Unicode}
+
+See B<New \p{Unicode} regular expression pattern property> in
+L<perldelta/Core Enhancements>.
 
 =head3 utf8-locale
 
-L<perldelta/use-locale-now-works-on-UTF-8-locales>
+L<perldelta/use locale now works on UTF-8 locales>
 
 
 =head1 AUTHOR
@@ -380,7 +383,7 @@ direct or contributory patent infringement, then this Artistic License
 to you shall terminate on the date that such litigation is filed.
 
 Disclaimer of Warranty: THE PACKAGE IS PROVIDED BY THE COPYRIGHT HOLDER
-AND CONTRIBUTORS "AS IS' AND WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES.
+AND CONTRIBUTORS "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES.
 THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
 PURPOSE, OR NON-INFRINGEMENT ARE DISCLAIMED TO THE EXTENT PERMITTED BY
 YOUR LOCAL LAW. UNLESS REQUIRED BY LAW, NO COPYRIGHT HOLDER OR
