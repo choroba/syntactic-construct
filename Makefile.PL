@@ -11,6 +11,9 @@ WriteMakefile(
     LICENSE          => 'Artistic_2_0',
     PL_FILES         => {},
     MIN_PERL_VERSION => 5.006,
+    META_MERGE       => { resources
+                          => { repository => 'https://github.com/choroba/syntactic-construct' },
+                        },
     CONFIGURE_REQUIRES => {
         'ExtUtils::MakeMaker' => 0,
     },

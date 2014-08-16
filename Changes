@@ -1,5 +1,9 @@
 Revision history for Syntax-Construct
 
+0.10    2014-08-16
+
+        - Link to github repo.
+
 0.09    2014-08-16
 
         - Perl 5.20 supported.
