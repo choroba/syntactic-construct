@@ -1,8 +1,12 @@
 Revision history for Syntax-Construct
 
-0.10    2014-08-25
+0.11    2014-08-25
 
         - No PAX headers in the tar file.
+
+0.10    2014-08-16
+
+        - Link to github repo.
 
 0.09    2014-08-16
 
