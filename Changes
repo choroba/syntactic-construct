@@ -1,5 +1,9 @@
 Revision history for Syntax-Construct
 
+0.12    2014-08-25
+
+        - license name fixed
+
 0.11    2014-08-25
 
         - No PAX headers in the tar file.
