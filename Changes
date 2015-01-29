@@ -1,5 +1,9 @@
 Revision history for Syntax-Construct
 
+0.13    2014-09-16
+
+        - perldelta moved to perl5200delta
+
 0.12    2014-08-25
 
         - license name fixed

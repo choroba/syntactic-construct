@@ -4,7 +4,7 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '0.12';
+our $VERSION = '0.13';
 
 
 my %construct = (
@@ -85,7 +85,7 @@ Syntax::Construct - Identify which non-feature constructs are used in the code.
 
 =head1 VERSION
 
-Version 0.12
+Version 0.13
 
 =head1 SYNOPSIS
 
@@ -281,28 +281,28 @@ L<perl5180delta/Lexical subroutines>
 
 =head3 :prototype
 
-L<perldelta/subs now take a prototype attribute>
+L<perl5200delta/subs now take a prototype attribute>
 
 =head3 drand48
 
-L<perldelta/rand now uses a consistent random number generator>
+L<perl5200delta/rand now uses a consistent random number generator>
 
 =head3 %slice
 
-L<perldelta/New slice syntax>
+L<perl5200delta/New slice syntax>
 
 =head3 unicode6.3
 
-L<perldelta/Unicode 6.3 now supported>
+L<perl5200delta/Unicode 6.3 now supported>
 
 =head3 \p{Unicode}
 
 See B<New \p{Unicode} regular expression pattern property> in
-L<perldelta/Core Enhancements>.
+L<perl5200delta/Core Enhancements>.
 
 =head3 utf8-locale
 
-L<perldelta/use locale now works on UTF-8 locales>
+L<perl5200delta/use locale now works on UTF-8 locales>
 
 
 =head1 AUTHOR
