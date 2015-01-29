@@ -37,6 +37,7 @@ my %construct = (
                  'delete-local'    => 5.012,
                  'length-undef'    => 5.012,
                  '\N'              => 5.012,
+                 'while-readdir'   => 5.012,
 
                  '//'              => 5.010,
                  '?PARNO'          => 5.010,
@@ -211,6 +212,11 @@ changes>.
 =head3 \N
 
 L<perl5120delta/\N experimental regex escape>.
+
+=head3 while-readdir
+
+C<readdir> in a while-loop condition populates C<$_>. Not mentioned in
+any delta, but see L<perlfunc/readdir>.
 
 =head2 5.014
 

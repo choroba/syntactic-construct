@@ -19,6 +19,8 @@ WriteMakefile(
     },
     BUILD_REQUIRES => {
         'Test::More' => 0,
+        'File::Spec' => 0,
+        'FindBin'    => 0,
     },
     PREREQ_PM => {
         #'ABC'              => 1.6,

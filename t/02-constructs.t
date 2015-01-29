@@ -69,6 +69,15 @@ my %tests = (
           'length undef', undef],
         [ '\N',
           '"\n" !~ /\N/', 1],
+        [ 'while-readdir',
+          join(' ',
+               'use FindBin; use File::Spec;',
+               'opendir my $DIR, $FindBin::Bin or die $!;',
+               'my $c = 0;',
+               '$_ eq ("File::Spec"->splitpath($0))[-1]',
+               'and ++$c while readdir $DIR;',
+               '$c'),
+          1 ],
     ],
 
     '5.010' => [
