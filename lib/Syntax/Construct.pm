@@ -216,7 +216,7 @@ L<perl5120delta/\N experimental regex escape>.
 =head3 while-readdir
 
 C<readdir> in a while-loop condition populates C<$_>. Not mentioned in
-any delta, but see L<perlfunc/readdir>.
+any delta, but see C<readdir> in L<perlfunc>.
 
 =head2 5.014
 
