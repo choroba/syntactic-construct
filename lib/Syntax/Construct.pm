@@ -28,6 +28,7 @@ my %construct = (
                  'auto-deref'      => 5.014,
                  '^GLOBAL_PHASE'   => 5.014,
                  '\o'              => 5.014,
+                 'package-block'   => 5.014,
 
                  'package-version' => 5.012,
                  '...'             => 5.012,
@@ -258,6 +259,10 @@ L<perl5140delta/Other Enhancements>.
 =head3 \o
 
 L<perl5140delta/Regular-expressions>.
+
+=head3 package-block
+
+See B<package block syntax> under L<perl5140delta/Syntactical Enhancements>.
 
 =head2 5.016
 

@@ -48,6 +48,9 @@ my %tests = (
           '${^GLOBAL_PHASE}', 'RUN'],
         [ '\o',
           '"\o{10}"', chr 8 ],
+        [ 'package-block',
+          'package My::Number { sub eleven { 11 } } My::Number::eleven()',
+          11 ],
     ],
 
     '5.012' => [
