@@ -4,7 +4,7 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '0.14';
+our $VERSION = '0.15';
 
 
 my %construct = (
@@ -86,7 +86,7 @@ Syntax::Construct - Identify which non-feature constructs are used in the code.
 
 =head1 VERSION
 
-Version 0.14
+Version 0.15
 
 =head1 SYNOPSIS
 
