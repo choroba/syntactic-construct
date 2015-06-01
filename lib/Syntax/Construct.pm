@@ -16,8 +16,6 @@ my %construct = (
                  'utf8-locale'     => 5.020,
 
                  'computed-labels' => 5.018,
-                 'our-sub'         => 5.018,
-                 'state-sub'       => 5.018,
 
                  '?^'              => 5.014,
                  '/r'              => 5.014,
@@ -273,14 +271,6 @@ No non-feature constructs were introduced in this version of Perl.
 =head3 computed-labels
 
 L<perl5180delta/Computed Labels>
-
-=head3 our-sub
-
-L<perl5180delta/Lexical subroutines>
-
-=head3 state-sub
-
-L<perl5180delta/Lexical subroutines>
 
 =head2 5.020
 

@@ -24,10 +24,6 @@ my %tests = (
     '5.018' => [
         [ 'computed-labels',
           'my $x = "A"; B:while (1) { A:while (1) { last $x++ }}; 1', 1],
-        [ 'our-sub',
-          '{our sub xx { 1 } } xx', undef],
-        [ 'state-sub',
-          '{state sub xx { 1 } } xx', undef],
     ],
 
     '5.014' => [
