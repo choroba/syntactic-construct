@@ -4,10 +4,22 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '0.15';
+our $VERSION = '0.16';
 
 
 my %construct = (
+                 '<<>>'            => 5.022,
+                 '\\b{}'           => 5.022,
+                 '/n'              => 5.022,
+                 'unicode7.0'      => 5.022,
+                 ':const'          => 5.022,
+                 'fileno-dir'      => 5.022,
+                 '()x='            => 5.022,
+                 'hexfloat'        => 5.022,
+                 'chr-inf'         => 5.022,
+                 'empty-slice'     => 5.022,
+                 '/x-unicode'      => 5.022,
+
                  ':prototype'      => 5.020,
                  'drand48'         => 5.020,
                  '%slice'          => 5.020,
@@ -84,7 +96,7 @@ Syntax::Construct - Identify which non-feature constructs are used in the code.
 
 =head1 VERSION
 
-Version 0.15
+Version 0.16
 
 =head1 SYNOPSIS
 
@@ -298,6 +310,52 @@ L<perl5200delta/Core Enhancements>.
 =head3 utf8-locale
 
 L<perl5200delta/use locale now works on UTF-8 locales>
+
+=head2 5.022
+
+=head3 <<>>
+
+L<perldelta/New double diamond operator>
+
+=head3 \\b{}
+
+L<perldelta/New b boundaries in regular expressions>
+
+=head3 /n
+
+L<perldelta/Non Capturing Regular Expression Flag>
+
+=head3 unicode7.0
+
+L<perldelta/Unicode 7.0 with correction is now supported>
+
+=head3 :const
+
+L<perldelta/New :const subroutine attribute>
+
+=head3 fileno-dir
+
+L<perldelta/fileno now works on directory handles>
+
+=head3 ()x=
+
+L<perldelta/Assignment to list repetition>
+
+=head3 hexfloat
+
+L<perldelta/Floating point parsing has been improved>
+
+=head3 chr-inf
+
+L<perldelta/Packing infinity or not a number into a character is now fatal>
+
+=head3 empty-slice
+
+L<perldelta/List slices returning empty lists>
+
+=head3 /x-unicode
+
+L<perldelta/qr foo x now ignores all Unicode pattern white space>
 
 
 =head1 AUTHOR

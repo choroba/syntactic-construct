@@ -5,6 +5,34 @@ use strict;
 use Test::More;
 
 my %tests = (
+    '5.022' => [
+        [ '<<>>',
+          'local @ARGV = $0; chomp(my $line = <<>>); $line', '#!/usr/bin/perl' ],
+        [ '\\b{}',
+          q("O'Connor" !~ /O\b{wb}C/), 1 ],
+        [ '/n',
+          '"abc" =~ /(.)/n; $1', undef ],
+        [ 'unicode7.0',
+          '"\N{U+11600}" =~ /\p{Modi}/', 1],
+        [ ':const',
+          'my $c = sub () :const { int rand 10 };'
+              . 'join(",", map $c->(), 1 .. 10) =~ /^([0-9])(?:,\1){9}$/',
+          1 ],
+        [ 'fileno-dir',
+          'opendir my $D, "."; !! fileno $D', 1 ],
+        [ '()x=',
+          '((undef) x 2, my $x) = qw(a b c); $x', 'c' ],
+        [ 'hexfloat',
+          '0xFFp-1', 127.5 ],
+        [ 'chr-inf',
+          'eval { chr "Inf" } or substr($@, 0, 14)', 'Cannot chr Inf' ],
+        [ 'empty-slice',
+          'scalar grep 1, (1)[1,2,3]', 3],
+        [ '/x-unicode',
+          'my $s = " \N{U+0085}\N{U+200E}\N{U+200F}\N{U+2028}\N{U+2029}"; "ab" =~ /a${s}b/x', 1 ]
+    ],
+
+
     '5.020' => [
         [ ':prototype',
           'sub func : prototype($$) {} prototype \&func', '$$' ],
