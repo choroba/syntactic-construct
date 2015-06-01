@@ -99,7 +99,7 @@ my %tests = (
         [ '\gN',
           '"aba" =~ /(a)b\g{1}/;', 1],
         [ 'readline()',
-          '*ARGV=*DATA; chomp(my $x = readline()); $x', 'readline default'],
+          'local *ARGV = *DATA{IO}; chomp(my $x = readline()); $x', 'readline default'],
         [ 'stack-file-test',
           '-e -f $^X', 1],
         [ 'recursive-sort',
@@ -112,13 +112,17 @@ my %tests = (
     ],
 );
 
+my $count = 0;
+
 for my $version (keys %tests) {
     my $vf = sprintf '%.3f', $version;
     my @triples = @{ $tests{$version} };
     my $can = eval { require ( 0 + $version) };
+    $count += $can ? 2 * @triples : @triples;
     for my $triple (@triples) {
         my $value = eval "use Syntax::Construct qw($triple->[0]);$triple->[1]";
         if ($can) {
+            is($@, q(), "no error $triple->[0]");
             is($value, $triple->[2], $triple->[0]);
         } else {
             like($@,
@@ -128,8 +132,6 @@ for my $version (keys %tests) {
     }
 }
 
-my $count = 0;
-$count += @{ $tests{$_} } for keys %tests;
 done_testing($count);
 
 
