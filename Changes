@@ -1,5 +1,11 @@
 Revision history for Syntax-Construct
 
+0.16    2015-06-02
+
+        - Perl 5.22 added.
+        - Lexical subs removed (they're a feature).
+        - Better test counting.
+
 0.15    2015-04-29
 
         - package-block added.
