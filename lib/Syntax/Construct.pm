@@ -137,13 +137,14 @@ Three groups of people can benefit from the module:
 
 =item 1.
 
-You win as the programmer, as you have all the constructs in one place
-(i.e. L<Syntax::Construct>'s documentation) and you don't waste your time
-searching through perldeltas and other places.
+The authors of the module using L<Syntax::Construct> win, as they have
+all the constructs in one place (i.e. L<Syntax::Construct>'s
+documentation) and they don't waste their time searching through
+perldeltas and other places.
 
 =item 2.
 
-Users of your modules win as they get meaningful error messages
+Users of their modules win as they get meaningful error messages
 telling them what Perl version they need to upgrade to.
 
 =item 3.
