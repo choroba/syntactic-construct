@@ -8,7 +8,7 @@ my %tests = (
     '5.022' => [
         [ '<<>>',
           'local @ARGV = $0; chomp(my $line = <<>>); $line', '#!/usr/bin/perl' ],
-        [ '\\b{}',
+        [ '\b{}',
           q("O'Connor" !~ /O\b{wb}C/), 1 ],
         [ '/n',
           '"abc" =~ /(.)/n; $1', undef ],
@@ -154,7 +154,7 @@ for my $version (keys %tests) {
             is($value, $triple->[2], $triple->[0]);
         } else {
             like($@,
-                 qr/^Unsupported construct \Q$triple->[0]\E at \(eval [0-9]+\) line 1 \(Perl $vf\)\n/,
+                 qr/^Unsupported construct \Q$triple->[0]\E at \(eval [0-9]+\) line 1 \(Perl $vf needed\)\n/,
                  $triple->[0]);
         }
     }

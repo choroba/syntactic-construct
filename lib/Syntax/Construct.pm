@@ -9,7 +9,7 @@ our $VERSION = '0.16';
 
 my %construct = (
                  '<<>>'            => 5.022,
-                 '\\b{}'           => 5.022,
+                 '\b{}'            => 5.022,
                  '/n'              => 5.022,
                  'unicode7.0'      => 5.022,
                  ':const'          => 5.022,
@@ -389,7 +389,7 @@ L<https://github.com/choroba/syntactic-construct>
 
 Feel free to report issues and submit pull requests.
 
-=head3 MetaCPAN, Open Source Search Engine for CPAN
+=item * MetaCPAN, Open Source Search Engine for CPAN
 
 L<https://metacpan.org/pod/Syntax::Construct>
 
