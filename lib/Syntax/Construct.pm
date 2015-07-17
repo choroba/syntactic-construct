@@ -121,6 +121,39 @@ It's the programmer's responsibility to track the constructs and list
 them (but see L<Perl::MinimumVersion> on how to extract the
 information from existing code).
 
+Using C<use Syntax::Construct qw( // );> doesn't really change
+anything if you're running Perl 5.10+, but it gives much better error
+messages in older versions:
+
+  Unsupported construct //
+
+instead of
+
+  Search pattern not terminated
+
+Three groups of people can benefit from the module:
+
+=over 4
+
+=item 1.
+
+You win as the programmer, as you have all the constructs in one place
+(i.e. L<Syntax::Construct>'s documentation) and you don't waste your time
+searching through perldeltas and other places.
+
+=item 2.
+
+Users of your modules win as they get meaningful error messages
+telling them what Perl version they need to upgrade to.
+
+=item 3.
+
+The programmer they hired to workaround the problem wins as they know
+what constructs to replace in the code to make it run in the ancient
+version.
+
+=back
+
 
 =head1 EXPORT
 
