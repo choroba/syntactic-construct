@@ -86,7 +86,7 @@ sub import {
     die 'Empty construct list at ', _position(), "\n" if $version == 0;
     eval { require $version; 1 }
         or die "Unsupported construct $constr at ", _position(),
-               sprintf " (Perl %.3f)\n", $version;
+               sprintf " (Perl %.3f needed)\n", $version;
 }
 
 
@@ -116,6 +116,11 @@ the rest, there is B<Syntax::Construct>.
 This module provides a simple way of specifying syntactic constructs
 that are not implemented via the L<feature> pragma, but are still not
 compatible with older versions of Perl.
+
+It's the programmer's responsibility to track the constructs and list
+them (but see L<Perl::MinimumVersion> on how to extract the
+information from existing code).
+
 
 =head1 EXPORT
 
@@ -317,7 +322,7 @@ L<perl5200delta/use locale now works on UTF-8 locales>
 
 L<perldelta/New double diamond operator>
 
-=head3 \\b{}
+=head3 \b{}
 
 L<perldelta/New b boundaries in regular expressions>
 
@@ -364,11 +369,8 @@ E. Choroba, C<< <choroba at cpan.org> >>
 
 =head1 BUGS
 
-Please report any bugs or feature requests to C<bug-syntax-construct at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Syntax-Construct>.  I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.
-
-You can also use GitHub, see below.
+Please report any bugs or feature requests to the GitHub repository,
+see below.
 
 
 =head1 SUPPORT
@@ -376,7 +378,6 @@ You can also use GitHub, see below.
 You can find documentation for this module with the perldoc command.
 
     perldoc Syntax::Construct
-
 
 You can also look for information at:
 
@@ -388,9 +389,9 @@ L<https://github.com/choroba/syntactic-construct>
 
 Feel free to report issues and submit pull requests.
 
-=item * RT: CPAN's request tracker (report bugs here)
+=head3 MetaCPAN, Open Source Search Engine for CPAN
 
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Syntax-Construct>
+L<https://metacpan.org/pod/Syntax::Construct>
 
 =item * AnnoCPAN: Annotated CPAN documentation
 
@@ -406,8 +407,9 @@ L<http://search.cpan.org/dist/Syntax-Construct/>
 
 =back
 
+=head1 SEE ALSO
 
-=head1 ACKNOWLEDGEMENTS
+L<Perl::MinimumVersion>
 
 
 =head1 LICENSE AND COPYRIGHT

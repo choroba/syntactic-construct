@@ -8,14 +8,17 @@ This module provides a simple way of specifying syntactic constructs
 that are not implemented via the L<feature> pragma, but are still not
 compatible with older versions of Perl.
 
-Instead of searching through L<perldelta> for the version that introduced defined-or operator, you can just use
+Instead of searching through L<perldelta> for the version that
+introduced defined-or operator, you can just use
 
   use Syntax::Construct qw( // );
 
 
 =head2 INSTALLATION
 
-To install this module, run the following commands:
+Use your favourite CPAN client to install the module.
+
+To install this module manually, run the following commands:
 
 	perl Makefile.PL
 	make
@@ -31,9 +34,9 @@ perldoc command.
 
 You can also look for information at:
 
-=head3 RT, CPAN's request tracker (report bugs here)
+=head3 MetaCPAN, Open Source Search Engine for CPAN
 
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Syntax-Construct>
+L<https://metacpan.org/pod/Syntax::Construct>
 
 =head3 AnnoCPAN, Annotated CPAN documentation
 
