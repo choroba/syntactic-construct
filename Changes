@@ -1,7 +1,8 @@
 Revision history for Syntax-Construct
 
-0.17    
+0.17    2015-08-28
 
+        - Support for deprecated constructs.
         - Documentation improved.
         - Minor fixes (\b{}).
 

@@ -3,6 +3,8 @@ use warnings;
 use strict;
 
 use Test::More;
+use Syntax::Construct ();
+
 
 my %tests = (
     '5.022' => [
@@ -148,16 +150,22 @@ for my $version (keys %tests) {
     my $can = eval { require ( 0 + $version) };
     $count += $can ? 2 * @triples : @triples;
     for my $triple (@triples) {
+        my $deprecated = Syntax::Construct::deprecated($triple->[0]);
         my $value = eval "use Syntax::Construct qw($triple->[0]);$triple->[1]";
         if ($can) {
             if ($@) {
-                my $v = Syntax::Construct::deprecated($triple->[0]);
-                ok($v, 'deprecated in version');
-                like($@, qr/\Q$triple->[0] deprecated in $v/);
+                ok($deprecated, 'deprecated in version');
+                like($@, qr/\Q$triple->[0] deprecated in $deprecated/);
 
             } else {
                 is($@, q(), "no error $triple->[0]");
                 is($value, $triple->[2], $triple->[0]);
+                if ($deprecated) {
+                    cmp_ok($deprecated, '>', $],
+                           $triple->[0]
+                               . ' not deprecated in the current version');
+                    ++$count;
+                }
             }
 
         } else {

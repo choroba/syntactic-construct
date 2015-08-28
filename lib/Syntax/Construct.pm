@@ -4,7 +4,7 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '0.16';
+our $VERSION = '0.17';
 
 my %introduces = ( 5.022 => [qw[
                                  <<>> \b{} /n unicode7.0 :const
@@ -36,10 +36,10 @@ my %introduces = ( 5.022 => [qw[
 
 my %deprecated = ( 'auto-deref' => 5.024 );
 
-my %introduced = map { my $version = $_;
-                       map { $_ => $version }
-                           @{ $introduces{$version} }
-                     } keys %introduces;
+my %introduced = map {
+    my $version = $_;
+    map { $_ => $version } @{ $introduces{$version} }
+} keys %introduces;
 
 
 sub deprecated {
@@ -98,7 +98,7 @@ Syntax::Construct - Identify which non-feature constructs are used in the code.
 
 =head1 VERSION
 
-Version 0.16
+Version 0.17
 
 =head1 SYNOPSIS
 
@@ -114,7 +114,8 @@ the rest, there is B<Syntax::Construct>.
   }
 
 There are two subroutines (not exported) which you can use to query
-the lists of constructs programmatically:
+the lists of constructs programmatically: C<introduced> and
+C<deprecated> (see below).
 
   my @constructs = Syntax::Construct::introduced();
   say "$_ was introduced in ",
@@ -420,7 +421,6 @@ L<perldelta/List slices returning empty lists>
 
 L<perldelta/qr foo x now ignores all Unicode pattern white space>
 
-
 =head1 AUTHOR
 
 E. Choroba, C<< <choroba at cpan.org> >>
@@ -430,6 +430,12 @@ E. Choroba, C<< <choroba at cpan.org> >>
 Please report any bugs or feature requests to the GitHub repository,
 see below.
 
+=head2 Unstable Perl versions
+
+In development versions of Perl, the deprecation is tested against the
+coming stable version -- e.g., 5.23 forbids all the deprecated
+constructs of 5.24. The behaviour of the module in such circumstances
+might still be, um, unstable.
 
 =head1 SUPPORT
 
