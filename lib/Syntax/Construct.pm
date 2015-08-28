@@ -41,7 +41,18 @@ my %introduced = map { my $version = $_;
                            @{ $introduces{$version} }
                      } keys %introduces;
 
-sub deprecated { return $deprecated{+shift} }
+
+sub deprecated {
+    my $construct = shift;
+    return $construct ? $deprecated{$construct} : keys %deprecated
+}
+
+
+sub introduced {
+    my $construct = shift;
+    return $construct ? $introduced{$construct} : keys %introduced
+}
+
 
 sub _position {
     join ' line ', (caller(1))[1,2];
@@ -70,7 +81,8 @@ sub import {
 
     my $stable = $] =~ /^[0-5]\.[0-9][0-9][02468]/;
     my $nearest_stable = $stable ? $] : 0.001 + substr $], 0, 5;
-    warn "Faking version $nearest_stable to test deprecations.\n" unless $stable;
+    warn "Faking version $nearest_stable to test deprecations.\n"
+        unless $stable;
     die "$d_constr deprecated in $max_version at ", _position()
         if $max_version <= $nearest_stable;
 
@@ -100,6 +112,13 @@ the rest, there is B<Syntax::Construct>.
   if ($y =~ /^fault/) {
       ...
   }
+
+There are two subroutines (not exported) which you can use to query
+the lists of constructs programmatically:
+
+  my @constructs = Syntax::Construct::introduced();
+  say "$_ was introduced in ",
+      Syntax::Construct::introduced($_) for @constructs;
 
 =head1 DESCRIPTION
 
@@ -149,7 +168,22 @@ version.
 =head1 EXPORT
 
 Nothing. Using B<Syntax::Construct> with no parameters is an error,
-giving it an empty list is a no-op.
+giving it an empty list is a no-op (but you can then access the
+C<introduced> and C<deprecated> subroutines).
+
+=over 4
+
+=item introduced
+
+Without arguments, returns a list of all the supported
+constructs. With an argument, returns the version in which the given
+construct was introduced.
+
+=item deprecated
+
+Same as C<introduced>, but for deprecated constructs.
+
+=back
 
 =head1 RECOGNISED CONSTRUCTS
 
