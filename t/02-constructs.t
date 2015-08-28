@@ -150,8 +150,16 @@ for my $version (keys %tests) {
     for my $triple (@triples) {
         my $value = eval "use Syntax::Construct qw($triple->[0]);$triple->[1]";
         if ($can) {
-            is($@, q(), "no error $triple->[0]");
-            is($value, $triple->[2], $triple->[0]);
+            if ($@) {
+                my $v = Syntax::Construct::deprecated($triple->[0]);
+                ok($v, 'deprecated in version');
+                like($@, qr/\Q$triple->[0] deprecated in $v/);
+
+            } else {
+                is($@, q(), "no error $triple->[0]");
+                is($value, $triple->[2], $triple->[0]);
+            }
+
         } else {
             like($@,
                  qr/^Unsupported construct \Q$triple->[0]\E at \(eval [0-9]+\) line 1 \(Perl $vf needed\)\n/,

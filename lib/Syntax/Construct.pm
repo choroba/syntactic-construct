@@ -6,65 +6,42 @@ use warnings;
 
 our $VERSION = '0.16';
 
+my %introduces = ( 5.022 => [qw[
+                                 <<>> \b{} /n unicode7.0 :const
+                                 fileno-dir ()x= hexfloat chr-inf
+                                 empty-slice /x-unicode
+                              ]],
+                   5.020 => [qw[
+                                 :prototype drand48 %slice unicode6.3
+                                 \p{Unicode} utf8-locale
+                              ]],
+                   5.018 => [qw[
+                                 computed-labels
+                              ]],
+                   5.014 => [qw[
+                                 ?^ /r /d /l /u /a auto-deref
+                                 ^GLOBAL_PHASE \o package-block
+                              ]],
+                   5.012 => [qw[
+                                 package-version ... each-array
+                                 keys-array values-array delete-local
+                                 length-undef \N while-readdir
+                              ]],
+                   5.010 => [qw[
+                                 // ?PARNO ?<> ?| quant+ regex-verbs
+                                 \K \R \gN readline() stack-file-test
+                                 recursive-sort /p
+                              ]],
+                 );
 
-my %construct = (
-                 '<<>>'            => 5.022,
-                 '\b{}'            => 5.022,
-                 '/n'              => 5.022,
-                 'unicode7.0'      => 5.022,
-                 ':const'          => 5.022,
-                 'fileno-dir'      => 5.022,
-                 '()x='            => 5.022,
-                 'hexfloat'        => 5.022,
-                 'chr-inf'         => 5.022,
-                 'empty-slice'     => 5.022,
-                 '/x-unicode'      => 5.022,
+my %deprecated = ( 'auto-deref' => 5.024 );
 
-                 ':prototype'      => 5.020,
-                 'drand48'         => 5.020,
-                 '%slice'          => 5.020,
-                 'unicode6.3'      => 5.020,
-                 '\p{Unicode}'     => 5.020,
-                 'utf8-locale'     => 5.020,
+my %introduced = map { my $version = $_;
+                       map { $_ => $version }
+                           @{ $introduces{$version} }
+                     } keys %introduces;
 
-                 'computed-labels' => 5.018,
-
-                 '?^'              => 5.014,
-                 '/r'              => 5.014,
-                 '/d'              => 5.014,
-                 '/l'              => 5.014,
-                 '/u'              => 5.014,
-                 '/a'              => 5.014,
-                 'auto-deref'      => 5.014,
-                 '^GLOBAL_PHASE'   => 5.014,
-                 '\o'              => 5.014,
-                 'package-block'   => 5.014,
-
-                 'package-version' => 5.012,
-                 '...'             => 5.012,
-                 'each-array'      => 5.012,
-                 'keys-array'      => 5.012,
-                 'values-array'    => 5.012,
-                 'delete-local'    => 5.012,
-                 'length-undef'    => 5.012,
-                 '\N'              => 5.012,
-                 'while-readdir'   => 5.012,
-
-                 '//'              => 5.010,
-                 '?PARNO'          => 5.010,
-                 '?<>'             => 5.010,
-                 '?|'              => 5.010,
-                 'quant+'          => 5.010,
-                 'regex-verbs'     => 5.010,
-                 '\K'              => 5.010,
-                 '\R'              => 5.010,
-                 '\gN'             => 5.010,
-                 'readline()'      => 5.010,
-                 'stack-file-test' => 5.010,
-                 'recursive-sort'  => 5.010,
-                 '/p'              => 5.010,
-                );
-
+sub deprecated { return $deprecated{+shift} }
 
 sub _position {
     join ' line ', (caller(1))[1,2];
@@ -73,20 +50,33 @@ sub _position {
 
 sub import {
     shift;
-    my $version = 0;
-    my $constr;
+    my $min_version = 0;
+    my $max_version = 6;
+    my ($constr, $d_constr);
     for (@_) {
-        if (exists $construct{$_}) {
-            ($version, $constr) = ($construct{$_}, $_)
-                if $construct{$_} > $version;
+        if ($introduced{$_}) {
+            ($min_version, $constr) = ($introduced{$_}, $_)
+                if $introduced{$_} > $min_version;
         } else {
             die "Unknown construct `$_' at ", _position(), "\n";
         }
+
+        if ($deprecated{$_}) {
+            ($max_version, $d_constr) = ($deprecated{$_}, $_)
+                if $deprecated{$_} < $max_version;
+        }
     }
-    die 'Empty construct list at ', _position(), "\n" if $version == 0;
-    eval { require $version; 1 }
+    die 'Empty construct list at ', _position(), "\n" if $min_version == 0;
+
+    my $stable = $] =~ /^[0-5]\.[0-9][0-9][02468]/;
+    my $nearest_stable = $stable ? $] : 0.001 + substr $], 0, 5;
+    warn "Faking version $nearest_stable to test deprecations.\n" unless $stable;
+    die "$d_constr deprecated in $max_version at ", _position()
+        if $max_version <= $nearest_stable;
+
+    eval { require $min_version; 1 }
         or die "Unsupported construct $constr at ", _position(),
-               sprintf " (Perl %.3f needed)\n", $version;
+               sprintf " (Perl %.3f needed)\n", $min_version;
 }
 
 

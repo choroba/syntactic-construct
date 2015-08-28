@@ -2,7 +2,7 @@
 use warnings;
 use strict;
 
-use FindBin qw($Bin);
+use FindBin;
 use Test::More;
 use Syntax::Construct ();
 
@@ -16,22 +16,26 @@ my %constructs;
 my $libfile = $INC{'Syntax/Construct.pm'};
 open my $IN, '<', $libfile or die $!;
 my $version;
-while (<$IN>) {
-    if (my ($v) = /^=head2 ([.0-9]+)/) {
+while (my $line = <$IN>) {
+    if (my ($v) = $line =~ /^=head2 ([.0-9]+)/) {
         $version = $v;
-    }
 
-    if (my ($constr) = /^=head3 (.*)/) {
+    } elsif (my ($constr) = $line =~ /^=head3 (.*)/) {
         $constructs{$constr}{pod}++;
         $constructs{$constr}{version}{$version}++;
 
-    } elsif (($constr, my $v) = /^ +'(.+)' +=> ([.0-9]+),$/) {
-        $constructs{$constr}{code}++;
-        $constructs{$constr}{version}{$v}++;
+    } elsif ($line =~ / (5\.[0-9]{3}) => \[qw\[$/) {
+        my $v = $1;
+        until ((my $l = <$IN>) =~ /\]\],$/) {
+            for my $constr ($l =~ /(\S+)/g) {
+                $constructs{$constr}{code}++;
+                $constructs{$constr}{version}{$v}++;
+            }
+        }
     }
 }
 
-open my $TEST, '<', "$Bin/02-constructs.t" or die $!;
+open my $TEST, '<', "$FindBin::Bin/02-constructs.t" or die $!;
 undef $version;
 while (<$TEST>) {
     if (my ($v) = /^ +'([.0-9]+)' => \[$/) {
