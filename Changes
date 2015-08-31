@@ -1,5 +1,9 @@
 Revision history for Syntax-Construct
 
+0.18    2015-09-01
+
+        - No construct starts with a colon, they are reserved for tags.
+
 0.17    2015-08-28
 
         - Support for deprecated constructs.
