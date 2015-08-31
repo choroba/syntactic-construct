@@ -7,13 +7,13 @@ use warnings;
 our $VERSION = '0.17';
 
 my %introduces = ( 5.022 => [qw[
-                                 <<>> \b{} /n unicode7.0 :const
+                                 <<>> \b{} /n unicode7.0 attr-const
                                  fileno-dir ()x= hexfloat chr-inf
                                  empty-slice /x-unicode
                               ]],
                    5.020 => [qw[
-                                 :prototype drand48 %slice unicode6.3
-                                 \p{Unicode} utf8-locale
+                                 attr-prototype drand48 %slice
+                                 unicode6.3 \p{Unicode} utf8-locale
                               ]],
                    5.018 => [qw[
                                  computed-labels
@@ -350,7 +350,7 @@ L<perl5180delta/Computed Labels>
 
 =head2 5.020
 
-=head3 :prototype
+=head3 attr-prototype
 
 L<perl5200delta/subs now take a prototype attribute>
 
@@ -393,7 +393,7 @@ L<perldelta/Non Capturing Regular Expression Flag>
 
 L<perldelta/Unicode 7.0 with correction is now supported>
 
-=head3 :const
+=head3 attr-const
 
 L<perldelta/New :const subroutine attribute>
 

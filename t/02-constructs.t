@@ -16,7 +16,7 @@ my %tests = (
           '"abc" =~ /(.)/n; $1', undef ],
         [ 'unicode7.0',
           '"\N{U+11600}" =~ /\p{Modi}/', 1],
-        [ ':const',
+        [ 'attr-const',
           'my $c = sub () :const { int rand 10 };'
               . 'join(",", map $c->(), 1 .. 10) =~ /^([0-9])(?:,\1){9}$/',
           1 ],
@@ -36,7 +36,7 @@ my %tests = (
 
 
     '5.020' => [
-        [ ':prototype',
+        [ 'attr-prototype',
           'sub func : prototype($$) {} prototype \&func', '$$' ],
         [ 'drand48',
           'use Config; $Config{randfunc}', 'Perl_drand48' ],
