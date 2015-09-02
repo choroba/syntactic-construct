@@ -150,20 +150,20 @@ for my $version (keys %tests) {
     my $can = eval { require ( 0 + $version) };
     $count += $can ? 2 * @triples : @triples;
     for my $triple (@triples) {
-        my $deprecated = Syntax::Construct::deprecated($triple->[0]);
+        my $removed = Syntax::Construct::removed($triple->[0]);
         my $value = eval "use Syntax::Construct qw($triple->[0]);$triple->[1]";
         if ($can) {
             if ($@) {
-                ok($deprecated, 'deprecated in version');
-                like($@, qr/\Q$triple->[0] deprecated in $deprecated/);
+                ok($removed, 'removed in version');
+                like($@, qr/\Q$triple->[0] removed in $removed/);
 
             } else {
                 is($@, q(), "no error $triple->[0]");
                 is($value, $triple->[2], $triple->[0]);
-                if ($deprecated) {
-                    cmp_ok($deprecated, '>', $],
+                if ($removed) {
+                    cmp_ok($removed, '>', $],
                            $triple->[0]
-                               . ' not deprecated in the current version');
+                               . ' not removed in the current version');
                     ++$count;
                 }
             }

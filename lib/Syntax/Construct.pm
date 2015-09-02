@@ -34,7 +34,7 @@ my %introduces = ( 5.022 => [qw[
                               ]],
                  );
 
-my %deprecated = ( 'auto-deref' => 5.024 );
+my %removed = ( 'auto-deref' => 5.024 );
 
 my %introduced = map {
     my $version = $_;
@@ -42,9 +42,9 @@ my %introduced = map {
 } keys %introduces;
 
 
-sub deprecated {
+sub removed {
     my $construct = shift;
-    return $construct ? $deprecated{$construct} : keys %deprecated
+    return $construct ? $removed{$construct} : keys %removed
 }
 
 
@@ -72,18 +72,18 @@ sub import {
             die "Unknown construct `$_' at ", _position(), "\n";
         }
 
-        if ($deprecated{$_}) {
-            ($max_version, $d_constr) = ($deprecated{$_}, $_)
-                if $deprecated{$_} < $max_version;
+        if ($removed{$_}) {
+            ($max_version, $d_constr) = ($removed{$_}, $_)
+                if $removed{$_} < $max_version;
         }
     }
     die 'Empty construct list at ', _position(), "\n" if $min_version == 0;
 
     my $stable = $] =~ /^[0-5]\.[0-9][0-9][02468]/;
     my $nearest_stable = $stable ? $] : 0.001 + substr $], 0, 5;
-    warn "Faking version $nearest_stable to test deprecations.\n"
+    warn "Faking version $nearest_stable to test removed constructs.\n"
         unless $stable;
-    die "$d_constr deprecated in $max_version at ", _position()
+    die "$d_constr removed in $max_version at ", _position()
         if $max_version <= $nearest_stable;
 
     eval { require $min_version; 1 }
@@ -115,7 +115,7 @@ the rest, there is B<Syntax::Construct>.
 
 There are two subroutines (not exported) which you can use to query
 the lists of constructs programmatically: C<introduced> and
-C<deprecated> (see below).
+C<removed> (see below).
 
   my @constructs = Syntax::Construct::introduced();
   say "$_ was introduced in ",
@@ -170,7 +170,7 @@ version.
 
 Nothing. Using B<Syntax::Construct> with no parameters is an error,
 giving it an empty list is a no-op (but you can then access the
-C<introduced> and C<deprecated> subroutines).
+C<introduced> and C<removed> subroutines).
 
 =over 4
 
@@ -180,9 +180,10 @@ Without arguments, returns a list of all the supported
 constructs. With an argument, returns the version in which the given
 construct was introduced.
 
-=item deprecated
+=item removed
 
-Same as C<introduced>, but for deprecated constructs.
+Same as C<introduced>, but for removed constructs (e.g. auto-deref in
+5.24).
 
 =back
 
@@ -432,10 +433,10 @@ see below.
 
 =head2 Unstable Perl versions
 
-In development versions of Perl, the deprecation is tested against the
-coming stable version -- e.g., 5.23 forbids all the deprecated
-constructs of 5.24. The behaviour of the module in such circumstances
-might still be, um, unstable.
+In development versions of Perl, the removal of constructs is tested
+against the coming stable version -- e.g., 5.23 forbids all the
+removed constructs of 5.24. The behaviour of the module in such
+circumstances might still be, um, unstable.
 
 =head1 SUPPORT
 
