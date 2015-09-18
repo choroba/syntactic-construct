@@ -21,7 +21,9 @@ my %tests = (
               . 'join(",", map $c->(), 1 .. 10) =~ /^([0-9])(?:,\1){9}$/',
           1 ],
         [ 'fileno-dir',
-          'opendir my $D, "." or die; defined fileno $D || !! $!', 1 ],
+          'use File::Spec; opendir my $D, "File::Spec"->curdir or die;'
+              . ' defined fileno $D || !! $!',
+          1 ],
         [ '()x=',
           '((undef) x 2, my $x) = qw(a b c); $x', 'c' ],
         [ 'hexfloat',
