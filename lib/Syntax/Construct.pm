@@ -4,7 +4,7 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '0.19';
+our $VERSION = '0.20';
 
 my %introduces = ( 5.022 => [qw[
                                  <<>> \b{} /n unicode7.0 attr-const
@@ -98,7 +98,7 @@ Syntax::Construct - Identify which non-feature constructs are used in the code.
 
 =head1 VERSION
 
-Version 0.19
+Version 0.20
 
 =head1 SYNOPSIS
 

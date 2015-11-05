@@ -1,8 +1,9 @@
 Revision history for Syntax-Construct
 
-0.20    
+0.20    2015/11/05
 
-        - fixed test for fileno-dir (not supported on MSWin)
+        - fixed test for fileno-dir: not supported on MSWin, skip the
+          test if cwd can't be opened
 
 0.19    2015-09-02
 
