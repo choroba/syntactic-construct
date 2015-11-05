@@ -21,9 +21,16 @@ my %tests = (
               . 'join(",", map $c->(), 1 .. 10) =~ /^([0-9])(?:,\1){9}$/',
           1 ],
         [ 'fileno-dir',
-          'use File::Spec; opendir my $D, "File::Spec"->curdir or die;'
-              . ' defined fileno $D || !! $!',
-          1 ],
+          << '__FILENO__', 1 ],
+
+use File::Spec;
+SKIP: {
+    opendir my $D, "File::Spec"->curdir or skip ": $!", 1;
+    return defined fileno $D || !! $!
+}
+'SKIPPED'
+__FILENO__
+
         [ '()x=',
           '((undef) x 2, my $x) = qw(a b c); $x', 'c' ],
         [ 'hexfloat',
@@ -154,14 +161,17 @@ for my $version (keys %tests) {
     for my $triple (@triples) {
         my $removed = Syntax::Construct::removed($triple->[0]);
         my $value = eval "use Syntax::Construct qw($triple->[0]);$triple->[1]";
+        my $err = $@;
         if ($can) {
-            if ($@) {
+            if ($err) {
                 ok($removed, 'removed in version');
-                like($@, qr/\Q$triple->[0] removed in $removed/);
+                like($err, qr/\Q$triple->[0] removed in $removed/);
 
             } else {
-                is($@, q(), "no error $triple->[0]");
-                is($value, $triple->[2], $triple->[0]);
+                is($err, q(), "no error $triple->[0]");
+                if (! defined $value || 'SKIPPED' ne "$value") {
+                    is($value, $triple->[2], $triple->[0]);
+                }
                 if ($removed) {
                     cmp_ok($removed, '>', $],
                            $triple->[0]
@@ -171,7 +181,7 @@ for my $version (keys %tests) {
             }
 
         } else {
-            like($@,
+            like($err,
                  qr/^Unsupported construct \Q$triple->[0]\E at \(eval [0-9]+\) line 1 \(Perl $vf needed\)\n/,
                  $triple->[0]);
         }
