@@ -6,6 +6,12 @@ use Test::More;
 use Syntax::Construct ();
 
 
+sub skippable {
+    my ($test, $reason, $value) = @_;
+    return "SKIP: { $test or skip $reason, 1; return $value } 'SKIPPED'"
+}
+
+
 my %tests = (
     '5.022' => [
         [ '<<>>',
@@ -20,17 +26,10 @@ my %tests = (
           'my $c = sub () :const { int rand 10 };'
               . 'join(",", map $c->(), 1 .. 10) =~ /^([0-9])(?:,\1){9}$/',
           1 ],
-        [ 'fileno-dir',
-          << '__FILENO__', 1 ],
-
-use File::Spec;
-SKIP: {
-    opendir my $D, "File::Spec"->curdir or skip ": $!", 1;
-    return defined fileno $D || !! $!
-}
-'SKIPPED'
-__FILENO__
-
+        [ 'fileno-dir', 'use File::Spec;'
+              . skippable('opendir my $D, "File::Spec"->curdir',
+                          '": $!"',
+                          'defined fileno $D || !! $!'), 1 ],
         [ '()x=',
           '((undef) x 2, my $x) = qw(a b c); $x', 'c' ],
         [ 'hexfloat',
