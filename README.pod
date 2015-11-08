@@ -3,6 +3,7 @@
 =for HTML
 <a href="https://travis-ci.org/choroba/syntactic-construct"><img src="https://api.travis-ci.org/choroba/syntactic-construct.png?branch=master"></a>
 <a href="https://metacpan.org/pod/Syntax::Construct"><img src="https://badge.fury.io/pl/Syntax-Construct.svg"></a>
+<a href="http://cpants.cpanauthors.org/dist/Syntax-Construct"><img src="http://cpants.cpanauthors.org/dist/Syntax-Construct.png"></a>
 
 This module provides a simple way of specifying syntactic constructs
 that are not implemented via the L<feature> pragma, but are still not
