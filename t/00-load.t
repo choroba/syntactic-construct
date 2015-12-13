@@ -4,8 +4,8 @@ use warnings FATAL => 'all';
 use Test::More tests => 1;
 
 BEGIN {
-    ok(my $ok = eval('use Syntax::Construct (); 1;'));
-    print "Bail out!\n" unless $ok;
+    require_ok('Syntax::Construct') or print "Bail out!\n";
+
 }
 
-diag("Testing Syntax::Construct 0.01, Perl $], $^X");
+diag("Testing Syntax::Construct $Syntax::Construct::VERSION, Perl $], $^X");
