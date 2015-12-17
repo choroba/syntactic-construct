@@ -48,12 +48,11 @@ while (<$TEST>) {
 }
 
 for my $constr (keys %constructs) {
-    is_deeply([ @{ $constructs{$constr} }{qw(pod code test)} ],
-              [1, 1, 1], "pod, code, test for $constr");
+    is($constructs{$constr}{$_}, 1, "$_ for $constr") for qw( pod code test );
 
     my @versions = keys %{ $constructs{$constr}{version} };
     is(@versions, 1, "versions $constr");
     is($constructs{$constr}{version}{$versions[0]}, 3, "version $constr");
 }
 
-done_testing(3 * keys %constructs);
+done_testing(5 * keys %constructs);
