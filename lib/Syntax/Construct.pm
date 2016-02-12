@@ -212,7 +212,7 @@ L<perlre/"(?E<60>NAMEE<62>pattern)">.
 
 =head3 ?|
 
-Not mentioned in any Delta. See B<(?|pattern)> in L<perlre/Extended patterns>.
+Not mentioned in any Delta. See B<(?|pattern)> in L<perlre/Extended Patterns>.
 
 =head3 quant+
 
@@ -333,7 +333,7 @@ L<perl5140delta/Other Enhancements>.
 
 =head3 \o
 
-L<perl5140delta/Regular-expressions>.
+L<perl5140delta/Regular Expressions>.
 
 =head3 package-block
 
@@ -374,53 +374,56 @@ L<perl5200delta/Core Enhancements>.
 
 =head3 utf8-locale
 
-L<perl5200delta/use locale now works on UTF-8 locales>
+See B<use locale now works on UTF-8 locales> in
+L<perl5200delta/Core Enhancements>.
 
 =head2 5.022
 
 =head3 <<>>
 
-L<perldelta/New double diamond operator>
+L<perl5220delta/New double-diamond operator>
 
 =head3 \b{}
 
-L<perldelta/New b boundaries in regular expressions>
+L<perl5220delta/New \b boundaries in regular expressions>
 
 =head3 /n
 
-L<perldelta/Non Capturing Regular Expression Flag>
+L<perl5220delta/Non-Capturing Regular Expression Flag>
 
 =head3 unicode7.0
 
-L<perldelta/Unicode 7.0 with correction is now supported>
+See B<Unicode 7.0 (with correction) is now supported> in
+L<perl5220delta/Core Enhancements>.
 
 =head3 attr-const
 
-L<perldelta/New :const subroutine attribute>
+L<perl5220delta/New :const subroutine attribute>
 
 =head3 fileno-dir
 
-L<perldelta/fileno now works on directory handles>
+L<perl5220delta/fileno now works on directory handles>
 
 =head3 ()x=
 
-L<perldelta/Assignment to list repetition>
+L<perl5220delta/Assignment to list repetition>
 
 =head3 hexfloat
 
-L<perldelta/Floating point parsing has been improved>
+L<perl5220delta/Floating point parsing has been improved>
 
 =head3 chr-inf
 
-L<perldelta/Packing infinity or not a number into a character is now fatal>
+L<perl5220delta/Packing infinity or not-a-number into a character is now fatal>
 
 =head3 empty-slice
 
-L<perldelta/List slices returning empty lists>
+L<perl5220delta/List slices returning empty lists>
 
 =head3 /x-unicode
 
-L<perldelta/qr foo x now ignores all Unicode pattern white space>
+See B<qr/foo/x now ignores all Unicode pattern white space> in
+L<perl5220delta/Incompatible Changes>.
 
 =head1 AUTHOR
 
