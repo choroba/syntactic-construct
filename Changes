@@ -1,5 +1,9 @@
 Revision history for Syntax-Construct
 
+0.23    2016-05-10
+
+        - Links to perldelta hopefully fixed.
+
 0.22    2016-05-10
 
         - perl 5.24 released
