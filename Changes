@@ -1,5 +1,10 @@
 Revision history for Syntax-Construct
 
+0.22    2016-05-10
+
+        - perl 5.24 released
+        - lexical $_ added to 5.10 (removed in 5.24)
+
 0.21    2016-02-12
 
         - links fixed (after 5.22.1 release)
