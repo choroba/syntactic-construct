@@ -6,7 +6,10 @@ use warnings;
 
 our $VERSION = '0.21';
 
-my %introduces = ( 5.022 => [qw[
+my %introduces = ( 5.024 => [qw[
+                                 unicode8.0 \b{lb} sprintf-reorder
+                              ]],
+                   5.022 => [qw[
                                  <<>> \b{} /n unicode7.0 attr-const
                                  fileno-dir ()x= hexfloat chr-inf
                                  empty-slice /x-unicode
@@ -30,11 +33,13 @@ my %introduces = ( 5.022 => [qw[
                    5.010 => [qw[
                                  // ?PARNO ?<> ?| quant+ regex-verbs
                                  \K \R \gN readline() stack-file-test
-                                 recursive-sort /p
+                                 recursive-sort /p lexical-$_
                               ]],
                  );
 
-my %removed = ( 'auto-deref' => 5.024 );
+my %removed = ( 'auto-deref' => 5.024,
+                'lexical-$_'  => 5.024,
+              );
 
 my %introduced = map {
     my $version = $_;
@@ -254,6 +259,10 @@ C</p> (preserve) modifier and C<${^PREMATCH}>, C<${^MATCH}> and
 C<${^POSTMATCH}> variables. Not mentioned in any Delta. See
 L<perlvar/Variables related to regular expressions>.
 
+=head3 lexical-$_
+
+L<perl5100delta/Lexical $_>.
+
 =head2 5.012
 
 =head3 package-version
@@ -424,6 +433,21 @@ L<perl5220delta/List slices returning empty lists>
 
 See B<qr/foo/x now ignores all Unicode pattern white space> in
 L<perl5220delta/Incompatible Changes>.
+
+=head2 5.024
+
+=head3 unicode8.0
+
+L<perldelta#Unicode 8.0 is now supported>.
+
+=head3 \b{lb}
+
+L<perldelta#New \b{lb} boundary in regular expressions>.
+
+=head3 sprintf-reorder
+
+L<perldelta#printf and sprintf now allow reordered precision arguments>.
+
 
 =head1 AUTHOR
 

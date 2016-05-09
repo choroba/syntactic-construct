@@ -13,6 +13,16 @@ sub skippable {
 
 
 my %tests = (
+    '5.024' => [
+        [ 'unicode8.0',
+          '"\N{OLD HUNGARIAN CAPITAL LETTER A}" eq "\N{U+10C80}"', 1 ],
+        [ '\b{lb}',
+          '"1\n2" =~ /\b{lb}/', '1' ],
+        [ 'sprintf-reorder',
+          'sprintf q(|%.*2$d|), 7, 3', '|007|' ],
+    ],
+
+
     '5.022' => [
         [ '<<>>',
           'local @ARGV = $0; chomp(my $line = <<>>); $line', '#!/usr/bin/perl' ],
@@ -147,6 +157,8 @@ my %tests = (
           '11122021'],
         [ '/p',
           '"abc" =~ /b/p;${^PREMATCH}', 'a'],
+        [ 'lexical-$_',
+          '$_ = 7; { my $_ = 42; } $_ ', 7 ],
     ],
 );
 
