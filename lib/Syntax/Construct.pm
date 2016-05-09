@@ -438,15 +438,15 @@ L<perl5220delta/Incompatible Changes>.
 
 =head3 unicode8.0
 
-L<perldelta#Unicode 8.0 is now supported>.
+L<perldelta/Unicode 8.0 is now supported>.
 
 =head3 \b{lb}
 
-L<perldelta#New \b{lb} boundary in regular expressions>.
+L<perldelta/New \b{lb} boundary in regular expressions>.
 
 =head3 sprintf-reorder
 
-L<perldelta#printf and sprintf now allow reordered precision arguments>.
+L<perldelta/printf and sprintf now allow reordered precision arguments>.
 
 
 =head1 AUTHOR
