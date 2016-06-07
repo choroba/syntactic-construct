@@ -32,8 +32,9 @@ my %introduces = ( 5.024 => [qw[
                               ]],
                    5.010 => [qw[
                                  // ?PARNO ?<> ?| quant+ regex-verbs
-                                 \K \R \gN readline() stack-file-test
-                                 recursive-sort /p lexical-$_
+                                 \K \R \v \h \gN readline()
+                                 stack-file-test recursive-sort /p
+                                 lexical-$_
                               ]],
                  );
 
@@ -235,10 +236,11 @@ expressions> or L<perlre/Special Backtracking Control Verbs>.
 "\K escape" under L<perl5100delta/Regular expressions> or
 L<perlre/Look-Around Assertions>.
 
-=head3 \R
+=head3 \R \v \h
 
-"Vertical and horizontal whitespace, and linebreak" under
-L<perl5100delta/Regular expressions> or L<perlrebackslash/Misc>.
+Covers C<\V> and C<\H>, too. See "Vertical and horizontal whitespace,
+and linebreak" under L<perl5100delta/Regular expressions> or
+L<perlrebackslash/Misc>.
 
 =head3 \gN
 

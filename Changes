@@ -1,5 +1,8 @@
 Revision history for Syntax-Construct
 
+0.24    201--
+        - \v and \h added.
+
 0.23    2016-05-10
 
         - Links to perldelta hopefully fixed.

@@ -20,9 +20,11 @@ while (my $line = <$IN>) {
     if (my ($v) = $line =~ /^=head2 ([.0-9]+)/) {
         $version = $v;
 
-    } elsif (my ($constr) = $line =~ /^=head3 (.*)/) {
-        $constructs{$constr}{pod}++;
-        $constructs{$constr}{version}{$version}++;
+    } elsif (my ($constrs) = $line =~ /^=head3 (.*)/) {
+        for my $constr (split ' ', $constrs) {
+            $constructs{$constr}{pod}++;
+            $constructs{$constr}{version}{$version}++;
+        }
 
     } elsif ($line =~ / (5\.[0-9]{3}) => \[qw\[$/) {
         my $v = $1;
