@@ -25,7 +25,8 @@ my %tests = (
 
     '5.022' => [
         [ '<<>>',
-          'local @ARGV = $0; chomp(my $line = <<>>); $line', '#!/usr/bin/perl' ],
+          'local @ARGV = $0; chomp(my $line = <<>>); $line',
+          '#!/usr/bin/perl' ],
         [ '\b{}',
           q("O'Connor" !~ /O\b{wb}C/), 1 ],
         [ '/n',
@@ -49,7 +50,8 @@ my %tests = (
         [ 'empty-slice',
           'scalar grep 1, (1)[1,2,3]', 3],
         [ '/x-unicode',
-          'my $s = " \N{U+0085}\N{U+200E}\N{U+200F}\N{U+2028}\N{U+2029}"; "ab" =~ /a${s}b/x', 1 ]
+          'my $s = " \N{U+0085}\N{U+200E}\N{U+200F}\N{U+2028}\N{U+2029}";'
+          . '"ab" =~ /a${s}b/x', 1 ]
     ],
 
 
@@ -156,7 +158,8 @@ my %tests = (
         [ '\gN',
           '"aba" =~ /(a)b\g{1}/;', 1],
         [ 'readline()',
-          'local *ARGV = *DATA{IO}; chomp(my $x = readline()); $x', 'readline default'],
+          'local *ARGV = *DATA{IO}; chomp(my $x = readline()); $x',
+          'readline default' ],
         [ 'stack-file-test',
           '-e -f $^X', 1],
         [ 'recursive-sort',
