@@ -1,7 +1,8 @@
 Revision history for Syntax-Construct
 
-0.24    201--
+0.24    2016-06-26
         - \v and \h added.
+        - while-each added.
 
 0.23    2016-05-10
 
