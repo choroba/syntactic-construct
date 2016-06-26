@@ -19,7 +19,7 @@ my %introduces = ( 5.024 => [qw[
                                  unicode6.3 \p{Unicode} utf8-locale
                               ]],
                    5.018 => [qw[
-                                 computed-labels
+                                 computed-labels while-each
                               ]],
                    5.014 => [qw[
                                  ?^ /r /d /l /u /a auto-deref
@@ -359,6 +359,10 @@ No non-feature constructs were introduced in this version of Perl.
 =head3 computed-labels
 
 L<perl5180delta/Computed Labels>
+
+=head3 while-each
+
+See in L<perl5180delta/Selected Bug Fixes> or C<each> in L<perlfunc>.
 
 =head2 5.020
 

@@ -72,6 +72,11 @@ my %tests = (
     '5.018' => [
         [ 'computed-labels',
           'my $x = "A"; B:while (1) { A:while (1) { last $x++ }}; 1', 1],
+        [ 'while-each',
+          'my %h = qw( A a B b C c ); my ($k, $v);'
+          . '$k .= $_, $v .= $h{$_} while each %h;'
+          . '$k =~ /^[ABC]{3}$/ && $v =~ /^[abc]{3}$/ ',
+          1 ],
     ],
 
     '5.014' => [
