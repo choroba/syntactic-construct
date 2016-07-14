@@ -1,8 +1,9 @@
 Revision history for Syntax-Construct
 
-0.25    2
+0.25    2016-07-14
 
-        - srand-return added
+        - add srand-return
+        - add author test to check Changes
 
 0.24    2016-06-26
 
