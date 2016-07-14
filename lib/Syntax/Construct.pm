@@ -4,7 +4,7 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '0.24';
+our $VERSION = '0.25';
 
 my %introduces = ( 5.024 => [qw[
                                  unicode8.0 \b{lb} sprintf-reorder
@@ -24,6 +24,7 @@ my %introduces = ( 5.024 => [qw[
                    5.014 => [qw[
                                  ?^ /r /d /l /u /a auto-deref
                                  ^GLOBAL_PHASE \o package-block
+                                 srand-return
                               ]],
                    5.012 => [qw[
                                  package-version ... each-array
@@ -104,7 +105,7 @@ Syntax::Construct - Identify which non-feature constructs are used in the code.
 
 =head1 VERSION
 
-Version 0.24
+Version 0.25
 
 =head1 SYNOPSIS
 
@@ -349,6 +350,10 @@ L<perl5140delta/Regular Expressions>.
 =head3 package-block
 
 See B<package block syntax> under L<perl5140delta/Syntactical Enhancements>.
+
+=head3 srand-return
+
+See B<srand() now returns the seed> under L<perl5140delta/Other Enhancements>.
 
 =head2 5.016
 

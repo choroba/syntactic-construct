@@ -54,7 +54,7 @@ for my $constr (keys %constructs) {
 
     my @versions = keys %{ $constructs{$constr}{version} };
     is(@versions, 1, "versions $constr");
-    is($constructs{$constr}{version}{$versions[0]}, 3, "version $constr");
+    is($constructs{$constr}{version}{ $versions[0] }, 3, "version $constr");
 }
 
 done_testing(5 * keys %constructs);

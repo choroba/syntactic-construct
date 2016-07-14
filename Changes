@@ -1,5 +1,9 @@
 Revision history for Syntax-Construct
 
+0.25    2
+
+        - srand-return added
+
 0.24    2016-06-26
 
         - \v and \h added.

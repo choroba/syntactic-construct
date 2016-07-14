@@ -102,6 +102,8 @@ my %tests = (
         [ 'package-block',
           'package My::Number { sub eleven { 11 } } My::Number::eleven()',
           11 ],
+        [ 'srand-return',
+          'srand 42', 42 ],
     ],
 
     '5.012' => [
