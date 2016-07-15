@@ -377,7 +377,9 @@ L<perl5200delta/subs now take a prototype attribute>
 
 =head3 drand48
 
-L<perl5200delta/rand now uses a consistent random number generator>
+L<perl5200delta/rand now uses a consistent random number generator>.
+Note that on OpenBSD, Perl 5.20+ uses the system's own C<drand48>
+unless seeded.
 
 =head3 %slice
 
