@@ -1,9 +1,9 @@
 Revision history for Syntax-Construct
 
-0.26    2016-07-15
+0.27    2016-07-15
 
         - fix drand48 test failure on OpenBSD
-        - TODO: warn if $Config{randfunc} ne 'Perl_drand48'
+        - warn if $Config{randfunc} ne 'Perl_drand48'
 
 0.25    2016-07-14
 
