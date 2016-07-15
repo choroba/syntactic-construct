@@ -37,8 +37,7 @@ WriteMakefile(
         'FindBin'    => 0,
     },
     PREREQ_PM => {
-        #'ABC'              => 1.6,
-        #'Foo::Bar::Module' => 5.0401,
+        Config => 0,
     },
     macro => { TARFLAGS => '--format=ustar -cvf' },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },

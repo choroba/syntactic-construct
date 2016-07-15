@@ -4,7 +4,7 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '0.25';
+our $VERSION = '0.26';
 
 my %introduces = ( 5.024 => [qw[
                                  unicode8.0 \b{lb} sprintf-reorder
@@ -40,7 +40,7 @@ my %introduces = ( 5.024 => [qw[
                  );
 
 my %removed = ( 'auto-deref' => 5.024,
-                'lexical-$_'  => 5.024,
+                'lexical-$_' => 5.024,
               );
 
 my %introduced = map {
@@ -48,6 +48,14 @@ my %introduced = map {
     map { $_ => $version } @{ $introduces{$version} }
 } keys %introduces;
 
+sub _hook {
+    { drand48 => sub {
+          require Config;
+          warn "Unknown rand implementation at ", _position(1), "\n"
+              unless 'Perl_drand48' eq $Config::Config{randfunc};
+      },
+    }
+}
 
 sub removed {
     my $construct = shift;
@@ -62,7 +70,7 @@ sub introduced {
 
 
 sub _position {
-    join ' line ', (caller(1))[1,2];
+    join ' line ', (caller(1 + !! shift))[1,2]
 }
 
 
@@ -71,18 +79,22 @@ sub import {
     my $min_version = 0;
     my $max_version = 6;
     my ($constr, $d_constr);
+    my @actions;
     for (@_) {
         if ($introduced{$_}) {
             ($min_version, $constr) = ($introduced{$_}, $_)
                 if $introduced{$_} > $min_version;
         } else {
-            die "Unknown construct `$_' at ", _position(), "\n";
+            die "Unknown construct `$_' at ", _position(), "\n"
         }
 
         if ($removed{$_}) {
             ($max_version, $d_constr) = ($removed{$_}, $_)
                 if $removed{$_} < $max_version;
         }
+
+        my $action = _hook()->{$_};
+        push @actions, $action if $action;
     }
     die 'Empty construct list at ', _position(), "\n" if $min_version == 0;
 
@@ -96,6 +108,8 @@ sub import {
     eval { require $min_version; 1 }
         or die "Unsupported construct $constr at ", _position(),
                sprintf " (Perl %.3f needed)\n", $min_version;
+
+    $_->() for @actions;
 }
 
 
@@ -105,7 +119,7 @@ Syntax::Construct - Identify which non-feature constructs are used in the code.
 
 =head1 VERSION
 
-Version 0.25
+Version 0.26
 
 =head1 SYNOPSIS
 
