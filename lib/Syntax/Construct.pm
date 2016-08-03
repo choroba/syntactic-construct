@@ -6,32 +6,32 @@ use warnings;
 
 our $VERSION = '0.27';
 
-my %introduces = ( 5.024 => [qw[
+my %introduces = ( '5.024' => [qw[
                                  unicode8.0 \b{lb} sprintf-reorder
                               ]],
-                   5.022 => [qw[
+                   '5.022' => [qw[
                                  <<>> \b{} /n unicode7.0 attr-const
                                  fileno-dir ()x= hexfloat chr-inf
                                  empty-slice /x-unicode
                               ]],
-                   5.020 => [qw[
+                   '5.020' => [qw[
                                  attr-prototype drand48 %slice
                                  unicode6.3 \p{Unicode} utf8-locale
                               ]],
-                   5.018 => [qw[
+                   '5.018' => [qw[
                                  computed-labels while-each
                               ]],
-                   5.014 => [qw[
+                   '5.014' => [qw[
                                  ?^ /r /d /l /u /a auto-deref
                                  ^GLOBAL_PHASE \o package-block
                                  srand-return
                               ]],
-                   5.012 => [qw[
+                   '5.012' => [qw[
                                  package-version ... each-array
                                  keys-array values-array delete-local
                                  length-undef \N while-readdir
                               ]],
-                   5.010 => [qw[
+                   '5.010' => [qw[
                                  // ?PARNO ?<> ?| quant+ regex-verbs
                                  \K \R \v \h \gN readline()
                                  stack-file-test recursive-sort /p
@@ -39,8 +39,8 @@ my %introduces = ( 5.024 => [qw[
                               ]],
                  );
 
-my %removed = ( 'auto-deref' => 5.024,
-                'lexical-$_' => 5.024,
+my %removed = ( 'auto-deref' => '5.024',
+                'lexical-$_' => '5.024',
               );
 
 my %introduced = map {
@@ -83,14 +83,14 @@ sub import {
     for (@_) {
         if ($introduced{$_}) {
             ($min_version, $constr) = ($introduced{$_}, $_)
-                if $introduced{$_} > $min_version;
+                if $introduced{$_} gt $min_version;
         } else {
             die "Unknown construct `$_' at ", _position(), "\n"
         }
 
         if ($removed{$_}) {
             ($max_version, $d_constr) = ($removed{$_}, $_)
-                if $removed{$_} < $max_version;
+                if $removed{$_} lt $max_version;
         }
 
         my $action = _hook()->{$_};
@@ -98,16 +98,22 @@ sub import {
     }
     die 'Empty construct list at ', _position(), "\n" if $min_version == 0;
 
-    my $stable = $] =~ /^[0-5]\.[0-9][0-9][02468]/;
-    my $nearest_stable = $stable ? $] : 0.001 + substr $], 0, 5;
+    my $nearest_stable = ( my $is_stable = $] =~ /^[0-5]\.[0-9][0-9][02468]/ )
+                       ? $]
+                       : do {
+                           my ($major, $minor)
+                               = $] =~ /^([0-5])\.([0-9][0-9][13579])/;
+                           ++$minor;
+                           "$major.$minor"
+                       };
     warn "Faking version $nearest_stable to test removed constructs.\n"
-        unless $stable;
+        unless $is_stable;
     die "$d_constr removed in $max_version at ", _position()
-        if $max_version <= $nearest_stable;
+        if $max_version le $nearest_stable;
 
-    eval { require $min_version; 1 }
-        or die "Unsupported construct $constr at ", _position(),
-               sprintf " (Perl %.3f needed)\n", $min_version;
+    die "Unsupported construct $constr at ", _position(),
+        sprintf " (Perl %.3f needed)\n", $min_version
+        unless $min_version le $];
 
     $_->() for @actions;
 }

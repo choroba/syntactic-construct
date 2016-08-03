@@ -26,7 +26,7 @@ while (my $line = <$IN>) {
             $constructs{$constr}{version}{$version}++;
         }
 
-    } elsif ($line =~ / (5\.[0-9]{3}) => \[qw\[$/) {
+    } elsif ($line =~ / '(5\.[0-9]{3})' => \[qw\[$/) {
         my $v = $1;
         until ((my $l = <$IN>) =~ /\]\],$/) {
             for my $constr ($l =~ /(\S+)/g) {
