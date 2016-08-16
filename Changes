@@ -1,5 +1,9 @@
 Revision history for Syntax-Construct
 
+0.28    2016-08-16
+
+        - versions represented as strings instead of floats
+
 0.27    2016-07-15
 
         - fix drand48 test failure on OpenBSD
