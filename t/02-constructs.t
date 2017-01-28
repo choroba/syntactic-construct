@@ -22,7 +22,6 @@ my %tests = (
           'sprintf q(|%.*2$d|), 7, 3', '|007|' ],
     ],
 
-
     '5.022' => [
         [ '<<>>',
           'local @ARGV = $0; chomp(my $line = <<>>); $line',
@@ -54,7 +53,6 @@ my %tests = (
           . '"ab" =~ /a${s}b/x', 1 ]
     ],
 
-
     '5.020' => [
         [ 'attr-prototype',
           'sub func : prototype($$) {} prototype \&func', '$$' ],
@@ -68,9 +66,10 @@ my %tests = (
           'my $i; /\p{Age: 6.3}/ and $i++ for map chr, 0 .. 0xffff; $i', 5 ],
         [ '\p{Unicode}',
           'scalar grep $_ =~ /\p{Unicode}/, "a", "\N{U+0FFFFF}"', 2 ],
+        [ 's-utf8-delimiters',
+          "'a' =~ s\N{U+2759}a\N{U+2759}b\N{U+2759}r", 'b' ],
         # TODO: 'utf8-locale'.
     ],
-
 
     '5.018' => [
         [ 'computed-labels',
@@ -224,8 +223,10 @@ readline default
     '5.014' => [
         [ '/l',
         [ '/d',
-
     '5.020' => [
         [ 'utf8-locale',
+    old => [
+        [ 's-utf8-delimiters-hack', # See 04-extra.t
 
 =cut
+

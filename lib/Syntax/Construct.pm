@@ -17,6 +17,7 @@ my %introduces = ( '5.024' => [qw[
                    '5.020' => [qw[
                                  attr-prototype drand48 %slice
                                  unicode6.3 \p{Unicode} utf8-locale
+                                 s-utf8-delimiters
                               ]],
                    '5.018' => [qw[
                                  computed-labels while-each
@@ -37,16 +38,23 @@ my %introduces = ( '5.024' => [qw[
                                  stack-file-test recursive-sort /p
                                  lexical-$_
                               ]],
+                   old => [qw[
+                                 s-utf8-delimiters-hack
+                          ]],
                  );
 
-my %removed = ( 'auto-deref' => '5.024',
-                'lexical-$_' => '5.024',
+my %removed = ( 'auto-deref'             => '5.024',
+                'lexical-$_'             => '5.024',
+                's-utf8-delimiters-hack' => '5.020',
               );
 
-my %introduced = map {
+my %_introduced = map {
     my $version = $_;
     map { $_ => $version } @{ $introduces{$version} }
 } keys %introduces;
+
+my %introduced = %_introduced;
+delete @introduced{ @{ $introduces{old} } };
 
 sub _hook {
     { drand48 => sub {
@@ -419,6 +427,12 @@ L<perl5200delta/Core Enhancements>.
 See B<use locale now works on UTF-8 locales> in
 L<perl5200delta/Core Enhancements>.
 
+=head3 s-utf8-delimiters
+
+See L<perl5200delta/Regular Expressions>: in older Perl versions, a
+hack around was possible: to specify the delimiter twice in
+substitution. Use C<s-utf8-delimiters-hack> if your code uses it.
+
 =head2 5.022
 
 =head3 <<>>
@@ -481,6 +495,9 @@ L<perldelta/New \b{lb} boundary in regular expressions>.
 
 L<perldelta/printf and sprintf now allow reordered precision arguments>.
 
+=for completeness
+=head2 old
+=head3 s-utf8-delimiters-hack
 
 =head1 AUTHOR
 
