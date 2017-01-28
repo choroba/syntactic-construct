@@ -1,5 +1,9 @@
 Revision history for Syntax-Construct
 
+0.29    2017-01-28
+
+        - UTF-8 delimiters within substitution
+
 0.28    2016-08-16
 
         - versions represented as strings instead of floats
