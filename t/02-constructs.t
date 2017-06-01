@@ -13,6 +13,19 @@ sub skippable {
 
 
 my %tests = (
+    '5.026' => [
+        [ '<<~',
+          "<<~ 'EOF'\n a\n EOF", "a\n" ],
+        [ '/xx',
+          '" " !~ /[a b]/xx', 1 ],
+        [ '^CAPTURE',
+          '"ab" =~ /(.)(.)/; "@{^CAPTURE}"', "a b" ],
+        [ 'unicode9.0',
+          '"\N{BUTTERFLY}"', "\N{U+1F98B}"],
+        [ 'unicode-scx',
+          '"\N{KATAKANA-HIRAGANA DOUBLE HYPHEN}" !~ /\p{Common}/', 1],
+    ],
+
     '5.024' => [
         [ 'unicode8.0',
           '"\N{OLD HUNGARIAN CAPITAL LETTER A}" eq "\N{U+10C80}"', 1 ],

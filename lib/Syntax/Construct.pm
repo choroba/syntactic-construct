@@ -6,7 +6,10 @@ use warnings;
 
 our $VERSION = '0.29';
 
-my %introduces = ( '5.024' => [qw[
+my %introduces = ( '5.026' => [qw[
+                                 <<~ /xx ^CAPTURE unicode9.0 unicode-scx
+                              ]],
+                   '5.024' => [qw[
                                  unicode8.0 \b{lb} sprintf-reorder
                               ]],
                    '5.022' => [qw[
@@ -494,6 +497,29 @@ L<perl5240delta/New \b{lb} boundary in regular expressions>.
 =head3 sprintf-reorder
 
 L<perl5240delta/printf and sprintf now allow reordered precision arguments>.
+
+=head2 5.026
+
+=head3 <<~
+
+L<perldelta/Indented Here documents>.
+
+=head3 /xx
+
+L<perldelta/New-regular-expression-modifier-/xx>.
+
+=head3 ^CAPTURE
+
+See C<@{^CAPTURE}>, C<%{^CAPTURE}>, and C<%{^CAPTURE_ALL}> in L<perldelta>.
+
+=head3 unicode9.0
+
+L<perldelta/Unicode 9.0 is now supported>.
+
+=head3 unicode-scx
+
+See I<"Use of \p{script} uses the improved Script_Extensions property">
+in L<perldelta>.
 
 =for completeness
 =head2 old
