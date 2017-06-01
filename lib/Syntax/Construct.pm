@@ -485,15 +485,15 @@ L<perl5220delta/Incompatible Changes>.
 
 =head3 unicode8.0
 
-L<perldelta/Unicode 8.0 is now supported>.
+L<perl5240delta/Unicode 8.0 is now supported>.
 
 =head3 \b{lb}
 
-L<perldelta/New \b{lb} boundary in regular expressions>.
+L<perl5240delta/New \b{lb} boundary in regular expressions>.
 
 =head3 sprintf-reorder
 
-L<perldelta/printf and sprintf now allow reordered precision arguments>.
+L<perl5240delta/printf and sprintf now allow reordered precision arguments>.
 
 =for completeness
 =head2 old
