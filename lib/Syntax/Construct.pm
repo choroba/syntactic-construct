@@ -508,7 +508,7 @@ E. Choroba, C<< <choroba at cpan.org> >>
 Please report any bugs or feature requests to the GitHub repository,
 see below.
 
-=head2 Unstable Perl versions
+=head2 Unstable Perl Versions
 
 In development versions of Perl, the removal of constructs is tested
 against the coming stable version -- e.g., 5.23 forbids all the
