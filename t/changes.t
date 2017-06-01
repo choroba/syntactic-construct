@@ -20,10 +20,10 @@ ok open my $CH, '<', $changes_file;
 my ($found, $format) = (0, 1);
 my $date_re = qr/\d{4}-\d{2}-\d{2}/;
 while (<$CH>) {
-    $found++ if /\Q$version\E {4}$date_re$/;
+    $found++ if /\Q$version\E {3,4}$date_re$/;
     diag($_), undef $format unless /^(?:
                                       Revision\ history\ for\ Syntax-Construct
-                                      | \d \. \d{2} \ {4} $date_re
+                                      | \d \. \d{2,3} \ {3,4} $date_re
                                       | \ {8} - \ .*
                                       | \ {10} .*
                                       |
