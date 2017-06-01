@@ -499,6 +499,14 @@ L<perl5240delta/printf and sprintf now allow reordered precision arguments>.
 =head2 old
 =head3 s-utf8-delimiters-hack
 
+=head2 Accepted Features
+
+Some features have been accepted in Perl (C<postderef> and
+C<postderef_qq> in 5.24, C<lexical_subs> in 5.26). In the spirit of
+Syntax::Construct, you should still declare them, even if their usage
+has no effect in newer Perl versions to provide meaningful error
+messages to users of older versions.
+
 =head1 AUTHOR
 
 E. Choroba, C<< <choroba at cpan.org> >>
