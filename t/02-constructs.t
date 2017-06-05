@@ -21,7 +21,7 @@ my %tests = (
         [ '^CAPTURE',
           '"ab" =~ /(.)(.)/; "@{^CAPTURE}"', "a b" ],
         [ 'unicode9.0',
-          '"\N{BUTTERFLY}"', "\N{U+1F98B}"],
+          '"\N{BUTTERFLY}"', eval q("\N{U+1F98B}") ],
         [ 'unicode-scx',
           '"\N{KATAKANA-HIRAGANA DOUBLE HYPHEN}" !~ /\p{Common}/', 1],
     ],
@@ -80,7 +80,7 @@ my %tests = (
         [ '\p{Unicode}',
           'scalar grep $_ =~ /\p{Unicode}/, "a", "\N{U+0FFFFF}"', 2 ],
         [ 's-utf8-delimiters',
-          "'a' =~ s\N{U+2759}a\N{U+2759}b\N{U+2759}r", 'b' ],
+          eval q("'a' =~ s\N{U+2759}a\N{U+2759}b\N{U+2759}r"), 'b' ],
         # TODO: 'utf8-locale'.
     ],
 
