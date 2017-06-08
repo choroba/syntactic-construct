@@ -41,8 +41,11 @@ my %introduces = ( '5.026' => [qw[
                                  stack-file-test recursive-sort /p
                                  lexical-$_
                               ]],
-                   old => [qw[
+                   '5.008' => [qw[
                                  s-utf8-delimiters-hack
+                              ]],
+                   # No construct to fake initial version ATM.
+                   old => [qw[
                           ]],
                  );
 
@@ -129,6 +132,7 @@ sub import {
     $_->() for @actions;
 }
 
+sub _is_old_empty { @{ $introduces{old} } ? 0 : 1 }
 
 =head1 NAME
 
@@ -226,6 +230,12 @@ Same as C<introduced>, but for removed constructs (e.g. auto-deref in
 =back
 
 =head1 RECOGNISED CONSTRUCTS
+
+=head2 5.008
+
+=head3 s-utf8-delimiters-hack
+
+See below. The hack doesn't seem to work in 5.006.
 
 =head2 5.010
 
@@ -523,7 +533,6 @@ in L<perldelta>.
 
 =for completeness
 =head2 old
-=head3 s-utf8-delimiters-hack
 
 =head2 Accepted Features
 

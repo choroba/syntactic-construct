@@ -3,7 +3,7 @@ use warnings;
 use strict;
 
 use FindBin;
-use Test::More;
+use Test::More tests => 5;
 use Syntax::Construct ();
 
 
@@ -37,4 +37,3 @@ is $found, 1, "$version found in changes";
 ok $format, 'format';
 is $most_recent, $version, "in sync ($most_recent == $version)";
 
-done_testing(5);

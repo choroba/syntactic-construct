@@ -3,7 +3,7 @@ use warnings;
 use strict;
 
 use FindBin;
-use Test::More;
+use Test::More tests => 5 * 65 + 0; # Constructs + old
 use Syntax::Construct ();
 
 
@@ -68,4 +68,3 @@ for my $constr (keys %constructs) {
 
 }
 
-done_testing($count_old + 5 * keys %constructs);

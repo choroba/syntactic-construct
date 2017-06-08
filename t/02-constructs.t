@@ -2,7 +2,16 @@
 use warnings;
 use strict;
 
-use Test::More;
+
+BEGIN {
+    require Test::More;
+    if ($Test::More::VERSION ge '0.87_01') { # Implements "done_testing".
+        'Test::More'->import;
+    } else {
+        'Test::More'->import('no_plan');
+    }
+}
+
 use Syntax::Construct ();
 
 
@@ -187,6 +196,10 @@ my %tests = (
         [ 'lexical-$_',
           '$_ = 7; { my $_ = 42; } $_ ', 7 ],
     ],
+    '5.008' => [
+        [ 's-utf8-delimiters-hack',
+          eval q{qq{ my \$string = "a"; use utf8; \$string =~ s\N{U+2759}a\N{U+2759}\N{U+2759}b\N{U+2759}; \$string }}, 'b' ],
+    ],
 );
 
 my $count = 0;
@@ -226,7 +239,7 @@ for my $version (keys %tests) {
     }
 }
 
-done_testing($count);
+done_testing($count) if $Test::More::VERSION ge '0.87_01';
 
 
 __DATA__
@@ -239,7 +252,6 @@ readline default
     '5.020' => [
         [ 'utf8-locale',
     old => [
-        [ 's-utf8-delimiters-hack', # See 04-extra.t
 
 =cut
 
