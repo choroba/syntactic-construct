@@ -1,6 +1,9 @@
 cache:
   - C:\strawberry
 
+environment:
+  RELEASE_TESTING: 1
+
 install:
   - if not exist "C:\strawberry" choco install strawberryperl -y
   - set PATH=C:\strawberry\perl\bin;C:\strawberry\perl\site\bin;C:\strawberry\c\bin;%PATH%
