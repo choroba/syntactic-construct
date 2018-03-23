@@ -3,9 +3,13 @@ use warnings;
 use strict;
 
 
+my $can_have_plan;
+
 BEGIN {
     require Test::More;
-    if ($Test::More::VERSION ge '0.87_01') { # Implements "done_testing".
+
+    # Implements "done_testing".
+    if ($can_have_plan = eval { Test::More->VERSION('0.88') }) {
         'Test::More'->import;
     } else {
         'Test::More'->import('no_plan');
@@ -239,7 +243,7 @@ for my $version (keys %tests) {
     }
 }
 
-done_testing($count) if $Test::More::VERSION ge '0.87_01';
+done_testing($count) if $can_have_plan;
 
 
 __DATA__
