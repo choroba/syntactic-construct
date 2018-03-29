@@ -207,6 +207,30 @@ version.
 
 =back
 
+=head2 Good Practice
+
+Some programmers just use all the I<non-features> their current Perl
+version provides without any notice. This leads to weird error
+messages in older Perl versions.
+
+Some other programmers will place C<use 5.22;> towards the top of the
+script, even if the only I<non-feature> they use is the C<//> operator
+available in 5.10 already. This prevents users of older versions of
+Perl to run the script, even if it would otherwise be easily possible.
+
+The kindest programmers will add C<use 5.10; # //> towards the top of
+the script. But it means they have to remember or find out what
+version introduced the I<non-feature> they use.
+
+B<Syntax::Construct> liberates you from the need to remember all the
+I<non-features> together with Perl versions that introduced them. It
+makes it easier for users of older Perl versions to migrate your code
+to their system. And finally, it improves the error messages they get.
+
+Similarly, it's a good practice to keep specifying C<use feature qw{
+postderef };> even if it's a no-op since 5.24: it makes your script
+available for people running older Perl versions. The same applies to
+C<use charnames> in 5.16 and later, etc.
 
 =head1 EXPORT
 
