@@ -48,13 +48,14 @@ my %introduces = ( '5.028' => [qw[
                    '5.008' => [qw[
                                  s-utf8-delimiters-hack
                               ]],
-                   # No construct to fake initial version ATM.
                    old => [qw[
+                                 ??
                           ]],
                  );
 
 my %removed = ( 'auto-deref'             => '5.024',
                 'lexical-$_'             => '5.024',
+                '??'                     => '5.022',
                 's-utf8-delimiters-hack' => '5.020',
               );
 
@@ -102,7 +103,7 @@ sub import {
         if ($introduced{$_}) {
             ($min_version, $constr) = ($introduced{$_}, $_)
                 if $introduced{$_} gt $min_version;
-        } else {
+        } elsif (! $removed{$_}) {
             die "Unknown construct `$_' at ", _position(), ".\n"
         }
 
@@ -114,7 +115,7 @@ sub import {
         my $action = _hook()->{$_};
         push @actions, $action if $action;
     }
-    die 'Empty construct list at ', _position(), ".\n" if $min_version == 0;
+    die 'Empty construct list at ', _position(), ".\n" unless @_;
 
     my $nearest_stable = ( my $is_stable = $] =~ /^[0-5]\.[0-9][0-9][02468]/ )
                        ? $]
@@ -575,6 +576,14 @@ See L<perldelta/Initialisation-of-aggregate-state-variables>.
 
 =for completeness
 =head2 old
+
+=head2 Removed Constructs
+
+=head3 ??
+
+Removed in 5.022. See L<perl5220delta#Support for ?PATTERN? without
+explicit operator has been removed>.
+
 
 =head2 Accepted Features
 

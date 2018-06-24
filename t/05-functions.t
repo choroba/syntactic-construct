@@ -12,10 +12,9 @@ my @introduced = Syntax::Construct::introduced();
 is(@introduced, 68, 'introduced all');
 
 is(Syntax::Construct::removed('auto-deref'), '5.024', 'removed-arg');
-is(Syntax::Construct::removed(), 3, 'removed all');
+is(Syntax::Construct::removed(), 4, 'removed all');
 
-my $in_old = 'SOMETHING_IN_OLD';
-
+my $in_old = '??';
 if ('SOMETHING_IN_OLD' eq $in_old && ! Syntax::Construct::_is_old_empty()) {
     fail('Use a real construct introduced in old');
 
