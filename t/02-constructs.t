@@ -34,7 +34,7 @@ my %tests = (
         [ '^CAPTURE',
           '"ab" =~ /(.)(.)/; "@{^CAPTURE}"', "a b" ],
         [ 'unicode9.0',
-          '"\N{BUTTERFLY}"', eval q("\N{U+1F98B}") ],
+          '"\N{BUTTERFLY}" eq "\N{U+1F98B}"', 1 ],
         [ 'unicode-scx',
           '"\N{KATAKANA-HIRAGANA DOUBLE HYPHEN}" !~ /\p{Common}/', 1],
     ],
