@@ -4,9 +4,13 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '1.004';
+our $VERSION = '1.005';
 
-my %introduces = ( '5.026' => [qw[
+my %introduces = ( '5.028' => [qw[
+                                 delete% unicode10.0 state@=
+                             ]],
+
+                   '5.026' => [qw[
                                  <<~ /xx ^CAPTURE unicode9.0 unicode-scx
                               ]],
                    '5.024' => [qw[
@@ -140,7 +144,7 @@ Syntax::Construct - Identify which non-feature constructs are used in the code.
 
 =head1 VERSION
 
-Version 1.004
+Version 1.005
 
 =head1 SYNOPSIS
 
@@ -536,24 +540,38 @@ L<perl5240delta/printf and sprintf now allow reordered precision arguments>.
 
 =head3 <<~
 
-L<perldelta/Indented Here documents>.
+L<perl526delta/Indented Here documents>.
 
 =head3 /xx
 
-L<perldelta/New-regular-expression-modifier-/xx>.
+L<perl526delta/New-regular-expression-modifier-/xx>.
 
 =head3 ^CAPTURE
 
-See C<@{^CAPTURE}>, C<%{^CAPTURE}>, and C<%{^CAPTURE_ALL}> in L<perldelta>.
+See C<@{^CAPTURE}>, C<%{^CAPTURE}>, and C<%{^CAPTURE_ALL}> in L<perl526delta>.
 
 =head3 unicode9.0
 
-L<perldelta/Unicode 9.0 is now supported>.
+L<perl526delta/Unicode 9.0 is now supported>.
 
 =head3 unicode-scx
 
 See I<"Use of \p{script} uses the improved Script_Extensions property">
-in L<perldelta>.
+in L<perl526delta>.
+
+=head2 5.028
+
+=head3 delete%
+
+See L<perldelta/delete-on-key/value-hash-slices>.
+
+=head3 unicode10.0
+
+See L<perldelta/Unicode 10.0 is supported>.
+
+=head3 state@=
+
+See L<perldelta/Initialisation-of-aggregate-state-variables>.
 
 =for completeness
 =head2 old
@@ -623,7 +641,7 @@ L<Perl::MinimumVersion>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2013 - 2017 E. Choroba.
+Copyright 2013 - 2018 E. Choroba.
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of the the Artistic License (2.0). You may obtain a

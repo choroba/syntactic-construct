@@ -26,6 +26,18 @@ sub skippable {
 
 
 my %tests = (
+    '5.028' => [
+        [ 'delete%',
+          'my %h = ( a => 12, b => 13, c => 14);'
+              . ' join " ", sort delete %h{"a", "b"}',
+          '12 13 a b' ],
+        [ 'unicode10.0',
+          '"\N{T-REX}" eq "\N{U+1F996}"', 1 ],
+        [ 'state@=',
+          'use feature "state"; sub { state @x = qw( a b ); "@x" }->()', 'a b'
+        ],
+    ],
+
     '5.026' => [
         [ '<<~',
           "<<~ 'EOF'\n a\n EOF", "a\n" ],
