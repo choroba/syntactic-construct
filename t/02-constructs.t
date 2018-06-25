@@ -268,7 +268,7 @@ readline default
     '5.020' => [
         [ 'utf8-locale',
     old => [
-        [ '??', # see 04-extra.t
-
+        [ '??',     # see 04-extra.t
+        [ 'for-qw', # see 04-extra.t
 =cut
 

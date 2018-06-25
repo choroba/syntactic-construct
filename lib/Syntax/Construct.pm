@@ -49,7 +49,7 @@ my %introduces = ( '5.028' => [qw[
                                  s-utf8-delimiters-hack
                               ]],
                    old => [qw[
-                                 ??
+                                 ?? for-qw
                           ]],
                  );
 
@@ -57,6 +57,7 @@ my %removed = ( 'auto-deref'             => '5.024',
                 'lexical-$_'             => '5.024',
                 '??'                     => '5.022',
                 's-utf8-delimiters-hack' => '5.020',
+                'for-qw'                 => '5.014',
               );
 
 my %_introduced = map {
@@ -584,6 +585,9 @@ See L<perldelta/Initialisation-of-aggregate-state-variables>.
 Removed in 5.022. See L<perl5220delta#Support for ?PATTERN? without
 explicit operator has been removed>.
 
+=head3 for-qw
+
+Removed in 5.14. See L<perl5140delta/Use of qw(...) as parentheses>.
 
 =head2 Accepted Features
 

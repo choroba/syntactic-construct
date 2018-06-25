@@ -2,7 +2,7 @@
 use warnings;
 use strict;
 
-my $plan; BEGIN { $plan = 5 * 69 + 1 }; # Constructs + old
+my $plan; BEGIN { $plan = 5 * 70 + 2 }; # Constructs + old
 
 use FindBin;
 use Test::More tests => $plan;
