@@ -1,5 +1,9 @@
 Revision history for Syntax-Construct
 
+1.006   2018-06-25
+
+        - Fix tests for 5.8.X
+
 1.005   2018-06-25
 
         - Perl 5.28
