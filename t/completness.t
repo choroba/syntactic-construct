@@ -55,7 +55,7 @@ while (<$TEST>) {
 }
 
 my $count_old = 0;
-for my $constr (keys %constructs) {
+for my $constr (sort keys %constructs) {
     is($constructs{$constr}{$_}, 1, "$_ for $constr") for qw( pod code test );
 
     my @versions = keys %{ $constructs{$constr}{version} };
