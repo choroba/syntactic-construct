@@ -19,5 +19,3 @@ SKIP: {
     eval q{ for my $i qw( 1 2 3 ) { $s += $i } };
     is($s, 6, 'for-qw');
 }
-
-done_testing();
