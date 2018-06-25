@@ -212,7 +212,7 @@ my %tests = (
         [ 'lexical-$_',
           '$_ = 7; { my $_ = 42; } $_ ', 7 ],
     ],
-    '5.008' => [
+    '5.008001' => [
         [ 's-utf8-delimiters-hack',
           eval q{qq{ my \$string = "a"; use utf8; \$string =~ s\N{U+2759}a\N{U+2759}\N{U+2759}b\N{U+2759}; \$string }}, 'b' ],
     ],

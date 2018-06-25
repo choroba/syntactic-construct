@@ -45,7 +45,7 @@ my %introduces = ( '5.028' => [qw[
                                  stack-file-test recursive-sort /p
                                  lexical-$_
                               ]],
-                   '5.008' => [qw[
+                   '5.008001' => [qw[
                                  s-utf8-delimiters-hack
                               ]],
                    old => [qw[
@@ -261,11 +261,11 @@ Same as C<introduced>, but for removed constructs (e.g. auto-deref in
 
 =head1 RECOGNISED CONSTRUCTS
 
-=head2 5.008
+=head2 5.008001
 
 =head3 s-utf8-delimiters-hack
 
-See below. The hack doesn't seem to work in 5.006.
+See below. The hack doesn't seem to work in 5.008 and older.
 
 =head2 5.010
 
