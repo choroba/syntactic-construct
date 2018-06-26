@@ -8,7 +8,14 @@ use Syntax::Construct ();
 SKIP: {
     eval { 'Syntax::Construct'->import('??'); 1 } or skip $@, 1;
 
-    my $result = eval q{'abc' =~ ?b?};
+    # Hack: match-once in string eval causes 5.10.0 to throw
+    # Modification of a read-only value attempted. Could be
+    # workarounded by adding reset.
+    my $match_once = $] eq '5.010000'
+        ? q{ my $r = 'abc' =~ ?b?; reset; $r }
+        : q{'abc' =~ ?b?};
+
+    my $result = eval $match_once;
     is($result, 1, '??');
 }
 
