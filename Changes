@@ -1,5 +1,11 @@
 Revision history for Syntax-Construct
 
+1.007   2018-06-26
+
+        - Workaround threaded 5.10.0 throwing "Modification of a
+          read-only value attemted" for eval '?x?'
+        - Unicode delimiters hack doesn't work in 5.8.0
+
 1.006   2018-06-25
 
         - Fix tests for 5.8.X
