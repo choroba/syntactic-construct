@@ -33,8 +33,11 @@ WriteMakefile(
     },
     BUILD_REQUIRES => {
         'Test::More' => 0,
+        'Test::Deep' => 0,
+        'Test::Warnings' => 0,
         'File::Spec' => 0,
         'FindBin'    => 0,
+        'Exporter::Tiny' => 0,
     },
     PREREQ_PM => {
         Config => 0,

@@ -134,6 +134,12 @@ my %alias = (
     'heredoc-indent' => '<<~',
     'regex-xx' => '/xx',
     'capture-variable' => '^CAPTURE',
+
+    # 5.028
+    'hash-delete-slice' => 'delete%',
+    'unicode-10.0' => 'unicode10.0',
+    'state-array' => 'state@=',
+    'state-hash' => 'state@=',
 );
 
 my %_introduced = map {
@@ -170,6 +176,45 @@ sub _position {
 }
 
 
+sub _is_known_construct {
+    my ($construct) = @_;
+
+    return 0
+        || exists $introduced{$construct}
+        || exists $removed{$construct}
+        || exists $alias{$construct}
+        ;
+}
+
+sub _ensure_known_construct {
+    my ($construct) = @_;
+
+    die "Unknown construct `$construct' at ", _position(1), ".\n"
+        unless _is_known_construct ($construct);
+}
+
+sub _unalias_construct {
+    my ($construct) = @_;
+    exists $alias{$construct}
+        ? $alias{$construct}
+        : $construct
+        ;
+}
+
+sub _is_supported {
+    my ($construct, $version) = @_;
+    $construct = _unalias_construct ($construct);
+    $version = $] unless defined $version;
+
+    return
+        if exists $removed{$construct} && $removed{$construct} le $version;
+
+    return
+        if exists $introduced{$construct} && $introduced{$construct} gt $version;
+
+    return 1;
+}
+
 sub import {
     shift;
     my $min_version = 0;
@@ -177,14 +222,13 @@ sub import {
     my ($constr, $d_constr);
     my @actions;
     for my $name (@_) {
-        local $_ = $name;
-        $_  = $alias{$name} if exists $alias{$name};
+        _ensure_known_construct ($name);
+
+        local $_ = _unalias_construct ($name);
 
         if ($introduced{$_}) {
             ($min_version, $constr) = ($introduced{$_}, $name)
                 if $introduced{$_} gt $min_version;
-        } elsif (! $removed{$_}) {
-            die "Unknown construct `$name' at ", _position(), ".\n"
         }
 
         if ($removed{$_}) {
