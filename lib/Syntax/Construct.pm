@@ -60,6 +60,82 @@ my %removed = ( 'auto-deref'             => '5.024',
                 'for-qw'                 => '5.014',
               );
 
+my %alias = (
+    # 5.010
+    '\H' => '\h',
+    '\V' => '\v',
+    'defined-or' => '//',
+    'lexical-default-variable' => 'lexical-$_',
+    'readline-argv' => 'readline()',
+    'regex-generic-linebreak' => '\R',
+    'regex-horizontal-whitespace' => '\h',
+    'regex-keep-left' => '\K',
+    'regex-named-capture-group' => '?<>',
+    'regex-possessive-quantifier' => 'quant+',
+    'regex-possessive-match' => 'quant+',
+    'regex-preserve-match-captures' => '/p',
+    'regex-recursive-subpattern' => '?PARNO',
+    'regex-relative-backreference' => '\gN',
+    'regex-reset-branch' => '?|',
+    'regex-vertical-whitespace' => '\v',
+
+    # 5.012
+    'statement-ellipsis' => '...',
+    'yada-yada' => '...',
+    'triple-dot' => '...',
+    'regex-non-newline' => '\N',
+
+    # 5.014
+    'non-destructive-subst' => '/r',
+    'non-destructive-substitution' => '/r',
+    'regex-restrict-ascii-range' => '/a',
+    'regex-unicode-strings' => '/u',
+    'regex-use-default-modifiers' => '?^',
+    'regex-compile-as-default' => '/d',
+    'regex-compile-as-locale' => '/l',
+    'regex-compile-as-unicode-strings' => '/u',
+    'global-phase' => '^GLOBAL_PHASE',
+    'octal-escape' => '\o',
+
+    # 5.020
+    'hash-slice' => '%slice',
+    'attribute-prototype' => 'attr-prototype',
+    'regex-property-unicode' => '\p{Unicode}',
+    'wide-char-delimiters' => 's-utf8-delimiters',
+    'unicode-6.3' => 'unicode6.3',
+
+    # 5.022
+    'double-diamond' => '<<>>',
+    'operator-double-diamond' => '<<>>',
+    'regex-non-capturing' => '/n',
+    '\b{gcb}' => '\b{}',
+    '\b{wb}' => '\b{}',
+    '\b{sb}' => '\b{}',
+    'regex-unicode-boundary' => '\b{}',
+    'regex-unicode-grapheme-cluster-boundary' => '\b{}',
+    'regex-unicode-word-boundary' => '\b{}',
+    'regex-unicode-sentence-boundary' => '\b{}',
+    'attribute-const' => 'attr-const',
+    'list-repetition-assignment' => '()x=',
+    'hexadecimal-floating-numbers' => 'hexfloat',
+    'pack-inf' => 'chr-inf',
+    'regex-x-unicode' => '/x-unicode',
+    'regex-x-handles-unicode' => '/x-unicode',
+    'unicode-7.0' => 'unicode7.0',
+
+    # 5.024
+    'unicode-8.0' => 'unicode8.0',
+    'regex-unicode-line-break-boundary' => '\b{lb}',
+    'printf-precision-argument-reorder' => 'sprintf-reorder',
+    'sprintf-precision-argument-reorder' => 'sprintf-reorder',
+
+    # 5.026
+    'unicode-9.0' => 'unicode9.0',
+    'heredoc-indent' => '<<~',
+    'regex-xx' => '/xx',
+    'capture-variable' => '^CAPTURE',
+);
+
 my %_introduced = map {
     my $version = $_;
     map { $_ => $version } @{ $introduces{$version} }
@@ -100,16 +176,19 @@ sub import {
     my $max_version = 6;
     my ($constr, $d_constr);
     my @actions;
-    for (@_) {
+    for my $name (@_) {
+        local $_ = $name;
+        $_  = $alias{$name} if exists $alias{$name};
+
         if ($introduced{$_}) {
-            ($min_version, $constr) = ($introduced{$_}, $_)
+            ($min_version, $constr) = ($introduced{$_}, $name)
                 if $introduced{$_} gt $min_version;
         } elsif (! $removed{$_}) {
-            die "Unknown construct `$_' at ", _position(), ".\n"
+            die "Unknown construct `$name' at ", _position(), ".\n"
         }
 
         if ($removed{$_}) {
-            ($max_version, $d_constr) = ($removed{$_}, $_)
+            ($max_version, $d_constr) = ($removed{$_}, $name)
                 if $removed{$_} lt $max_version;
         }
 
