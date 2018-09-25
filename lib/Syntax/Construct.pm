@@ -542,24 +542,25 @@ L<perl5240delta/printf and sprintf now allow reordered precision arguments>.
 
 =head3 <<~
 
-L<perl526delta/Indented Here documents>.
+L<perl5260delta/Indented Here documents>.
 
 =head3 /xx
 
-L<perl526delta/New-regular-expression-modifier-/xx>.
+L<perl5260delta/New-regular-expression-modifier-/xx>.
 
 =head3 ^CAPTURE
 
-See C<@{^CAPTURE}>, C<%{^CAPTURE}>, and C<%{^CAPTURE_ALL}> in L<perl526delta>.
+See C<@{^CAPTURE}>, C<%{^CAPTURE}>, and C<%{^CAPTURE_ALL}> in
+L<perl5260delta>.
 
 =head3 unicode9.0
 
-L<perl526delta/Unicode 9.0 is now supported>.
+L<perl5260delta/Unicode 9.0 is now supported>.
 
 =head3 unicode-scx
 
 See I<"Use of \p{script} uses the improved Script_Extensions property">
-in L<perl526delta>.
+in L<perl5260delta>.
 
 =head2 5.028
 
