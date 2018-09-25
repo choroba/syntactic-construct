@@ -156,7 +156,8 @@ sub _hook {
 sub removed {
     my $construct = shift;
     return $construct
-        ? $removed{$construct} || $removed{ $alias{$construct} }
+        ? $removed{$construct}
+            || $alias{$construct} && $removed{ $alias{$construct} }
         : keys %removed
 }
 
@@ -164,7 +165,8 @@ sub removed {
 sub introduced {
     my $construct = shift;
     return $construct
-        ? $introduced{$construct} || $introduced{ $alias{$construct} }
+        ? $introduced{$construct}
+            || $alias{$construct} && $introduced{ $alias{$construct} }
         : keys %introduced
 }
 
