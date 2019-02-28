@@ -286,11 +286,11 @@ perldeltas and other places.
 =item 2.
 
 Users of their modules win as they get meaningful error messages
-telling them what Perl version they need to upgrade to.
+telling them which Perl version they need to upgrade to.
 
 =item 3.
 
-The programmer they hired to workaround the problem wins as they know
+The programmer they hired to work around the problem wins as they know
 what constructs to replace in the code to make it run in the ancient
 version.
 
