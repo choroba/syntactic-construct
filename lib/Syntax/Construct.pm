@@ -29,9 +29,6 @@ my %introduces = ( '5.028' => [qw[
                    '5.018' => [qw[
                                  computed-labels while-each
                                 ]],
-#                   '5.016' => [qw[
-#                                 __SUB__
-#                                ]],
                    '5.014' => [qw[
                                  ?^ /r /d /l /u /a auto-deref
                                  ^GLOBAL_PHASE \o package-block
