@@ -9,7 +9,6 @@ our $VERSION = '1.008';
 my %introduces = ( '5.028' => [qw[
                                  delete% unicode10.0 state@=
                              ]],
-
                    '5.026' => [qw[
                                  <<~ /xx ^CAPTURE unicode9.0 unicode-scx
                               ]],
@@ -28,7 +27,7 @@ my %introduces = ( '5.028' => [qw[
                               ]],
                    '5.018' => [qw[
                                  computed-labels while-each
-                                ]],
+                              ]],
                    '5.014' => [qw[
                                  ?^ /r /d /l /u /a auto-deref
                                  ^GLOBAL_PHASE \o package-block
