@@ -9,7 +9,6 @@ our $VERSION = '1.008';
 my %introduces = ( '5.028' => [qw[
                                  delete% unicode10.0 state@=
                              ]],
-
                    '5.026' => [qw[
                                  <<~ /xx ^CAPTURE unicode9.0 unicode-scx
                               ]],
