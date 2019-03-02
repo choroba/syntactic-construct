@@ -771,6 +771,10 @@ messages to users of older versions.
 
 E. Choroba, C<< <choroba at cpan.org> >>
 
+=head2 Contributors
+
+Gabor Szabo, JJ Merelo, tynovsky
+
 =head1 BUGS
 
 Please report any bugs or feature requests to the GitHub repository,
