@@ -102,7 +102,8 @@ my %tests = (
         [ 'chr-inf',
           'eval { chr "Inf" } or substr($@, 0, 14)', 'Cannot chr Inf' ],
         [ 'empty-slice',
-          'scalar grep 1, (1)[1,2,3]', 3],
+          'scalar grep 1, (1)[1,2,3]', 3,
+          MAY_WORK_IN_OLDER ],  # Worked in 5.8.
         [ '/x-unicode',
           'my $s = " \N{U+0085}\N{U+200E}\N{U+200F}\N{U+2028}\N{U+2029}";'
           . '"ab" =~ /a${s}b/x', 1 ]
@@ -224,7 +225,8 @@ my %tests = (
           'sub re {$a->[0] <=> $b->[0] '
           . 'or re(local $a = [$a->[1]], local $b = [$b->[1]])}'
           . 'join q(), map @$_, sort re ([1,2], [1,1], [2,1], [2,0])',
-          '11122021'],
+          '11122021',
+          MAY_WORK_IN_OLDER ],  # Was probably just a documentation fix.
         [ '/p',
           '"abc" =~ /b/p;${^PREMATCH}', 'a'],
         [ 'lexical-$_',
