@@ -102,7 +102,7 @@ my %tests = (
           MAY_WORK_IN_OLDER ],  # Platform dependant.
         [ '%slice',
           'my %h = my @l = qw(a A b B); join ":", %h{qw(a b)}, %l[0, 3]',
-          'a:A:b:B:0:a:3:B'],
+          'a:A:b:B:0:a:3:B' ],
         [ 'unicode6.3',
           'my $i; /\p{Age: 6.3}/ and $i++ for map chr, 0 .. 0xffff; $i', 5 ],
         [ '\p{Unicode}',
