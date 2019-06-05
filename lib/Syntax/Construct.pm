@@ -729,19 +729,19 @@ in L<perl5260delta>.
 
 =head3 delete%
 
-See L<perldelta/delete-on-key/value-hash-slices>.
+See L<perl5280delta/delete-on-key/value-hash-slices>.
 
 Alias: hash-delete-slice
 
 =head3 unicode10.0
 
-See L<perldelta/Unicode 10.0 is supported>.
+See L<perl5280delta/Unicode 10.0 is supported>.
 
 Alias: unicode-10.0
 
 =head3 state@=
 
-See L<perldelta/Initialisation-of-aggregate-state-variables>.
+See L<perl5280delta/Initialisation-of-aggregate-state-variables>.
 
 Aliases: state-array state-hash
 
