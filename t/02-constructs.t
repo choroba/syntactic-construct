@@ -205,7 +205,7 @@ my %tests = (
         [ 'quant+',
           '"xaabbaa" =~ /a*+a/;', q()],
         [ 'regex-verbs',
-          '', ],
+          'my @r = ("AC" =~ /^A(*THEN)B|.C/g); "@r"', 'AC' ],
         [ '\K',
           '(my $x = "abc") =~ s/a\Kb/B/; $x', 'aBc'],
         [ '\R',
