@@ -2,6 +2,7 @@
 use warnings;
 use strict;
 
+use constant MAY_WORK_IN_OLDER => 'may work in older';
 
 my $can_have_plan;
 
@@ -65,9 +66,9 @@ my %tests = (
           'local @ARGV = $0; chomp(my $line = <<>>); $line',
           '#!/usr/bin/perl' ],
         [ '\b{}',
-          q("O'Connor" !~ /O\b{wb}C/), 1 ],
+          q("O'Connor" =~ /O\B{wb}'/), 1 ],
         [ '/n',
-          '"abc" =~ /(.)/n; $1', undef ],
+          '"abc" =~ /(.)/n; !$1', 1 ],
         [ 'unicode7.0',
           '"\N{U+11600}" =~ /\p{Modi}/', 1],
         [ 'attr-const',
@@ -77,7 +78,8 @@ my %tests = (
         [ 'fileno-dir', 'use File::Spec;'
               . skippable('opendir my $D, "File::Spec"->curdir',
                           '": $!"',
-                          'defined fileno $D || !! $!'), 1 ],
+                          'defined fileno $D || !! $!'),
+          1, MAY_WORK_IN_OLDER ],  # $! might be set.
         [ '()x=',
           '((undef) x 2, my $x) = qw(a b c); $x', 'c' ],
         [ 'hexfloat',
@@ -96,7 +98,8 @@ my %tests = (
           'sub func : prototype($$) {} prototype \&func', '$$' ],
         [ 'drand48',
           'srand 42; join " ", map int rand 1000, 1 .. 20',
-          '744 342 111 422 81 856 498 478 690 834 462 577 533 25 769 601 908 489 535 496' ],
+          '744 342 111 422 81 856 498 478 690 834 462 577 533 25 769 601 908 489 535 496',
+          MAY_WORK_IN_OLDER ],  # Platform dependant.
         [ '%slice',
           'my %h = my @l = qw(a A b B); join ":", %h{qw(a b)}, %l[0, 3]',
           'a:A:b:B:0:a:3:B'],
@@ -224,7 +227,7 @@ for my $version (keys %tests) {
     my $vf = sprintf '%.3f', $version;
     my @triples = @{ $tests{$version} };
     my $can = eval { require ( 0 + $version) };
-    $count += $can ? 2 * @triples : @triples;
+    $count += 2 * @triples;
     for my $triple (@triples) {
         my $removed = Syntax::Construct::removed($triple->[0]);
         my $value = eval "use Syntax::Construct qw($triple->[0]);$triple->[1]";
@@ -251,6 +254,12 @@ for my $version (keys %tests) {
             like($err,
                  qr/^Unsupported construct \Q$triple->[0]\E at \(eval [0-9]+\) line 1 \(Perl $vf needed\)\n/,
                  $triple->[0]);
+            my $value = eval "$triple->[1]";
+            if (($triple->[3] || "") ne MAY_WORK_IN_OLDER) {
+                isnt($value, $triple->[2], "not $triple->[0]");
+            } else {
+                --$count;
+            }
         }
     }
 }
