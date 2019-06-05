@@ -27,6 +27,21 @@ sub skippable {
 
 
 my %tests = (
+    '5.030' => [
+        [ 'unicode12.1',
+          '"\N{FREEZING FACE}\N{SLOTH}\N{SQUARE ERA NAME REIWA}"'
+          . ' eq "\N{U+1F976}\N{U+1F9A5}\N{U+32FF}"',
+          1 ],
+        [ 'uniprop_wildcards',
+          '"\N{ORIYA DIGIT FOUR}" =~ m{\p{nv=/\A[0-5]\z/}}', 1 ],
+        [ "qr'N",
+          q("\N{ORIYA DIGIT FOUR}" =~ m'\N{ORIYA DIGIT FOUR}'), 1 ],
+        [ 'turkic-casing',
+          'use locale; use POSIX "locale_h"; setlocale(LC_ALL, "tr_TR.UTF-8");'
+          . 'lc "I" eq "\N{LATIN SMALL LETTER DOTLESS I}"',
+          1 ],
+    ],
+
     '5.028' => [
         [ 'delete%',
           'my %h = ( a => 12, b => 13, c => 14);'
