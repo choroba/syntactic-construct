@@ -37,8 +37,10 @@ my %tests = (
         [ "qr'N",
           q("\N{ORIYA DIGIT FOUR}" =~ m'\N{ORIYA DIGIT FOUR}'), 1 ],
         [ 'turkic-casing',
-          'use locale; use POSIX "locale_h"; setlocale(LC_ALL, "tr_TR.UTF-8");'
-          . 'lc "I" eq "\N{LATIN SMALL LETTER DOTLESS I}"',
+          'use locale; use POSIX "locale_h";'
+          . skippable('setlocale(LC_ALL, "tr_TR.UTF-8")',
+                      '": testing locale not available"',
+                      'lc "I" eq "\N{LATIN SMALL LETTER DOTLESS I}"'),
           1 ],
     ],
 
@@ -256,7 +258,7 @@ for my $version (keys %tests) {
 
             } else {
                 is($err, q(), "no error $triple->[0]");
-                if (! defined $value || 'SKIPPED' ne "$value") {
+                if (! defined $value || 'SKIPPED' ne $value) {
                     is($value, $triple->[2], $triple->[0]);
                 }
                 if ($removed) {
@@ -272,10 +274,12 @@ for my $version (keys %tests) {
                  qr/^Unsupported construct \Q$triple->[0]\E at \(eval [0-9]+\) line 1 \(Perl $vf needed\)\n/,
                  $triple->[0]);
             my $value = eval "$triple->[1]";
-            if (($triple->[3] || "") ne MAY_WORK_IN_OLDER) {
+            if (($value || "") ne 'SKIPPED'
+                && ($triple->[3] || "") ne MAY_WORK_IN_OLDER
+            ) {
                 isnt($value, $triple->[2], "not $triple->[0]");
             } else {
-                --$count;
+                --$count unless 'SKIPPED' eq $value;
             }
         }
     }
