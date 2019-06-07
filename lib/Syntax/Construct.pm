@@ -4,9 +4,13 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '1.008';
+our $VERSION = '1.009';
 
-my %introduces = ( '5.028' => [qw[
+my %introduces = ( '5.030' => [qw[
+                                  unicode12.1 uniprop_wildcards qr'N
+                                  turkic-casing
+                             ]],
+                   '5.028' => [qw[
                                  delete% unicode10.0 state@=
                              ]],
                    '5.026' => [qw[
@@ -132,6 +136,8 @@ my %alias = (
     'unicode-10.0' => 'unicode10.0',
     'state-array' => 'state@=',
     'state-hash' => 'state@=',
+    # 5.030
+    'named-char-in-single-quoted-regex' => "qr'N",
 );
 
 my %_introduced = map {
@@ -228,7 +234,7 @@ Syntax::Construct - Identify which non-feature constructs are used in the code.
 
 =head1 VERSION
 
-Version 1.008
+Version 1.009
 
 =head1 SYNOPSIS
 
@@ -729,21 +735,41 @@ in L<perl5260delta>.
 
 =head3 delete%
 
-See L<perldelta/delete-on-key/value-hash-slices>.
+See L<perl5280delta/delete-on-key/value-hash-slices>.
 
 Alias: hash-delete-slice
 
 =head3 unicode10.0
 
-See L<perldelta/Unicode 10.0 is supported>.
+See L<perl5280delta/Unicode 10.0 is supported>.
 
 Alias: unicode-10.0
 
 =head3 state@=
 
-See L<perldelta/Initialisation-of-aggregate-state-variables>.
+See L<perl5280delta/Initialisation-of-aggregate-state-variables>.
 
 Aliases: state-array state-hash
+
+=head2 5.030
+
+=head3 unicode12.1
+
+L<perldelta/Unicode 12.1 is supported>
+
+=head3 uniprop_wildcards
+
+L<perldelta/Wildcards in Unicode property value specifications are now partially supported>
+
+=head3 qr'N
+
+L<perldelta/qr'\N{name}' is now supported>
+
+Alias: named-char-in-single-quoted-regex
+
+=head3 turkic-casing
+
+L<perldelta/Turkic UTF-8 locales are now seamlessly supported>
 
 =for completeness
 =head2 old
