@@ -230,7 +230,7 @@ sub _is_old_empty { @{ $introduces{old} } ? 0 : 1 }
 
 =head1 NAME
 
-Syntax::Construct - Identify which non-feature constructs are used in the code.
+Syntax::Construct - Explicitly state which non-feature constructs are used in the code.
 
 =head1 VERSION
 
