@@ -4,7 +4,7 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '1.008';
+our $VERSION = '1.009';
 
 my %introduces = ( '5.030' => [qw[
                                   unicode12.1 uniprop_wildcards qr'N
@@ -234,7 +234,7 @@ Syntax::Construct - Identify which non-feature constructs are used in the code.
 
 =head1 VERSION
 
-Version 1.008
+Version 1.009
 
 =head1 SYNOPSIS
 
