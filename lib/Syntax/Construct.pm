@@ -52,7 +52,7 @@ my %introduces = ( '5.030' => [qw[
                                  s-utf8-delimiters-hack
                               ]],
                    old => [qw[
-                                 ?? for-qw
+                                 ?? for-qw @_=split
                           ]],
                  );
 
@@ -60,10 +60,13 @@ my %removed = ( 'auto-deref'             => '5.024',
                 'lexical-$_'             => '5.024',
                 '??'                     => '5.022',
                 's-utf8-delimiters-hack' => '5.020',
-                'for-qw'                 => '5.014',
+                'for-qw'                 => '5.018',
+                '@_=split'               => '5.012',
               );
 
 my %alias = (
+    # old
+    'split-populates-@_' => '@_=split',
     # 5.010
     '\H' => '\h',
     '\V' => '\v',
@@ -783,7 +786,13 @@ explicit operator has been removed>.
 
 =head3 for-qw
 
-Removed in 5.14. See L<perl5140delta/Use of qw(...) as parentheses>.
+Removed in 5.18. See L<perl5180delta/https://metacpan.org/pod/perl5180delta#qw(...)-can-no-longer-be-used-as-parentheses>.
+
+=head3 @_=split
+
+Removed in 5.12, but documented in 5.14. See L<perl5140delta/split()-and-@_>.
+
+Alias: split-populates-@_
 
 =head2 Accepted Features
 
