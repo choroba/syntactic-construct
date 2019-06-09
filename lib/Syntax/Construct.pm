@@ -790,7 +790,7 @@ explicit operator has been removed>.
 
 =head3 for-qw
 
-Removed in 5.18. See L<perl5180delta/https://metacpan.org/pod/perl5180delta#qw(...)-can-no-longer-be-used-as-parentheses>.
+Removed in 5.18. See L<perl5180delta/qw(...)-can-no-longer-be-used-as-parentheses>.
 
 =head3 @_=split
 
