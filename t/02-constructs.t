@@ -163,6 +163,9 @@ my %tests = (
           11 ],
         [ 'srand-return',
           'srand 42', 42 ],
+        [ 'prototype+',
+          'sub proto_plus (+) { $_[0][0] }; my @ar = qw( a b ); proto_plus(@ar)',
+          'a' ],
     ],
 
     '5.012' => [

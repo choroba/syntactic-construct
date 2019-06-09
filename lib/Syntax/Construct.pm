@@ -35,7 +35,7 @@ my %introduces = ( '5.030' => [qw[
                    '5.014' => [qw[
                                  ?^ /r /d /l /u /a auto-deref
                                  ^GLOBAL_PHASE \o package-block
-                                 srand-return
+                                 srand-return prototype+
                               ]],
                    '5.012' => [qw[
                                  package-version ... each-array
@@ -557,6 +557,10 @@ See B<package block syntax> under L<perl5140delta/Syntactical Enhancements>.
 =head3 srand-return
 
 See B<srand() now returns the seed> under L<perl5140delta/Other Enhancements>.
+
+=head3 prototype+
+
+See L<perl5140delta/Single-term-prototype>.
 
 =head2 5.016
 
