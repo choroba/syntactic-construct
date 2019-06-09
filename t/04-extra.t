@@ -2,7 +2,7 @@
 use warnings;
 use strict;
 
-use Test::More tests => 2;
+use Test::More tests => 3;
 use Syntax::Construct ();
 
 SKIP: {
@@ -25,4 +25,12 @@ SKIP: {
     my $s = 0;
     eval q{ for my $i qw( 1 2 3 ) { $s += $i } };
     is($s, 6, 'for-qw');
+}
+
+SKIP: {
+    eval { 'Syntax::Construct'->import('@_=split'); 1} or skip $@, 1;
+
+    is_deeply([ sub { split / /, 'a b'; @_ }->(1, 2) ],
+              ['a', 'b'],
+              '@_=split');
 }
