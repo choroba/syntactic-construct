@@ -60,7 +60,7 @@ my %removed = ( 'auto-deref'             => '5.024',
                 'lexical-$_'             => '5.024',
                 '??'                     => '5.022',
                 's-utf8-delimiters-hack' => '5.020',
-                'for-qw'                 => '5.014',
+                'for-qw'                 => '5.018',
                 '@_=split'               => '5.012',
               );
 
@@ -786,7 +786,7 @@ explicit operator has been removed>.
 
 =head3 for-qw
 
-Removed in 5.14. See L<perl5140delta/Use of qw(...) as parentheses>.
+Removed in 5.18. See L<perl5180delta/https://metacpan.org/pod/perl5180delta#qw(...)-can-no-longer-be-used-as-parentheses>.
 
 =head3 @_=split
 
