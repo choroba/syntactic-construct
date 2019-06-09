@@ -4,7 +4,7 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '1.009';
+our $VERSION = '1.010';
 
 my %introduces = ( '5.030' => [qw[
                                   unicode12.1 uniprop_wildcards qr'N
@@ -237,7 +237,7 @@ Syntax::Construct - Explicitly state which non-feature constructs are used in th
 
 =head1 VERSION
 
-Version 1.009
+Version 1.010
 
 =head1 SYNOPSIS
 
@@ -812,7 +812,7 @@ E. Choroba, C<< <choroba at cpan.org> >>
 
 =head2 Contributors
 
-Gabor Szabo, JJ Merelo, tynovsky
+Gabor Szabo, JJ Merelo, tynovsky, Chris White
 
 =head1 BUGS
 
