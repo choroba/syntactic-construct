@@ -785,7 +785,7 @@ L<perldelta/Turkic UTF-8 locales are now seamlessly supported>
 
 =head3 ??
 
-Removed in 5.022. See L<perl5220delta#Support for ?PATTERN? without
+Removed in 5.022. See L<perl5220delta/Support for ?PATTERN? without
 explicit operator has been removed>.
 
 =head3 for-qw
