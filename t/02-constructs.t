@@ -256,7 +256,7 @@ for my $version (keys %tests) {
         my $err = $@;
         if ($can) {
             if ($err) {
-                ok($removed, 'removed in version');
+                ok($removed, "$triple->[0] removed in version");
                 like($err, qr/\Q$triple->[0] removed in $removed/);
 
             } else {
