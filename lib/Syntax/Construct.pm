@@ -157,6 +157,15 @@ sub _hook {
           warn "Unknown rand implementation at ", _position(1), ".\n"
               unless 'Perl_drand48' eq $Config::Config{randfunc};
       },
+      'turkic-casing' => sub {
+          eval {
+              use locale;
+              require POSIX;
+              POSIX::setlocale(POSIX::LC_ALL(), 'tr_TR.UTF-8');
+              lc 'I' ne 'i'
+          } or die 'Turkic locale casing not working at '
+              . _position(1) . "\.\n";
+      },
     }
 }
 
@@ -776,7 +785,10 @@ Alias: named-char-in-single-quoted-regex
 
 =head3 turkic-casing
 
-L<perldelta/Turkic UTF-8 locales are now seamlessly supported>
+See L<perldelta/Turkic UTF-8 locales are now seamlessly supported>.
+B<Beware:> the actual behaviour depends on the operating system's
+locale support. E.g. FreeBSD, DragonFly, and Solaris are known not to
+support it.
 
 =for completeness
 =head2 old

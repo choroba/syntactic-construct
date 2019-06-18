@@ -38,7 +38,7 @@ my %tests = (
           q("\N{ORIYA DIGIT FOUR}" =~ m'\N{ORIYA DIGIT FOUR}'), 1 ],
         [ 'turkic-casing',
           'use locale; use POSIX "locale_h";'
-          . skippable('setlocale(LC_ALL, "tr_TR.UTF-8")',
+          . skippable('(setlocale(LC_ALL, "tr_TR.UTF-8") eq "tr_TR.UTF-8")',
                       '": testing locale not available"',
                       'lc "I" eq "\N{LATIN SMALL LETTER DOTLESS I}"'),
           1 ],
