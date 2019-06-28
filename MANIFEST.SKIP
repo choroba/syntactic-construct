@@ -5,3 +5,4 @@ MANIFEST.SKIP
 .appveyor.yml
 Syntax-Construct-*.*/
 Syntax-Construct-*.*.tar.gz
+README.pod
