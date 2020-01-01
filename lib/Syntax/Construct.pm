@@ -771,21 +771,21 @@ Aliases: state-array state-hash
 
 =head3 unicode12.1
 
-L<perldelta/Unicode 12.1 is supported>
+L<perl5300delta/Unicode 12.1 is supported>
 
 =head3 uniprop_wildcards
 
-L<perldelta/Wildcards in Unicode property value specifications are now partially supported>
+L<perl5300delta/Wildcards in Unicode property value specifications are now partially supported>
 
 =head3 qr'N
 
-L<perldelta/qr'\N{name}' is now supported>
+L<perl5300delta/qr'\N{name}' is now supported>
 
 Alias: named-char-in-single-quoted-regex
 
 =head3 turkic-casing
 
-See L<perldelta/Turkic UTF-8 locales are now seamlessly supported>.
+See L<perl5300delta/Turkic UTF-8 locales are now seamlessly supported>.
 B<Beware:> the actual behaviour depends on the operating system's
 locale support. E.g. FreeBSD, DragonFly, and Solaris are known not to
 support it.
