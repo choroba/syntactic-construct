@@ -1,5 +1,8 @@
 Revision history for Syntax-Construct
 
+1.015   2020-01-04
+        - Links fixed after 5.30.1 release (thanks Mohammad S Anwar)
+
 1.014   2019-06-20
         - Correctly skip tests of turkic casing
 
