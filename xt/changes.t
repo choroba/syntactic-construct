@@ -7,10 +7,6 @@ use Test::More tests => 5;
 use Syntax::Construct ();
 
 
-SKIP: {
-    skip 'Author tests not required for installation', 5
-        unless $ENV{RELEASE_TESTING};
-
 my $version = $Syntax::Construct::VERSION;
 ok $version, 'version';
 
@@ -36,5 +32,3 @@ while (<$CH>) {
 is $found, 1, "$version found in changes";
 ok $format, 'format';
 is $most_recent, $version, "in sync ($most_recent == $version)";
-
-}

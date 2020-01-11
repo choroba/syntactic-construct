@@ -8,10 +8,6 @@ use FindBin;
 use Test::More tests => $plan;
 use Syntax::Construct ();
 
-SKIP: {
-    skip 'Author tests not required for installation', $plan
-        unless $ENV{RELEASE_TESTING};
-
 my %constructs;
 
 my $libfile = $INC{'Syntax/Construct.pm'};
@@ -56,7 +52,7 @@ while (my $line = <$IN>) {
     }
 }
 
-open my $TEST, '<', "$FindBin::Bin/02-constructs.t" or die $!;
+open my $TEST, '<', "$FindBin::Bin/../t/02-constructs.t" or die $!;
 undef $version;
 while (<$TEST>) {
     if (/^ +(?:'([.0-9]+)'|(old)) => \[$/) {
@@ -91,6 +87,4 @@ for my $alias (keys %aliases) {
     is(keys %{ $aliases{$alias}{alias} }, 1, "$alias is unique");
     is((values %{ $aliases{$alias}{alias} })[0], 1,
        "$alias is declared once");
-}
-
 }

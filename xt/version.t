@@ -5,10 +5,6 @@ use Test::More;
 
 use Syntax::Construct ();
 
-unless ( $ENV{RELEASE_TESTING} ) {
-    plan( skip_all => "Author tests not required for installation" );
-}
-
 plan(tests => 3);
 
 my $code_version = $Syntax::Construct::VERSION;

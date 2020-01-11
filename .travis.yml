@@ -18,7 +18,6 @@ perl:
 matrix:
   allow_failures:
     -perl: blead
-env: RELEASE_TESTING=1
 sudo: false
 before_install:
   - eval $(curl https://travis-perl.github.io/init) --auto
