@@ -1,6 +1,6 @@
 package Syntax::Construct;
 
-use 5.006;
+use 5.006002;
 use strict;
 use warnings;
 
