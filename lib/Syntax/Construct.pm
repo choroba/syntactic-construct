@@ -4,7 +4,7 @@ use 5.006002;
 use strict;
 use warnings;
 
-our $VERSION = '1.015';
+our $VERSION = '1.016';
 
 my %introduces = ( '5.030' => [qw[
                                   unicode12.1 uniprop_wildcards qr'N
@@ -248,7 +248,7 @@ Syntax::Construct - Explicitly state which non-feature constructs are used in th
 
 =head1 VERSION
 
-Version 1.015
+Version 1.016
 
 =head1 SYNOPSIS
 
@@ -883,7 +883,7 @@ L<Perl::MinimumVersion>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2013 - 2019 E. Choroba.
+Copyright 2013 - 2020 E. Choroba.
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of the the Artistic License (2.0). You may obtain a
