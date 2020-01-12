@@ -16,3 +16,4 @@ build_script:
 
 test_script:
   - gmake test
+  - prove -l xt
