@@ -4,7 +4,7 @@ use strict;
 
 use Test::More;
 
-unless (require ExtUtils::Manifest) {
+unless (eval { require ExtUtils::Manifest }) {
     plan(skip_all => 'ExtUtils::Manifest needed to check manifest');
 }
 
