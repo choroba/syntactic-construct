@@ -5,7 +5,8 @@ use strict;
 use FindBin;
 use Test::More;
 
-my @FILES = qw( lib/Syntax/Construct.pm README.pod );
+my @FILES = grep -f "$FindBin::Bin/../$_",
+            qw( lib/Syntax/Construct.pm README.pod );
 
 plan(tests => scalar @FILES);
 
