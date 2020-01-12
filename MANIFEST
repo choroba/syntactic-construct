@@ -11,6 +11,7 @@ t/05-functions.t
 t/06-alias.t
 xt/changes.t
 xt/completness.t
+xt/copyright.t
 xt/manifest.t
 xt/latest-version.t
 xt/pod-coverage.t
