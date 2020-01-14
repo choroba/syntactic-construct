@@ -22,7 +22,7 @@ use Syntax::Construct ();
 
 sub skippable {
     my ($test, $reason, $value) = @_;
-    return "SKIP: { $test or skip $reason, 1; return $value } 'SKIPPED'"
+    return "SKIP: { $test or skip $reason, 1; return do { $value } } 'SKIPPED'"
 }
 
 
@@ -223,7 +223,9 @@ my %tests = (
         [ '\gN',
           '"aba" =~ /(a)b\g{1}/;', 1],
         [ 'readline()',
-          'local *ARGV = *DATA{IO}; chomp(my $x = readline()); $x',
+          skippable('eval "require 5.8.1"',
+                    '": 5.8.1 required"',
+                    'local *ARGV = *DATA{IO}; chomp(my $x = readline()); $x'),
           'readline default' ],
         [ 'stack-file-test',
           '-e -f $^X', 1],
