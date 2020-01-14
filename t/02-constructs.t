@@ -258,6 +258,10 @@ for my $version (keys %tests) {
         my $load_error = $@;
         my $value = eval $triple->[1];
         my $run_error = $@;
+
+        # Debug skippable
+        # print STDERR "RUN: $triple->[1]\nRET: $value.\n";
+
         if ($can) {
             if ($was_removed) {
                 is($loaded, undef, "$triple->[0] not loaded");
