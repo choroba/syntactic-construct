@@ -273,7 +273,7 @@ for my $version (keys %tests) {
             }
         } else {
             like($load_error,
-                 qr/^Unsupported construct \Q$triple->[0]\E at .*?02-constructs\.t line [0-9]+ \(Perl $vf needed\)\n/,
+                 qr/^Unsupported construct \Q$triple->[0]\E at .*?02-constructs\.t line [0-9]+ \(Perl \Q$vf\E needed\)\n/,
                  "$triple->[0] not supported");
             if (($value || "") ne 'SKIPPED'
                 && ($triple->[3] || "") ne MAY_WORK_IN_OLDER
