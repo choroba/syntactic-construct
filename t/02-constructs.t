@@ -21,9 +21,8 @@ use Syntax::Construct ();
 
 
 sub skippable {
-    my ($test, $reason, $value) = @_;
-    $value =~ /return/ or die 'Skippable not returning anything';
-    return "SKIP: { $test or skip $reason, 1; $value } 'SKIPPED'"
+    my ($test, $reason, $code, $value) = @_;
+    return "SKIP: { $test or skip $reason, 1; $code; return $value } 'SKIPPED'"
 }
 
 
@@ -42,7 +41,7 @@ my %tests = (
               'eval{setlocale(LC_ALL, "tr_TR.UTF-8") eq "tr_TR.UTF-8" or die;'
                   . ' lc "I" eq "\N{LATIN SMALL LETTER DOTLESS I}"}',
               '": testing locale not supported"',
-              'return 1'),
+              "", '1'),
           1 ],
     ],
 
@@ -96,8 +95,8 @@ my %tests = (
           1 ],
         [ 'fileno-dir', 'use File::Spec;'
               . skippable('opendir my $D, "File::Spec"->curdir',
-                          '": $!"',
-                          'return defined fileno $D || !! $!'),
+                          '": $!"', "",
+                          'defined fileno $D || !! $!'),
           1, MAY_WORK_IN_OLDER ],  # $! might be set.
         [ '()x=',
           '((undef) x 2, my $x) = qw(a b c); $x', 'c' ],
@@ -226,7 +225,7 @@ my %tests = (
         [ 'readline()',
           skippable('eval "require 5.8.1"',
                     '": 5.8.1 required"',
-                    'local *ARGV = *DATA{IO}; chomp(my $x = readline()); return $x'),
+                    'local *ARGV = *DATA{IO}; chomp(my $x = readline())', '$x'),
           'readline default' ],
         [ 'stack-file-test',
           '-e -f $^X', 1],
