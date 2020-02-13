@@ -41,7 +41,8 @@ WriteMakefile(
         POSIX  => 0,
         locale => 0,
     },
-    macro => { TARFLAGS => '--format=ustar -cvf' },
-    dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
+    dist  => { COMPRESS => 'gzip -9f',
+               SUFFIX   => 'gz',
+               TARFLAGS => '-ocvf' },
     clean => { FILES => 'Syntax-Construct-*' },
 );
