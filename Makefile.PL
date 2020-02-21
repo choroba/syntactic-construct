@@ -43,6 +43,6 @@ WriteMakefile(
     },
     dist  => { COMPRESS => 'gzip -9f',
                SUFFIX   => 'gz',
-               TARFLAGS => '-ocvf' },
+               TAR => 'ptar' },
     clean => { FILES => 'Syntax-Construct-*' },
 );
