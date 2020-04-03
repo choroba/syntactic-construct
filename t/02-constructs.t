@@ -273,7 +273,7 @@ for my $version (keys %tests) {
                 ok($run_error, "$triple->[0] doens't run");
                 $count += 2;
             } else {
-                if ('SKIPPED' ne $value) {
+                if ('SKIPPED' ne ($value || "")) {
                     is($value, $triple->[2], $triple->[0]);
                 }
             }
