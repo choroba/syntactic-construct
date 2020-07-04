@@ -27,6 +27,24 @@ sub skippable {
 
 
 my %tests = (
+    '5.032' => [
+        [ 'unicode13.0',
+          '"\N{NINJA}\N{DODO}"'
+          . ' eq "\N{U+1F977}\N{U+1F9A4}"',
+          1 ],
+        [ 'chained-comparisons',
+          'my ($x, $y, $z) = (1, 2, 3); $x < $y < $z',
+          # Constants don't work, see https://github.com/Perl/perl5/issues/17917
+          1 ],
+        [ 'unicode-identifier-status',
+          '(chr(9001) x 2) =~ /\p{Identifier_Status=Restricted}\p{Identifier_Type=Deprecated}/',
+          "1" ],
+        [ 'unicode-name-property',
+          'my $letter = "B"; "\N{BISON}\N{BEAVER}" =~ m{^\p{na=/$letter(ISON|EAVER)/}+$}',
+          1
+      ]
+    ],
+
     '5.030' => [
         [ 'unicode12.1',
           '"\N{FREEZING FACE}\N{SLOTH}\N{SQUARE ERA NAME REIWA}"'
