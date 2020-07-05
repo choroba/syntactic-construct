@@ -822,7 +822,7 @@ Alias: unicode-identifier-type
 
 =head3 unicode-name-property
 
-L<perldelta/It is now possible to write qr/\p{Name=...}/, or qr!\p{na=/(SMILING|GRINNING) FACE/}!>
+L<perldelta/It>
 
 =for completeness
 =head2 old
