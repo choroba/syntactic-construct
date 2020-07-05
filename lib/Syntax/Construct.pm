@@ -4,7 +4,7 @@ use 5.006002;
 use strict;
 use warnings;
 
-our $VERSION = '1.017';
+our $VERSION = '1.018';
 
 my %introduces = ( '5.032' => [qw[
                                   unicode13.0 chained-comparisons
@@ -256,7 +256,7 @@ Syntax::Construct - Explicitly state which non-feature constructs are used in th
 
 =head1 VERSION
 
-Version 1.017
+Version 1.018
 
 =head1 SYNOPSIS
 
@@ -822,7 +822,7 @@ Alias: unicode-identifier-type
 
 =head3 unicode-name-property
 
-L<perldelta/It>
+L<It is now possible to write \p{Name=...} in perldelta|perldelta/It>
 
 =for completeness
 =head2 old

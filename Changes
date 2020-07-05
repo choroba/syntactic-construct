@@ -1,5 +1,8 @@
 Revision history for Syntax-Construct
 
+1.018   2020-07-05
+        - Better links in perldelta
+
 1.017   2020-07-05
         - Perl 5.32 was released
 
