@@ -830,6 +830,9 @@ L<It is now possible to write \p{Name=...} in perldelta|perldelta/It>
 
 =head2 Removed Constructs
 
+Only constructs not mentioned above are listed here, i.e. constructs
+that were introduced before 5.008001.
+
 =head3 ??
 
 Removed in 5.022. See L<perl5220delta/Support for ?PATTERN? without
