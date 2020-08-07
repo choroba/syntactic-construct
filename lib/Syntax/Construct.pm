@@ -290,7 +290,7 @@ them (but see L<Perl::MinimumVersion> on how to extract the
 information from existing code).
 
 Using C<use Syntax::Construct qw( // );> doesn't really change
-anything if you're running Perl 5.10+, but it gives much better error
+anything if you're running Perl 5.010+, but it gives much better error
 messages in older versions:
 
   Unsupported construct //
@@ -329,12 +329,12 @@ Some programmers just use all the I<non-features> their current Perl
 version provides without any notice. This leads to weird error
 messages in older Perl versions.
 
-Some other programmers will place C<use 5.22;> towards the top of the
+Some other programmers will place C<use 5.022;> towards the top of the
 script, even if the only I<non-feature> they use is the C<//> operator
-available in 5.10 already. This prevents users of older versions of
+available in 5.010 already. This prevents users of older versions of
 Perl to run the script, even if it would otherwise be easily possible.
 
-The kindest programmers will add C<use 5.10; # //> towards the top of
+The kindest programmers will add C<use 5.010; # //> towards the top of
 the script. But it means they have to remember or find out what
 version introduced the I<non-feature> they use.
 
@@ -344,9 +344,9 @@ makes it easier for users of older Perl versions to migrate your code
 to their system. And finally, it improves the error messages they get.
 
 Similarly, it's a good practice to keep specifying C<use feature qw{
-postderef };> even if it's a no-op since 5.24: it makes your script
+postderef };> even if it's a no-op since 5.024: it makes your script
 available for people running older Perl versions. The same applies to
-C<use charnames> in 5.16 and later, etc.
+C<use charnames> in 5.016 and later, etc.
 
 =head1 EXPORT
 
@@ -365,7 +365,7 @@ construct was introduced.
 =item removed
 
 Same as C<introduced>, but for removed constructs (e.g. auto-deref in
-5.24).
+5.024).
 
 =back
 
@@ -375,7 +375,7 @@ Same as C<introduced>, but for removed constructs (e.g. auto-deref in
 
 =head3 s-utf8-delimiters-hack
 
-See below. The hack doesn't seem to work in 5.008 and older.
+See below. The hack doesn't seem to work in 5.008 and older. Removed in 5.020.
 
 =head2 5.010
 
@@ -464,7 +464,7 @@ Alias: regex-preserve-match-captures
 
 =head3 lexical-$_
 
-L<perl5100delta/Lexical $_>.
+L<perl5100delta/Lexical $_>. Removed in 5.024.
 
 Alias: lexical-default-variable
 
@@ -555,6 +555,7 @@ Alias: regex-restrict-ascii-range
 L<perl5140delta/Array and hash container functions accept
 references>. See also C<push>, C<pop>, C<shift>, C<unshift>,
 C<splice>, C<keys>, C<values>, and C<each> in L<perlfunc>.
+Removed in 5.024.
 
 =head3 ^GLOBAL_PHASE
 
@@ -606,7 +607,7 @@ Alias: attribute-prototype
 =head3 drand48
 
 L<perl5200delta/rand now uses a consistent random number generator>.
-Note that on OpenBSD, Perl 5.20+ uses the system's own C<drand48>
+Note that on OpenBSD, Perl 5.020+ uses the system's own C<drand48>
 unless seeded.
 
 =head3 %slice
@@ -836,18 +837,18 @@ explicit operator has been removed>.
 
 =head3 for-qw
 
-Removed in 5.18. See L<perl5180delta/qw(...)-can-no-longer-be-used-as-parentheses>.
+Removed in 5.018. See L<perl5180delta/qw(...)-can-no-longer-be-used-as-parentheses>.
 
 =head3 @_=split
 
-Removed in 5.12, but documented in 5.14. See L<perl5140delta/split()-and-@_>.
+Removed in 5.012, but documented in 5.014. See L<perl5140delta/split()-and-@_>.
 
 Alias: split-populates-@_
 
 =head2 Accepted Features
 
 Some features have been accepted in Perl (C<postderef> and
-C<postderef_qq> in 5.24, C<lexical_subs> in 5.26). In the spirit of
+C<postderef_qq> in 5.024, C<lexical_subs> in 5.026). In the spirit of
 Syntax::Construct, you should still declare them, even if their usage
 has no effect in newer Perl versions to provide meaningful error
 messages to users of older versions.
@@ -869,8 +870,8 @@ see below.
 =head2 Unstable Perl Versions
 
 In development versions of Perl, the removal of constructs is tested
-against the coming stable version -- e.g., 5.23 forbids all the
-removed constructs of 5.24. The behaviour of the module in such
+against the coming stable version -- e.g., 5.023 forbids all the
+removed constructs of 5.024. The behaviour of the module in such
 circumstances might still be, um, unstable.
 
 =head1 SUPPORT
