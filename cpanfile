@@ -14,3 +14,8 @@ on build => sub {
     requires FindBin      => 0;
     requires constant     => 0;
 };
+
+on test => sub {
+    recommends 'File::Fetch' => 0;
+    recommends YAML          => 0;
+};
