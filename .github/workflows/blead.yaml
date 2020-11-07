@@ -1,0 +1,23 @@
+name: Test in Blead
+
+on:
+    push:
+        branches: '*'
+    pull_request:
+        branches: '*'
+
+jobs:
+  blead:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    name: Blead
+    steps:
+      - uses: actions/checkout@v2
+      - name: Blead test
+        run: |
+          \curl -L https://install.perlbrew.pl | bash
+          . ~/perl5/perlbrew/etc/bashrc
+          perlbrew install perl-blead
+          perlbrew use perl-blead
+          prove -vl t
