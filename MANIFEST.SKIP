@@ -4,7 +4,6 @@
 ^cpanfile$
 ^\.gitignore$
 ^\.git
-^\.travis\.yml$
 ^\.appveyor\.yml$
 ^\.github/workflows/tester\.yml$
 ^blib/
