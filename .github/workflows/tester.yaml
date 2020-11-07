@@ -15,7 +15,7 @@ jobs:
       fail-fast: false
       matrix:
         perl-version:
-            - "5.6.2"
+          # 5.6.2
             - "5.8.9"
             - "5.10.0"
             - "5.12.0"
@@ -29,7 +29,6 @@ jobs:
             - "5.28.0"
             - "5.30.0"
             - "5.32.0"
-            - "blead"
     name: Perl ${{ matrix.perl-version }}
     steps:
       - uses: shogo82148/actions-setup-perl@v1
@@ -42,6 +41,21 @@ jobs:
             perl Makefile.PL
             make
             make test
+
+  blead:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    name: Blead
+    steps:
+      - uses: actions/checkout@v2
+      - name: Blead test
+        run: |
+          \curl -L https://install.perlbrew.pl | bash
+          . ~/perl5/perlbrew/etc/bashrc
+          perlbrew install perl-blead
+          perlbrew use perl-blead
+          prove -vl t
 
   author-tests:
     runs-on: ubuntu-latest
