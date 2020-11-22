@@ -21,13 +21,14 @@ my %WriteMakefileArgs = (
     PL_FILES         => {},
     MIN_PERL_VERSION => '5.006002',
     META_MERGE       => {
-                        'meta-spec' => { version => 2 },
-                        resources   => { repository => {
-                                               type => 'git',
-                                               url  => 'https://github.com/choroba/syntactic-construct.git',
-                                               web  => 'https://github.com/choroba/syntactic-construct',
-                                            },
-                                       },
+                        'meta-spec'    => { version => 2 },
+                        dynamic_config => 0,
+                        resources      => { repository => {
+                                                  type => 'git',
+                                                  url  => 'https://github.com/choroba/syntactic-construct.git',
+                                                  web  => 'https://github.com/choroba/syntactic-construct',
+                                               },
+                                          },
                         provides  => { 'Syntax::Construct' => {
                                              file    => $lib_file,
                                              version => extract_version(),
