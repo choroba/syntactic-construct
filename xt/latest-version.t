@@ -34,4 +34,3 @@ my $ci_version = (sort_by_version(
 
 plan(tests => 1);
 ok($perl_org =~ /version-highlight.*\Q$ci_version\E\b/, $ci_version);
-
