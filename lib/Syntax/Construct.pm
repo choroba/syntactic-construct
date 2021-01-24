@@ -917,7 +917,7 @@ L<Perl::MinimumVersion>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2013 - 2020 E. Choroba.
+Copyright 2013 - 2021 E. Choroba.
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of the the Artistic License (2.0). You may obtain a

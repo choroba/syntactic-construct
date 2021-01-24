@@ -29,6 +29,7 @@ jobs:
             - "5.28.0"
             - "5.30.0"
             - "5.32.0"
+            - "5.32.1"
     name: Perl ${{ matrix.perl-version }}
     steps:
       - uses: shogo82148/actions-setup-perl@v1
