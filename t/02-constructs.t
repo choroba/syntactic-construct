@@ -257,7 +257,10 @@ my %tests = (
           '"abc" =~ /b/p;${^PREMATCH}', 'a'],
         [ 'lexical-$_',
           '$_ = 7; { my $_ = 42; } $_ ', 7 ],
+        [ 'pack<',
+          'pack "s<s>", 9, 12', "\x09\x00\x00\x0c" ],
     ],
+
     '5.008001' => [
         [ 's-utf8-delimiters-hack',
           eval q{qq{ my \$string = "a"; use utf8; \$string =~ s\N{U+2759}a\N{U+2759}\N{U+2759}b\N{U+2759}; \$string }}, 'b' ],

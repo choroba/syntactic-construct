@@ -51,7 +51,7 @@ my %introduces = ( '5.032' => [qw[
                                  // ?PARNO ?<> ?| quant+ regex-verbs
                                  \K \R \v \h \gN readline()
                                  stack-file-test recursive-sort /p
-                                 lexical-$_
+                                 lexical-$_ pack<
                               ]],
                    '5.008001' => [qw[
                                  s-utf8-delimiters-hack
@@ -77,6 +77,7 @@ my %alias = (
     '\V' => '\v',
     'defined-or' => '//',
     'lexical-default-variable' => 'lexical-$_',
+    'pack-byte-order-modifiers' => 'pack<',
     'readline-argv' => 'readline()',
     'regex-generic-linebreak' => '\R',
     'regex-horizontal-whitespace' => '\h',
@@ -467,6 +468,12 @@ Alias: regex-preserve-match-captures
 L<perl5100delta/Lexical $_>. Removed in 5.024.
 
 Alias: lexical-default-variable
+
+=head3 pack<
+
+See L<perl5100delta/Byte-order-modifiers-for-pack()-and-unpack()>
+
+Alias: pack-byte-order-modifiers
 
 =head2 5.012
 
