@@ -17,7 +17,7 @@ my %introduces = do { no warnings 'qw';
                              ]],
                    '5.030' => [qw[
                                   unicode12.1 uniprop_wildcards qr'N
-                                  turkic-casing
+                                  turkic-casing ^RE_COMPILE_RECURSION_LIMIT
                              ]],
                    '5.028' => [qw[
                                  delete% unicode10.0 state@=
@@ -153,6 +153,7 @@ my %alias = (
     # 5.030
     'named-char-in-single-quoted-regex' => "qr'N",
     'unicode-12.1' => 'unicode12.1',
+    're-compile-recursion-limit' => '^RE_COMPILE_RECURSION_LIMIT',
     # 5.032
     'unicode-13.0' => 'unicode13.0',
     'unicode-identifier-type' => 'unicode-identifier-status',
@@ -822,6 +823,12 @@ See L<perl5300delta/Turkic UTF-8 locales are now seamlessly supported>.
 B<Beware:> the actual behaviour depends on the operating system's
 locale support. E.g. FreeBSD, DragonFly, and Solaris are known not to
 support it.
+
+=head3 ^RE_COMPILE_RECURSION_LIMIT
+
+Not mentioned in any Delta. See L<perlvar/${^RE_COMPILE_RECURSION_LIMIT}>.
+
+Alias: re-compile-recursion-limit
 
 =head2 5.032
 
