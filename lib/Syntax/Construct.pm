@@ -821,23 +821,23 @@ support it.
 
 =head3 unicode13.0
 
-L<perldelta/Unicode 13.0 is supported>
+L<perl5320delta/Unicode 13.0 is supported>
 
 Alias: unicode-13.0
 
 =head3 chained-comparisons
 
-L<perldelta/Chained comparisons capability>
+L<perl5320delta/Chained comparisons capability>
 
 =head3 unicode-identifier-status
 
-L<perldelta/New Unicode properties Identifier_Status and Identifier_Type supported>
+L<perl5320delta/New Unicode properties Identifier_Status and Identifier_Type supported>
 
 Alias: unicode-identifier-type
 
 =head3 unicode-name-property
 
-L<It is now possible to write \p{Name=...} in perldelta|perldelta/It>
+L<It is now possible to write \p{Name=...} in perl5320delta|perl5320delta/It>
 
 =head2 5.034
 
