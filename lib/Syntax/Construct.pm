@@ -39,7 +39,7 @@ my %introduces = do { no warnings 'qw';
                                  s-utf8-delimiters
                               ]],
                    '5.018' => [qw[
-                                 computed-labels while-each
+                                 computed-labels while-each method-on-any-string
                               ]],
                    '5.014' => [qw[
                                  ?^ /r /d /l /u /a auto-deref
@@ -611,6 +611,10 @@ L<perl5180delta/Computed Labels>
 =head3 while-each
 
 See in L<perl5180delta/Selected Bug Fixes> or C<each> in L<perlfunc>.
+
+=head3 method-on-any-string
+
+See [perl #105922] in L<perl5180delta/Selected Bug Fixes>.
 
 =head2 5.020
 
