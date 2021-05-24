@@ -4,9 +4,13 @@ use 5.006002;
 use strict;
 use warnings;
 
-our $VERSION = '1.018';
+our $VERSION = '1.019';
 
-my %introduces = ( '5.032' => [qw[
+my %introduces = do { no warnings 'qw';
+                 ( '5.034' => [qw[
+                                 {,n} 0o blanks-in-curlies
+                             ]],
+                   '5.032' => [qw[
                                   unicode13.0 chained-comparisons
                                   unicode-identifier-status
                                   unicode-name-property
@@ -59,7 +63,7 @@ my %introduces = ( '5.032' => [qw[
                    old => [qw[
                                  ?? for-qw @_=split
                           ]],
-                 );
+                 )};
 
 my %removed = ( 'auto-deref'             => '5.024',
                 'lexical-$_'             => '5.024',
@@ -152,6 +156,9 @@ my %alias = (
     # 5.032
     'unicode-13.0' => 'unicode13.0',
     'unicode-identifier-type' => 'unicode-identifier-status',
+    # 5.034
+    'empty-left-quantifier' => '{,n}',
+    'octal-literals' => '0o',
 );
 
 my %_introduced = map {
@@ -257,7 +264,7 @@ Syntax::Construct - Explicitly state which non-feature constructs are used in th
 
 =head1 VERSION
 
-Version 1.018
+Version 1.019
 
 =head1 SYNOPSIS
 
@@ -831,6 +838,24 @@ Alias: unicode-identifier-type
 =head3 unicode-name-property
 
 L<It is now possible to write \p{Name=...} in perldelta|perldelta/It>
+
+=head2 5.034
+
+=head3 {,n}
+
+L<perldelta/qr/%7B,n%7D/ is now accepted>
+
+Alias: empty-left-quantifier
+
+=head3 0o
+
+L<perldelta/New octal syntax 0oddddd>
+
+Alias: octal-literals
+
+=head3 blanks-in-curlies
+
+L<perldelta/Blanks freely allowed within but adjacent to curly braces>
 
 =for completeness
 =head2 old

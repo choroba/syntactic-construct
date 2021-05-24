@@ -27,6 +27,15 @@ sub skippable {
 
 
 my %tests = (
+    '5.034' => [
+        [ '{,n}',
+          '"ac" =~ /ab{,1}c/', 1 ],
+        [ '0o',
+          '0o12 == 10', 1 ],
+        [ 'blanks-in-curlies',
+          '"\x{ 61 }"', 'a' ]
+    ],
+
     '5.032' => [
         [ 'unicode13.0',
           '"\N{NINJA}\N{DODO}"'
