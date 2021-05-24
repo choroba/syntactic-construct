@@ -941,7 +941,7 @@ L<http://search.cpan.org/dist/Syntax-Construct/>
 
 =head1 SEE ALSO
 
-L<Perl::MinimumVersion>
+L<Perl::MinimumVersion>, L<Perl::MinimumVersion::Fast>
 
 =head1 LICENSE AND COPYRIGHT
 
