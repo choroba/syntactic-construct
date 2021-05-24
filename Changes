@@ -1,5 +1,8 @@
 Revision history for Syntax-Construct
 
+1.020   2021-05-24
+        - Fix perldelta links
+
 1.019   2021-05-24
         - Perl 5.34 was released
         - pack byte order modifiers added to 5.010
