@@ -70,6 +70,8 @@ my %tests = (
               '": testing locale not supported"',
               "", '1'),
           1 ],
+        [ '^RE_COMPILE_RECURSION_LIMIT',
+          'defined ${^RE_COMPILE_RECURSION_LIMIT}', 1 ],
     ],
 
     '5.028' => [
