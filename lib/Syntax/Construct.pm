@@ -223,7 +223,9 @@ sub import {
             ($min_version, $constr) = ($introduced{$_}, $name)
                 if $introduced{$_} gt $min_version;
         } elsif (! $removed{$_}) {
-            die "Unknown construct `$name' at ", _position(), ".\n"
+            die "Unknown construct `$name' at ",
+                _position(),
+                ". Try upgrading Syntax::Construct first.\n"
         }
 
         if ($removed{$_}) {
