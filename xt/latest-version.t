@@ -32,5 +32,27 @@ my $ci_version = (sort_by_version(
     grep /$version_re/,
     @{ $ci->{jobs}{'matrix-tests'}{strategy}{matrix}{'perl-version'} }))[-1];
 
-plan(tests => 1);
+plan(tests => 2);
 ok($perl_org =~ /version-highlight.*\Q$ci_version\E\b/, $ci_version);
+
+my $doc_version = $ci_version;
+$doc_version =~ s/\.[0-9]+$//;
+$doc_version =~ s/\./.0/;
+
+my $current_version = 0;
+my $delta_links = 1;
+open my $src, '<', "$FindBin::Bin/../lib/Syntax/Construct.pm" or die $!;
+while (<$src>) {
+    if (/^=head2 (5\.[0-9]+)/) {
+        $current_version = $1;
+    }
+    if (my ($link) = /(L<.*perldelta.*>)/) {
+        if ($current_version ne $doc_version
+            || $ci_version !~ /\.0$/
+        ) {
+            diag "$link";
+            $delta_links = 0;
+        }
+    }
+}
+ok($delta_links, 'Delta links');
