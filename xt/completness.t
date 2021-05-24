@@ -5,7 +5,7 @@ use strict;
 my $plan;
 BEGIN {
     my ($constructs, $removed, $alias, $old)
-        = (84,       6,        73,     3);
+        = (85,       6,        73,     3);
     $plan = 5 * $constructs + 3 * $removed + 5 * $alias + $old + 1
 };
 

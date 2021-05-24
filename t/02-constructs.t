@@ -166,6 +166,8 @@ my %tests = (
           . '$k .= $_, $v .= $h{$_} while each %h;'
           . '$k =~ /^[ABC]{3}$/ && $v =~ /^[abc]{3}$/ ',
           1 ],
+        [ 'method-on-any-string',
+          '"3foo"->CORE::uc', '3FOO' ],
     ],
 
     '5.014' => [
