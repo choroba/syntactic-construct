@@ -929,10 +929,6 @@ Feel free to report issues and submit pull requests.
 
 L<https://metacpan.org/pod/Syntax::Construct>
 
-=item * AnnoCPAN: Annotated CPAN documentation
-
-L<http://annocpan.org/dist/Syntax-Construct>
-
 =item * CPAN Ratings
 
 L<http://cpanratings.perl.org/d/Syntax-Construct>
