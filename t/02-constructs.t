@@ -283,9 +283,8 @@ my %tests = (
 my $count = 0;
 
 for my $version (keys %tests) {
-    my $vf = sprintf '%.3f', $version;
     my @triples = @{ $tests{$version} };
-    my $can = eval { require ( 0 + $version) };
+    my $can = eval { require (0 + "$version") };
     $count += @triples;
     for my $triple (@triples) {
         my $removed_version = Syntax::Construct::removed($triple->[0]);
@@ -313,7 +312,7 @@ for my $version (keys %tests) {
             }
         } else {
             like($load_error,
-                 qr/^Unsupported construct \Q$triple->[0]\E at .*?02-constructs\.t line [0-9]+ \(Perl \Q$vf\E needed\)\n/,
+                 qr/^Unsupported construct \Q$triple->[0]\E at .*?02-constructs\.t line [0-9]+ \(Perl \Q$version\E needed\)\n/,
                  "$triple->[0] not supported");
             if (($value || "") ne 'SKIPPED'
                 && ($triple->[3] || "") ne MAY_WORK_IN_OLDER

@@ -253,7 +253,7 @@ sub import {
         if $max_version le $nearest_stable;
 
     die "Unsupported construct $constr at ", _position(),
-        sprintf " (Perl %.3f needed)\n", $min_version
+        sprintf " (Perl %s needed)\n", $min_version
         unless $min_version le $];
 
     $_->() for @actions;
