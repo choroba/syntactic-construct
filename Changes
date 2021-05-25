@@ -1,5 +1,8 @@
 Revision history for Syntax-Construct
 
+1.021   2021-05-25
+        - Fix tests on locale sensitive Perl builds
+
 1.020   2021-05-24
         - Fix perldelta links
         - Add "method-on-any-string" for 5.018
