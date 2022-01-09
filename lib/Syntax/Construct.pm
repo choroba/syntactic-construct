@@ -248,10 +248,11 @@ sub import {
                            ++$minor;
                            "$major.$minor"
                        };
-    warn "Faking version $nearest_stable to test removed constructs.\n"
-        unless $is_stable;
-    die "$d_constr removed in $max_version at ", _position(), ".\n"
-        if $max_version le $nearest_stable;
+    if ($max_version le $nearest_stable) {
+        warn "Faking version $nearest_stable to test removed constructs.\n"
+            unless $is_stable;
+        die "$d_constr removed in $max_version at ", _position(), ".\n";
+    }
 
     die "Unsupported construct $constr at ", _position(),
         sprintf " (Perl %s needed)\n", $min_version
