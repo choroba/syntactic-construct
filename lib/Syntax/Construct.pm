@@ -4,7 +4,7 @@ use 5.006002;
 use strict;
 use warnings;
 
-our $VERSION = '1.023';
+our $VERSION = '1.024';
 
 my %introduces = do { no warnings 'qw';
                  ( '5.034' => [qw[
@@ -250,7 +250,7 @@ sub import {
                        };
     if ($max_version le $nearest_stable) {
         warn "Faking version $nearest_stable to test removed constructs.\n"
-            unless $is_stable;
+            if ! $is_stable && $max_version eq $nearest_stable;
         die "$d_constr removed in $max_version at ", _position(), ".\n";
     }
 
@@ -269,7 +269,7 @@ Syntax::Construct - Explicitly state which non-feature constructs are used in th
 
 =head1 VERSION
 
-Version 1.023
+Version 1.024
 
 =head1 SYNOPSIS
 
