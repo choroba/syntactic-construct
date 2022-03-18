@@ -866,7 +866,7 @@ L<It is now possible to write \p{Name=...} in perl5320delta|perl5320delta/It>
 
 =head3 {,n}
 
-L<perl5340delta/qr/%7B,n%7D/ is now accepted>
+L<perl5340delta/qr/{,n}/ is now accepted>
 
 Alias: empty-left-quantifier
 
