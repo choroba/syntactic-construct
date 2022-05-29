@@ -7,7 +7,10 @@ use warnings;
 our $VERSION = '1.025';
 
 my %introduces = do { no warnings 'qw';
-                 ( '5.034' => [qw[
+                 ( '5.036' => [qw[
+                                 unicode14.0
+                             ]],
+                   '5.034' => [qw[
                                  {,n} 0o blanks-in-curlies
                              ]],
                    '5.032' => [qw[
@@ -879,6 +882,12 @@ Alias: octal-literals
 =head3 blanks-in-curlies
 
 L<perl5340delta/Blanks freely allowed within but adjacent to curly braces>
+
+=head2 5.036
+
+=head3 unicode14.0
+
+L<perldelta/Unicode 14.0 is supported>
 
 =for completeness
 =head2 old
