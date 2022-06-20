@@ -44,6 +44,9 @@ my %introduces = do { no warnings 'qw';
                    '5.018' => [qw[
                                  computed-labels while-each method-on-any-string
                               ]],
+                   '5.016' => [qw[
+                                 charnames
+                              ]],
                    '5.014' => [qw[
                                  ?^ /r /d /l /u /a auto-deref
                                  ^GLOBAL_PHASE \o package-block
@@ -606,7 +609,9 @@ See L<perl5140delta/Single-term-prototype>.
 
 =head2 5.016
 
-No non-feature constructs were introduced in this version of Perl.
+=head3 charnames
+
+See L<perl5160delta/use charnames is no longer needed for \N{name}>.
 
 =head2 5.018
 
