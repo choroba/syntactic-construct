@@ -394,7 +394,8 @@ Same as C<introduced>, but for removed constructs (e.g. auto-deref in
 
 =head3 s-utf8-delimiters-hack
 
-See below. The hack doesn't seem to work in 5.008 and older. Removed in 5.020.
+See L<s-utf8-delimiters>. The hack doesn't seem to work in 5.008
+and older. Removed in 5.020.
 
 =head2 5.010
 
