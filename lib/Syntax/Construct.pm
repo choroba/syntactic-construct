@@ -67,13 +67,14 @@ my %introduces = do { no warnings 'qw';
                                  s-utf8-delimiters-hack
                               ]],
                    old => [qw[
-                                 ?? for-qw @_=split
+                                 ?? for-qw @_=split no-sigil
                           ]],
                  )};
 
 my %removed = ( 'auto-deref'             => '5.024',
                 'lexical-$_'             => '5.024',
                 '??'                     => '5.022',
+                'no-sigil'               => '5.022',
                 's-utf8-delimiters-hack' => '5.020',
                 'for-qw'                 => '5.018',
                 '@_=split'               => '5.012',
@@ -907,6 +908,14 @@ that were introduced before 5.008001.
 
 Removed in 5.022. See L<perl5220delta/Support for ?PATTERN? without
 explicit operator has been removed>.
+
+=head3 no-sigil
+
+Removed in 5.022. Before that, if the first argument to L<shift>,
+L<unshift>, L<pop>, L<push>, L<splice>, L<keys>, L<values>, and
+L<each> was a global variable, it was possible to omit its sigil, e.g.
+
+  push arr, 12;  # same as push @arr, 12
 
 =head3 for-qw
 
