@@ -1,5 +1,8 @@
 Revision history for Syntax-Construct
 
+1.029   2022-10-14
+        - Add no-sigil (removed in 5.022)
+
 1.028   2022-06-20
         - Add charnames to 5.016
 
