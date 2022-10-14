@@ -4,7 +4,7 @@ use 5.006002;
 use strict;
 use warnings;
 
-our $VERSION = '1.029';
+our $VERSION = '1.030';
 
 my %introduces = do { no warnings 'qw';
                  ( '5.036' => [qw[
@@ -276,7 +276,7 @@ Syntax::Construct - Explicitly state which non-feature constructs are used in th
 
 =head1 VERSION
 
-Version 1.029
+Version 1.030
 
 =head1 SYNOPSIS
 
@@ -911,9 +911,10 @@ explicit operator has been removed>.
 
 =head3 no-sigil
 
-Removed in 5.022. Before that, if the first argument to L<shift>,
-L<unshift>, L<pop>, L<push>, L<splice>, L<keys>, L<values>, and
-L<each> was a global variable, it was possible to omit its sigil, e.g.
+Removed in 5.022, not documented. Before that, if the first argument
+to C<shift>, C<unshift>, C<pop>, C<push>, C<splice>, C<keys>,
+C<values>, and C<each> was a global variable, it was possible to omit
+its sigil, e.g.
 
   push arr, 12;  # same as push @arr, 12
 

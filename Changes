@@ -1,5 +1,8 @@
 Revision history for Syntax-Construct
 
+1.030   2022-10-14
+        - Fix doc links
+
 1.029   2022-10-14
         - Add no-sigil (removed in 5.022)
 
