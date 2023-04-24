@@ -894,7 +894,7 @@ L<perl5340delta/Blanks freely allowed within but adjacent to curly braces>
 
 =head3 unicode14.0
 
-L<perldelta/Unicode 14.0 is supported>
+L<perl5360delta/Unicode 14.0 is supported>
 
 =for completeness
 =head2 old
