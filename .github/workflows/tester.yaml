@@ -38,7 +38,7 @@ jobs:
       - uses: shogo82148/actions-setup-perl@v1
         with:
           perl-version: ${{ matrix.perl-version }}
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Regular tests
         run: |
             cpanm --installdeps --notest .
@@ -57,7 +57,7 @@ jobs:
       image: perldocker/perl-tester:${{ matrix.perl-version }}  # https://hub.docker.com/r/perldocker/perl-tester
     name: Author ${{ matrix.perl-version }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Prove with author tests
         run: |
             cpanm --installdeps .
