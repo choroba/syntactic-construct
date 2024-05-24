@@ -328,6 +328,10 @@ my $count = 0;
 for my $version (keys %tests) {
     my @triples = @{ $tests{$version} };
     my $can = eval { require (0 + "$version") };
+    if (Syntax::Construct::_nearest_stable() == $version) {
+        warn "Faking next stable version";
+        $can = 1;
+    }
     $count += @triples;
     for my $triple (@triples) {
         my $removed_version = Syntax::Construct::removed($triple->[0]);

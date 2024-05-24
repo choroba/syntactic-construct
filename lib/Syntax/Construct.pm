@@ -260,14 +260,8 @@ sub import {
     }
     die 'Empty construct list at ', _position(), ".\n" unless @_;
 
-    my $nearest_stable = ( my $is_stable = $] =~ /^[0-5]\.[0-9][0-9][02468]/ )
-                       ? $]
-                       : do {
-                           my ($major, $minor)
-                               = $] =~ /^([0-5])\.([0-9][0-9][13579])/;
-                           ++$minor;
-                           "$major.$minor"
-                       };
+    my $nearest_stable = _nearest_stable();
+    my $is_stable = $nearest_stable == $];
     if ($max_version le $nearest_stable) {
         warn "Faking version $nearest_stable to test removed constructs.\n"
             if ! $is_stable && $max_version eq $nearest_stable;
@@ -279,6 +273,13 @@ sub import {
         unless $min_version le $];
 
     $_->() for @actions;
+}
+
+sub _nearest_stable {
+    return $] if $] =~ /^[0-5]\.[0-9][0-9][02468]/;
+    my ($major, $minor) = $] =~ /^([0-5])\.([0-9][0-9][13579])/;
+    ++$minor;
+    return "$major.$minor"
 }
 
 sub _is_old_empty { @{ $introduces{old} } ? 0 : 1 }
