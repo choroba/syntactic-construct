@@ -4,10 +4,13 @@ use 5.006002;
 use strict;
 use warnings;
 
-our $VERSION = '1.034';
+our $VERSION = '1.035';
 
 my %introduces = do { no warnings 'qw';
-                 ( '5.038' => [qw[
+                 ( '5.040' => [qw[
+                                  ^^
+                             ]],
+                   '5.038' => [qw[
                                  unicode15.0 ^HOOK signature-default-operator
                                  INCDIR *{} REG_INF_I32_MAX
                                  ^LAST_SUCCESSFUL_PATTERN
@@ -176,6 +179,8 @@ my %alias = (
     # 5.038
     'keyword-hook' => '^HOOK',
     'optimistic-eval' => '*{}',
+    # 5.040
+    'logical-xor' => '^^',
 );
 
 my %_introduced = map {
@@ -284,7 +289,7 @@ Syntax::Construct - Explicitly state which non-feature constructs are used in th
 
 =head1 VERSION
 
-Version 1.034
+Version 1.035
 
 =head1 SYNOPSIS
 
@@ -937,6 +942,14 @@ L<perl5380delta/REG_INF has been raised from 65,536 to 2,147,483,647>
 =head3 ^LAST_SUCCESSFUL_PATTERN
 
 L<perl5380delta/New regexp variable ${^LAST_SUCCESSFUL_PATTERN}>
+
+=head2 5.040
+
+=head3 ^^
+
+TODO: L<
+
+Alias: logical-xor
 
 =for completeness
 =head2 old

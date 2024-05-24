@@ -27,6 +27,10 @@ sub skippable {
 
 
 my %tests = (
+    '5.040' => [
+        [ '^^',
+          '1 ^^ 0', 1 ],
+    ],
     '5.038' => [
         [ 'unicode15.0',
           '"\N{MOOSE}" eq "\N{U+1FACE}"', 1 ],
