@@ -8,7 +8,7 @@ our $VERSION = '1.035';
 
 my %introduces = do { no warnings 'qw';
                  ( '5.040' => [qw[
-                                  ^^
+                                  ^^ __CLASS__ :reader
                              ]],
                    '5.038' => [qw[
                                  unicode15.0 ^HOOK signature-default-operator
@@ -951,6 +951,14 @@ L<perl5380delta/New regexp variable ${^LAST_SUCCESSFUL_PATTERN}>
 TODO: L<
 
 Alias: logical-xor
+
+=head3 __CLASS__
+
+TODO: L<
+
+=head3 :reader
+
+TODO: L<
 
 =for completeness
 =head2 old
