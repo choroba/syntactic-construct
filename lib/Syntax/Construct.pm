@@ -403,7 +403,7 @@ Same as C<introduced>, but for removed constructs (e.g. auto-deref in
 
 =head3 s-utf8-delimiters-hack
 
-See L<s-utf8-delimiters>. The hack doesn't seem to work in 5.008
+See L</s-utf8-delimiters>. The hack doesn't seem to work in 5.008
 and older. Removed in 5.020.
 
 =head2 5.010
@@ -679,7 +679,7 @@ L<perl5200delta/Core Enhancements>.
 
 See L<perl5200delta/Regular Expressions>: in older Perl versions, a
 hack around was possible: to specify the delimiter twice in
-substitution. Use C<s-utf8-delimiters-hack> if your code uses it.
+substitution. Use C</s-utf8-delimiters-hack> if your code uses it.
 
 Alias: wide-char-delimiters
 
