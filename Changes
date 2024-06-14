@@ -1,5 +1,8 @@
 Revision history for Syntax-Construct
 
+1.036_001   2024-06-14
+        - Dev release to test solaris failures
+
 1.036   2024-06-12
         - Fix treating some stable versions as unstable
 

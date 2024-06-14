@@ -343,6 +343,7 @@ my $count = 0;
 for my $version (keys %tests) {
     my @triples = @{ $tests{$version} };
     my $can = eval { require (0 + "$version") };
+    warn "DEBUG: require $version in $]: ", $can ? 1 : 0;
     if (! Syntax::Construct::_is_stable($])
         && Syntax::Construct::_nearest_stable() == $version
     ) {

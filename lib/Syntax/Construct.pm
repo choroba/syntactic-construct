@@ -4,7 +4,7 @@ use 5.006002;
 use strict;
 use warnings;
 
-our $VERSION = '1.036';
+our $VERSION = '1.036_001';
 
 my %introduces = do { no warnings 'qw';
                  ( '5.040' => [qw[
@@ -297,7 +297,7 @@ Syntax::Construct - Explicitly state which non-feature constructs are used in th
 
 =head1 VERSION
 
-Version 1.036
+Version 1.036_001
 
 =head1 SYNOPSIS
 
