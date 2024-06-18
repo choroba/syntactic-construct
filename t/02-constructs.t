@@ -367,7 +367,7 @@ for my $version (keys %tests) {
                 like($load_error,
                      qr/\Q$triple->[0] removed in $removed_version/,
                      "$triple->[0] removed message");
-                ok($run_error, "$triple->[0] doens't run");
+                ok($run_error, "$triple->[0] doesn't run");
                 $count += 2;
             } else {
                 if ('SKIPPED' ne ($value || "")) {
