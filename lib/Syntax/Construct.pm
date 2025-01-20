@@ -964,17 +964,17 @@ L<perl5380delta/New regexp variable ${^LAST_SUCCESSFUL_PATTERN}>
 
 =head3 ^^
 
-L<perldelta/New ^^ logical xor operator>
+L<perl5400delta/New ^^ logical xor operator>
 
 Alias: logical-xor
 
 =head3 __CLASS__
 
-L<perldelta/New __CLASS__ keyword>.
+L<perl5400delta/New __CLASS__ keyword>.
 
 =head3 :reader
 
-L<perldelta/:reader attribute for field variables>
+L<perl5400delta/:reader attribute for field variables>
 
 =for completeness
 =head2 old
