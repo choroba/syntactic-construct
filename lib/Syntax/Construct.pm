@@ -970,7 +970,7 @@ Alias: logical-xor
 
 =head3 __CLASS__
 
-L<perl5400delta/New __CLASS__ keyword>.
+L<perl5400delta/New __CLASS__ Keyword>.
 
 =head3 :reader
 
