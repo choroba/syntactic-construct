@@ -62,4 +62,4 @@ jobs:
       - name: Prove with author tests
         run: |
             cpanm --installdeps .
-            prove -vl t xt
+            prove -vl xt t
