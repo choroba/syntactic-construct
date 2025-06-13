@@ -59,7 +59,7 @@ my %introduces = do { no warnings 'qw';
                    '5.014' => [qw[
                                  ?^ /r /d /l /u /a auto-deref
                                  ^GLOBAL_PHASE \o package-block
-                                 srand-return prototype+
+                                 srand-return prototype+ sig-warn-obj
                               ]],
                    '5.012' => [qw[
                                  package-version ... each-array
@@ -637,6 +637,10 @@ See B<srand() now returns the seed> under L<perl5140delta/Other Enhancements>.
 =head3 prototype+
 
 See L<perl5140delta/Single-term-prototype>.
+
+=head3 sig-warn-obj
+
+See the second bullet in L<perl5140delta/Exception Handling>.
 
 =head2 5.016
 
