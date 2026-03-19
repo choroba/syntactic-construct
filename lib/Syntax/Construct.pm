@@ -999,25 +999,25 @@ L<perl5400delta/:reader attribute for field variables>
 
 =head3 :writer
 
-L<perl5421delta/New :writer attribute on field variables>
+L<perl5420delta/New :writer attribute on field variables>
 
 =head3 my_method
 
-L<perl5421delta/Lexical method declaration using my method>
+L<perl5420delta/Lexical method declaration using my method>
 
 =head3 ->&
 
-L<< perl5421delta/Lexical method invocation operator ->& >>
+L<< perl5420delta/Lexical method invocation operator ->& >>
 
 Alias: lexical-method-invocation-operator
 
 =head3 unicode16.0
 
-L<perl5421delta/Unicode 16.0 supported>
+L<perl5420delta/Unicode 16.0 supported>
 
 =head3 ^^=
 
-L<perl5421delta/Assigning logical xor ^^= operator>
+L<perl5420delta/Assigning logical xor ^^= operator>
 
 Alias: assign-logical-xor
 
